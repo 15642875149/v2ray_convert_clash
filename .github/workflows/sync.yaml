@@ -40,11 +40,11 @@ jobs:
           ./subconverter &
           sleep 3
 
-          # 调用 API，并保存详细日志
+          # ✅ 修正 API 路径：/convert → /get
           curl -v -G \
             --data-urlencode "url=${SOURCE_URL}" \
             --data "target=clash" \
-            "http://127.0.0.1:25500/convert" \
+            "http://127.0.0.1:25500/get" \
             -o ../clash.yaml 2>&1 | tee ../curl.log
 
           # 检查文件是否为空
