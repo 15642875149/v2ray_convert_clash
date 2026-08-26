@@ -2,8 +2,8 @@ name: 拉取并转换订阅
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
-  workflow_dispatch:
+    - cron: '0 */2 * * *'   # 每2小时一次
+  workflow_dispatch:        # 支持手动触发
 
 env:
   SOURCE_URL: "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt"
@@ -22,46 +22,51 @@ jobs:
           rm subconverter.tar.gz
 
       - name: 下载并解码源 Base64
-        id: decode
         run: |
-          # 下载并去除换行
-          curl -sL "${SOURCE_URL}" | tr -d '\n\r' > base64.txt
-          if [ ! -s base64.txt ]; then
-            echo "❌ 下载失败或为空"
-            exit 1
-          fi
-          # Base64 解码
-          base64 -d base64.txt > nodes.txt 2>/dev/null
+          # 下载 Base64 并去掉换行，然后解码为纯文本
+          curl -sL "${SOURCE_URL}" | tr -d '\n\r' | base64 -d > nodes.txt 2>/dev/null
           if [ ! -s nodes.txt ]; then
-            echo "❌ Base64 解码失败或结果为空"
+            echo "❌ 解码失败或文件为空"
             exit 1
           fi
-          echo "✅ 解码后节点文件大小: $(wc -c < nodes.txt) 字节"
+          echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
           echo "--- 前200字符 ---"
           head -c 200 nodes.txt
           echo ""
 
-      - name: 执行格式转换（V2Ray → Clash）
+      - name: 启动服务并调用 API 转换
         run: |
           cd subconverter
-          # 使用 file:// 绝对路径，不启动服务
-          ./subconverter -u "file://$(realpath ../nodes.txt)" -t clash -o ../clash.yaml
+          # 后台启动服务（默认监听 127.0.0.1:25500）
+          ./subconverter &
+          # 等待服务完全启动
+          sleep 3
+          # 获取解码后文件的绝对路径
+          NODE_PATH=$(realpath ../nodes.txt)
+          echo "文件路径: ${NODE_PATH}"
+          # 调用 /get 接口，传递 file:// 路径，指定 target 为 clash，类型自动检测
+          curl -G -s \
+            --data-urlencode "url=file://${NODE_PATH}" \
+            --data "target=clash" \
+            --data "type=mixed" \
+            "http://127.0.0.1:25500/get" \
+            -o ../clash.yaml
+          # 转换完成后立即停止服务
+          pkill subconverter || true
           cd ..
 
-          # 检查转换结果
+      - name: 检查结果并提交
+        run: |
           if [ ! -s clash.yaml ]; then
-            echo "❌ 转换结果为空"
+            echo "❌ 转换结果为空，请检查日志"
             exit 1
           fi
           if grep -q "proxies:" clash.yaml; then
             echo "✅ 转换成功，文件大小: $(wc -c < clash.yaml) 字节"
           else
-            echo "⚠️ 警告：可能不是有效 Clash YAML，前200字符："
+            echo "⚠️ 警告：转换结果可能不是有效 Clash YAML，前200字符："
             head -c 200 clash.yaml
           fi
-
-      - name: 提交并推送转换结果
-        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add clash.yaml
