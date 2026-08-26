@@ -1,4 +1,4 @@
-name: 拉取并转换订阅
+name: 拉取并转换订阅 (Python)
 
 on:
   schedule:
@@ -15,11 +15,13 @@ jobs:
       - name: 检出仓库
         uses: actions/checkout@v4
 
-      - name: 下载 subconverter 工具
+      - name: 安装 Python 依赖
         run: |
-          wget -L -O subconverter.tar.gz https://github.com/MetaCubeX/subconverter/releases/latest/download/subconverter_linux64.tar.gz
-          tar -xzf subconverter.tar.gz
-          rm subconverter.tar.gz
+          pip install pyyaml requests
+
+      - name: 下载 Subscription-Converter 脚本
+        run: |
+          wget -O subscription_converter.py https://raw.githubusercontent.com/l-ning/Subscription-Converter/main/subscription_converter.py
 
       - name: 下载并解码源 Base64
         run: |
@@ -33,47 +35,22 @@ jobs:
           head -c 200 nodes.txt
           echo ""
 
-      - name: 启动本地 HTTP 服务器和 subconverter 服务
+      - name: 执行格式转换（Python）
         run: |
-          python3 -m http.server 8080 --directory . &
-          echo $! > http.pid
-          cd subconverter
-          ./subconverter &
-          echo $! > ../sc.pid
-          cd ..
-          sleep 3
-          echo "✅ 服务已启动"
-
-      - name: 调用 API 转换（带规则模板）
-        run: |
-          # 使用 clash_rule_base 参数指定在线规则模板，生成完整 Clash 配置
-          curl -G -s \
-            --data-urlencode "url=http://127.0.0.1:8080/nodes.txt" \
-            --data "target=clash" \
-            --data "type=mixed" \
-            --data "clash_rule_base=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online.ini" \
-            "http://127.0.0.1:25500/get" \
-            -o clash.yaml
+          # 从本地文件转换，使用 advanced 模板生成完整配置
+          python3 subscription_converter.py nodes.txt --file -t advanced -o clash.yaml
 
           if [ ! -s clash.yaml ]; then
             echo "❌ 转换结果为空"
             exit 1
           fi
 
-          # 验证是否包含 proxies 和 proxy-groups
-          if grep -q "proxies:" clash.yaml && grep -q "proxy-groups:" clash.yaml; then
+          if grep -q "proxies:" clash.yaml; then
             echo "✅ 转换成功，文件大小: $(wc -c < clash.yaml) 字节"
           else
-            echo "⚠️ 警告：可能缺少 proxy-groups 或 proxies，前200字符："
+            echo "⚠️ 警告：结果可能不是有效 Clash YAML，前200字符："
             head -c 200 clash.yaml
           fi
-
-      - name: 停止服务（清理）
-        run: |
-          kill $(cat sc.pid) 2>/dev/null || true
-          kill $(cat http.pid) 2>/dev/null || true
-          pkill -f "subconverter" || true
-          pkill -f "python3 -m http.server" || true
 
       - name: 提交并推送转换结果
         run: |
