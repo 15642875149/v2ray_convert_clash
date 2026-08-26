@@ -2,8 +2,8 @@ name: 拉取并转换订阅
 
 on:
   schedule:
-    - cron: '0 */2 * * *'   # 每2小时一次
-  workflow_dispatch:        # 手动触发
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
 
 env:
   SOURCE_URL: "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt"
@@ -21,7 +21,7 @@ jobs:
           tar -xzf subconverter.tar.gz
           rm subconverter.tar.gz
 
-      - name: 下载源 Base64 并执行转换
+      - name: 下载源 Base64 并生成配置文件
         run: |
           # 下载并去除换行
           BASE64=$(curl -sL "${SOURCE_URL}" | tr -d '\n\r')
@@ -32,8 +32,20 @@ jobs:
           echo "✅ Base64 长度: ${#BASE64} 字符"
 
           cd subconverter
-          # 直接使用命令行参数，不会启动 HTTP 服务，转换后立即退出
-          ./subconverter -u "data:text/plain;base64,${BASE64}" -t clash -o ../clash.yaml
+          # 生成 pref.ini，使用 heredoc 将整个 Base64 内容写入，不受命令行长限制
+          cat > pref.ini <<EOF
+          [common]
+          api_mode=false
+          default_url="data:text/plain;base64,${BASE64}"
+          target="clash"
+          EOF
+          cd ..
+
+      - name: 执行格式转换
+        run: |
+          cd subconverter
+          # 单次转换，完成后立即退出，不启动 HTTP 服务
+          ./subconverter -f pref.ini -o ../clash.yaml
           cd ..
 
           # 检查结果
