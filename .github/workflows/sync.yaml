@@ -3,7 +3,7 @@ name: 拉取并转换订阅
 on:
   schedule:
     - cron: '0 */2 * * *'   # 每2小时一次
-  workflow_dispatch:        # 支持手动触发
+  workflow_dispatch:        # 手动触发
 
 env:
   SOURCE_URL: "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt"
@@ -21,44 +21,68 @@ jobs:
           tar -xzf subconverter.tar.gz
           rm subconverter.tar.gz
 
-      - name: 下载并解码源 Base64
+      - name: 下载源 Base64 并启动服务
         run: |
-          # 下载 Base64 并去掉换行，然后解码为纯文本
-          curl -sL "${SOURCE_URL}" | tr -d '\n\r' | base64 -d > nodes.txt 2>/dev/null
-          if [ ! -s nodes.txt ]; then
-            echo "❌ 解码失败或文件为空"
+          # 1. 下载并去除换行（避免换行干扰）
+          curl -sL "${SOURCE_URL}" | tr -d '\n\r' > base64.txt
+          if [ ! -s base64.txt ]; then
+            echo "❌ 下载失败或为空"
             exit 1
           fi
-          echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
-          echo "--- 前200字符 ---"
-          head -c 200 nodes.txt
-          echo ""
+          echo "✅ Base64 长度: $(wc -c < base64.txt) 字符"
 
-      - name: 启动服务并调用 API 转换
-        run: |
+          # 2. 启动 subconverter 服务（后台监听 127.0.0.1:25500）
           cd subconverter
-          # 后台启动服务（默认监听 127.0.0.1:25500）
           ./subconverter &
+          cd ..
           # 等待服务完全启动
           sleep 3
-          # 获取解码后文件的绝对路径
-          NODE_PATH=$(realpath ../nodes.txt)
-          echo "文件路径: ${NODE_PATH}"
-          # 调用 /get 接口，传递 file:// 路径，指定 target 为 clash，类型自动检测
-          curl -G -s \
-            --data-urlencode "url=file://${NODE_PATH}" \
-            --data "target=clash" \
-            --data "type=mixed" \
-            "http://127.0.0.1:25500/get" \
-            -o ../clash.yaml
-          # 转换完成后立即停止服务
-          pkill subconverter || true
-          cd ..
+          echo "✅ subconverter 服务已启动"
 
-      - name: 检查结果并提交
+      - name: 调用 API 转换（使用 Python POST 请求）
         run: |
+          # 使用 Python 发送 POST 请求，避免命令行长度限制
+          python3 - <<EOF
+          import requests
+          import sys
+          import time
+
+          # 读取 Base64 内容
+          with open('base64.txt', 'r') as f:
+              b64 = f.read().strip()
+
+          # 构造 data: URI
+          url_data = f"data:text/plain;base64,{b64}"
+
+          # 发送 POST 请求到 subconverter
+          try:
+              response = requests.post(
+                  'http://127.0.0.1:25500/get',
+                  data={
+                      'url': url_data,
+                      'target': 'clash',
+                      'type': 'mixed'
+                  },
+                  timeout=60
+              )
+          except Exception as e:
+              print(f"❌ 请求失败: {e}")
+              sys.exit(1)
+
+          # 保存响应内容
+          with open('clash.yaml', 'wb') as f:
+              f.write(response.content)
+
+          print(f"✅ 响应状态码: {response.status_code}")
+          print(f"✅ 响应大小: {len(response.content)} 字节")
+          if response.status_code != 200:
+              print(f"⚠️ 非 200 状态，请检查日志")
+              sys.exit(1)
+          EOF
+
+          # 检查生成的文件
           if [ ! -s clash.yaml ]; then
-            echo "❌ 转换结果为空，请检查日志"
+            echo "❌ 转换结果为空，请检查 subconverter 日志"
             exit 1
           fi
           if grep -q "proxies:" clash.yaml; then
@@ -67,6 +91,14 @@ jobs:
             echo "⚠️ 警告：转换结果可能不是有效 Clash YAML，前200字符："
             head -c 200 clash.yaml
           fi
+
+      - name: 停止 subconverter 服务（清理）
+        run: |
+          pkill subconverter || true
+          echo "✅ 服务已停止"
+
+      - name: 提交并推送转换结果
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add clash.yaml
