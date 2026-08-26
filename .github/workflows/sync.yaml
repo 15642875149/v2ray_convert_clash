@@ -1,4 +1,4 @@
-name: 拉取并转换订阅 (强制清理 short-id)
+name: 拉取并转换订阅 (修复 vmess security)
 
 on:
   schedule:
@@ -191,7 +191,6 @@ jobs:
                   pbk = params.get('pbk', '')
                   if pbk:
                       ro['public-key'] = sanitize_string(pbk)
-                  # 注意：这里不处理 sid，全部在后处理中统一清理
                   if ro:
                       node['reality-opts'] = ro
                   return node
@@ -204,12 +203,19 @@ jobs:
                   node['security'] = 'none'
               return node
 
-          # ---------- 解析 vmess ----------
+          # ---------- 修复后的 parse_vmess ----------
           def parse_vmess(link):
               try:
                   raw = link[8:]
                   decoded = base64.b64decode(raw).decode('utf-8')
                   data = json.loads(decoded)
+
+                  # 获取加密方式，如果为空则设置为 auto
+                  cipher = data.get('scy', '') or data.get('security', '') or data.get('cipher', '')
+                  if not cipher or cipher.strip() == '':
+                      cipher = 'auto'
+                  cipher = sanitize_string(cipher)
+
                   node = {
                       'name': sanitize_string(data.get('ps', data.get('add', 'VMESS'))),
                       'type': 'vmess',
@@ -217,7 +223,7 @@ jobs:
                       'port': int(data.get('port', 443)),
                       'uuid': sanitize_string(data.get('id')),
                       'alterId': int(data.get('aid', 0)),
-                      'cipher': sanitize_string(data.get('scy', 'auto')),
+                      'cipher': cipher,
                       'network': sanitize_string(data.get('net', 'tcp')),
                       'tls': data.get('tls', '') in ['tls', 'true', '1'],
                       'skip-cert-verify': data.get('allowInsecure', False),
@@ -231,7 +237,8 @@ jobs:
                   if data.get('sni'):
                       node['sni'] = sanitize_string(data['sni'])
                   return node
-              except:
+              except Exception as e:
+                  print(f"⚠️ VMESS 解析失败: {link[:50]}... 错误: {e}")
                   return None
 
           # ---------- 解析 trojan ----------
@@ -359,24 +366,16 @@ jobs:
               ro = proxy.get('reality-opts')
               if not ro:
                   continue
-
-              # 检查 public-key
               if not ro.get('public-key'):
                   print(f"❌ 节点 {idx} ({proxy.get('name')}) 缺少 public-key，移除 reality-opts")
                   del proxy['reality-opts']
                   continue
-
-              # 直接删除 short-id（如果存在）
               if 'short-id' in ro:
                   del ro['short-id']
                   print(f"ℹ️ 节点 {idx} ({proxy.get('name')}) 的 short-id 已强制删除")
-
-              # 如果 reality-opts 变空，删除它
               if not ro:
                   del proxy['reality-opts']
                   print(f"ℹ️ 节点 {idx} ({proxy.get('name')}) 的 reality-opts 已清空，移除")
-
-              # 打印第 565 个节点信息
               if idx == 565:
                   print(f"🔴 第565个节点: {proxy.get('name')} - reality-opts: {proxy.get('reality-opts')}")
 
