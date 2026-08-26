@@ -1,9 +1,9 @@
-name: 拉取并转换订阅 (Python)
+name: 拉取并转换订阅 (Python + 自动修正)
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
-  workflow_dispatch:
+    - cron: '0 */2 * * *'   # 每2小时运行一次
+  workflow_dispatch:        # 支持手动触发
 
 env:
   SOURCE_URL: "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt"
@@ -31,25 +31,62 @@ jobs:
             exit 1
           fi
           echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
-          echo "--- 前200字符 ---"
-          head -c 200 nodes.txt
-          echo ""
 
       - name: 执行格式转换（Python）
         run: |
-          # 从本地文件转换，使用 advanced 模板生成完整配置
           python3 subscription_converter.py nodes.txt --file -t advanced -o clash.yaml
-
           if [ ! -s clash.yaml ]; then
             echo "❌ 转换结果为空"
             exit 1
           fi
 
+      - name: 后处理修正 REALITY 节点 TLS 字段
+        run: |
+          python3 << 'EOF'
+          import yaml
+
+          # 读取 clash.yaml
+          with open('clash.yaml', 'r', encoding='utf-8') as f:
+              config = yaml.safe_load(f)
+
+          # 修正所有 vless 节点中可能缺失 tls 和 security 的情况
+          modified = False
+          for proxy in config.get('proxies', []):
+              # 如果节点类型是 vless 且包含 reality-opts 字段
+              if proxy.get('type') == 'vless' and proxy.get('reality-opts'):
+                  # 确保 tls 为 true
+                  if proxy.get('tls') is not True:
+                      proxy['tls'] = True
+                      modified = True
+                  # 确保 security 为 reality
+                  if proxy.get('security') != 'reality':
+                      proxy['security'] = 'reality'
+                      modified = True
+              # 如果节点类型是 vless 且 server 包含 .sslip.io 等典型 reality 特征，也补全
+              elif proxy.get('type') == 'vless' and 'reality' in str(proxy.get('reality-opts', {})):
+                  if proxy.get('tls') is not True:
+                      proxy['tls'] = True
+                      modified = True
+                  if proxy.get('security') != 'reality':
+                      proxy['security'] = 'reality'
+                      modified = True
+
+          if modified:
+              with open('clash.yaml', 'w', encoding='utf-8') as f:
+                  yaml.dump(config, f, allow_unicode=True, sort_keys=False)
+              print("✅ 已自动修正 REALITY 节点的 TLS 字段")
+          else:
+              print("ℹ️ 未发现需要修正的节点")
+
+          EOF
+
+      - name: 验证最终文件
+        run: |
           if grep -q "proxies:" clash.yaml; then
             echo "✅ 转换成功，文件大小: $(wc -c < clash.yaml) 字节"
           else
-            echo "⚠️ 警告：结果可能不是有效 Clash YAML，前200字符："
-            head -c 200 clash.yaml
+            echo "❌ 最终文件无效"
+            exit 1
           fi
 
       - name: 提交并推送转换结果
