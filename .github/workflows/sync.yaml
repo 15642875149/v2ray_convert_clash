@@ -1,4 +1,4 @@
-name: 使用 Python 库转换订阅
+name: 拉取并转换订阅 (Python库 + 后处理补全)
 
 on:
   schedule:
@@ -16,8 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 安装 Python 依赖
-        run: |
-          pip install pyyaml requests
+        run: pip install pyyaml requests
 
       - name: 下载 Subscription-Converter 脚本
         run: |
@@ -32,21 +31,150 @@ jobs:
           fi
           echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
 
-      - name: 执行格式转换（使用 Python 库）
+      - name: 执行格式转换（第三方库）
         run: |
-          # 从本地文件转换，使用 advanced 模板生成完整配置
           python3 subscription_converter.py nodes.txt --file -t advanced -o clash.yaml
-
           if [ ! -s clash.yaml ]; then
             echo "❌ 转换结果为空"
             exit 1
           fi
+          echo "✅ 转换完成，clash.yaml 大小: $(wc -c < clash.yaml) 字节"
 
+      - name: 后处理补全 TLS 和 Reality 字段
+        run: |
+          python3 << 'EOF'
+          import re
+          import urllib.parse
+          import yaml
+          import sys
+
+          # ---------- 工具函数 ----------
+          def sanitize_string(s):
+              if not isinstance(s, str):
+                  return s
+              # 移除 ASCII 控制字符（保留 \t \n \r）及 Unicode 不可见字符
+              s = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', '', s)
+              s = re.sub(r'[\u200b-\u200f\u2028-\u202f\ufeff]', '', s)
+              return s
+
+          def clean_node(node):
+              for key, value in node.items():
+                  if isinstance(value, str):
+                      node[key] = sanitize_string(value)
+                  elif isinstance(value, dict):
+                      for k, v in value.items():
+                          if isinstance(v, str):
+                              value[k] = sanitize_string(v)
+              return node
+
+          # ---------- 构建映射表 ----------
+          reality_map = {}
+          with open('nodes.txt', 'r', encoding='utf-8') as f:
+              for line in f:
+                  line = line.strip()
+                  if not line.startswith('vless://'):
+                      continue
+                  try:
+                      parts = line[8:].split('?', 1)
+                      userinfo = parts[0].split('@', 1)
+                      if len(userinfo) != 2:
+                          continue
+                      host_part = userinfo[1]
+                      # 提取 server（去掉端口）
+                      server = host_part.split(':', 1)[0]
+                      params = {}
+                      if len(parts) > 1:
+                          params = dict(urllib.parse.parse_qsl(parts[1].split('#', 1)[0]))
+                      if params.get('security') == 'reality':
+                          reality_map[server] = {
+                              'pbk': params.get('pbk', ''),
+                              'sid': params.get('sid', '')
+                          }
+                  except Exception as e:
+                      print(f"⚠️ 解析节点失败: {line[:50]}... {e}")
+                      continue
+
+          if not reality_map:
+              print("ℹ️ 未发现 Reality 节点，无需补全")
+              sys.exit(0)
+
+          # ---------- 读取 clash.yaml ----------
+          try:
+              with open('clash.yaml', 'r', encoding='utf-8') as f:
+                  config = yaml.safe_load(f)
+              if not isinstance(config, dict):
+                  print("❌ clash.yaml 内容无效")
+                  sys.exit(1)
+          except Exception as e:
+              print(f"❌ 读取 clash.yaml 失败: {e}")
+              sys.exit(1)
+
+          # ---------- 补全节点 ----------
+          modified = False
+          for proxy in config.get('proxies', []):
+              if proxy.get('type') != 'vless':
+                  continue
+              server = proxy.get('server', '')
+              if server not in reality_map:
+                  continue
+              data = reality_map[server]
+
+              # 确保 tls 和 security 正确
+              if proxy.get('tls') is not True:
+                  proxy['tls'] = True
+                  modified = True
+              if proxy.get('security') != 'reality':
+                  proxy['security'] = 'reality'
+                  modified = True
+
+              # 补全 reality-opts
+              if 'reality-opts' not in proxy:
+                  proxy['reality-opts'] = {}
+              ro = proxy['reality-opts']
+
+              if not ro.get('public-key') and data['pbk']:
+                  ro['public-key'] = data['pbk']
+                  modified = True
+              if not ro.get('short-id') and data['sid']:
+                  ro['short-id'] = data['sid']
+                  modified = True
+
+              if modified:
+                  print(f"✅ 补全节点: {proxy.get('name')} ({server})")
+
+          if not modified:
+              print("ℹ️ 未发现需要补全的节点")
+              sys.exit(0)
+
+          # ---------- 清洗并写回 ----------
+          for proxy in config.get('proxies', []):
+              proxy = clean_node(proxy)
+
+          with open('clash.yaml', 'w', encoding='utf-8') as f:
+              yaml.dump(config, f, allow_unicode=True, sort_keys=False)
+
+          print("✅ 补全完成并写入 clash.yaml")
+
+          # 验证 YAML 语法
+          try:
+              with open('clash.yaml', 'r', encoding='utf-8') as f:
+                  yaml.safe_load(f)
+              print("✅ YAML 语法校验通过")
+          except yaml.YAMLError as e:
+              print("❌ YAML 语法错误：")
+              print(e)
+              sys.exit(1)
+          EOF
+
+      - name: 验证最终文件
+        run: |
           if grep -q "proxies:" clash.yaml; then
             echo "✅ 转换成功，文件大小: $(wc -c < clash.yaml) 字节"
+            echo "--- 前几行 ---"
+            head -n 10 clash.yaml
           else
-            echo "⚠️ 警告：结果可能不是有效 Clash YAML，前200字符："
-            head -c 200 clash.yaml
+            echo "❌ 生成的文件无效"
+            exit 1
           fi
 
       - name: 提交并推送转换结果
