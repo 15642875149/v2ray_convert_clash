@@ -1,0 +1,54 @@
+name: 拉取并转换订阅
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'   # 每2小时运行一次（要改每小时，换成 '0 * * * *'）
+  workflow_dispatch:        # 支持手动触发
+
+env:
+  # ⚠️ 唯一需要修改的地方：替换成你的源 Raw 文件地址
+  SOURCE_URL: "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt"
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出你的仓库
+        uses: actions/checkout@v4
+
+      - name: 下载 subconverter 转换工具
+        run: |
+          wget -L -O subconverter.tar.gz https://github.com/MetaCubeX/subconverter/releases/latest/download/subconverter_linux64.tar.gz
+          tar -xzf subconverter.tar.gz
+          rm subconverter.tar.gz
+
+      - name: 执行格式转换（V2Ray → Clash）
+        run: |
+          cd subconverter
+          # 生成配置文件
+          cat > pref.ini <<EOF
+          [common]
+          api_mode=false
+          default_url=${SOURCE_URL}
+          target=clash
+          EOF
+          # 运行转换
+          ./subconverter -f pref.ini
+          # 拷贝生成的文件到仓库根目录，并命名为 clash.yaml
+          if [ -f config/clash.yaml ]; then
+            cp config/clash.yaml ../clash.yaml
+          elif [ -f output/clash.yaml ]; then
+            cp output/clash.yaml ../clash.yaml
+          else
+            echo "错误：找不到转换后的文件，请检查 subconverter 版本"
+            exit 1
+          fi
+          cd ..
+
+      - name: 提交并推送转换结果
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add clash.yaml
+          git commit -m "自动同步转换 $(date +'%Y-%m-%d %H:%M')" || echo "内容无变化，跳过提交"
+          git push
