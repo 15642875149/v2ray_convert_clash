@@ -2,7 +2,7 @@ name: 拉取并转换订阅 (修复 hysteria2 obfs)
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 env:
