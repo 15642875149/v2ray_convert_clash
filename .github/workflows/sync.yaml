@@ -2,11 +2,11 @@ name: 拉取并转换订阅
 
 on:
   schedule:
-    - cron: '0 */2 * * *'   # 每2小时运行一次（要改每小时，换成 '0 * * * *'）
-  workflow_dispatch:        # 支持手动触发
+    - cron: '0 */2 * * *'   # 每2小时一次
+  workflow_dispatch:        # 手动触发
 
 env:
-  # ⚠️ 唯一需要修改的地方：替换成你的源 Raw 文件地址
+  # ⚠️ 替换成你的真实 Raw 源地址
   SOURCE_URL: "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt"
 
 jobs:
@@ -25,24 +25,15 @@ jobs:
       - name: 执行格式转换（V2Ray → Clash）
         run: |
           cd subconverter
-          # 生成配置文件
+          # 生成配置文件，值加上双引号
           cat > pref.ini <<EOF
           [common]
           api_mode=false
-          default_url=${SOURCE_URL}
-          target=clash
+          default_url="${SOURCE_URL}"
+          target="clash"
           EOF
-          # 运行转换
-          ./subconverter -f pref.ini
-          # 拷贝生成的文件到仓库根目录，并命名为 clash.yaml
-          if [ -f config/clash.yaml ]; then
-            cp config/clash.yaml ../clash.yaml
-          elif [ -f output/clash.yaml ]; then
-            cp output/clash.yaml ../clash.yaml
-          else
-            echo "错误：找不到转换后的文件，请检查 subconverter 版本"
-            exit 1
-          fi
+          # 单次转换，直接输出到仓库根目录的 clash.yaml，完成后退出
+          ./subconverter -f pref.ini -o ../clash.yaml
           cd ..
 
       - name: 提交并推送转换结果
