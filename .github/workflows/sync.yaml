@@ -2,8 +2,8 @@ name: 拉取并转换订阅
 
 on:
   schedule:
-    - cron: '0 */2 * * *'   # 每2小时运行一次
-  workflow_dispatch:        # 支持手动触发
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
 
 env:
   SOURCE_URL: "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt"
@@ -23,54 +23,48 @@ jobs:
 
       - name: 下载并解码源 Base64
         run: |
-          # 下载并去除换行，解码为纯文本
           curl -sL "${SOURCE_URL}" | tr -d '\n\r' | base64 -d > nodes.txt 2>/dev/null
           if [ ! -s nodes.txt ]; then
-            echo "❌ 解码失败或文件为空"
+            echo "❌ 解码失败或为空"
             exit 1
           fi
           echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
-          # 打印前 200 字符以便检查
           echo "--- 前200字符 ---"
           head -c 200 nodes.txt
           echo ""
 
       - name: 启动本地 HTTP 服务器和 subconverter 服务
         run: |
-          # 启动 Python 简易 HTTP 服务器（端口 8080）
           python3 -m http.server 8080 --directory . &
           echo $! > http.pid
-
-          # 启动 subconverter 服务（默认端口 25500）
           cd subconverter
           ./subconverter &
           echo $! > ../sc.pid
           cd ..
-
-          # 等待服务完全启动
           sleep 3
           echo "✅ 服务已启动"
 
-      - name: 调用 API 转换
+      - name: 调用 API 转换（带规则模板）
         run: |
-          # 通过本地 HTTP 服务器提供文件，避免 payload 过大和 file:// 不支持
+          # 使用 clash_rule_base 参数指定在线规则模板，生成完整 Clash 配置
           curl -G -s \
             --data-urlencode "url=http://127.0.0.1:8080/nodes.txt" \
             --data "target=clash" \
             --data "type=mixed" \
+            --data "clash_rule_base=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online.ini" \
             "http://127.0.0.1:25500/get" \
             -o clash.yaml
 
-          # 检查是否成功
           if [ ! -s clash.yaml ]; then
             echo "❌ 转换结果为空"
             exit 1
           fi
 
-          if grep -q "proxies:" clash.yaml; then
+          # 验证是否包含 proxies 和 proxy-groups
+          if grep -q "proxies:" clash.yaml && grep -q "proxy-groups:" clash.yaml; then
             echo "✅ 转换成功，文件大小: $(wc -c < clash.yaml) 字节"
           else
-            echo "⚠️ 警告：结果可能不是有效 Clash YAML，前200字符："
+            echo "⚠️ 警告：可能缺少 proxy-groups 或 proxies，前200字符："
             head -c 200 clash.yaml
           fi
 
@@ -80,7 +74,6 @@ jobs:
           kill $(cat http.pid) 2>/dev/null || true
           pkill -f "subconverter" || true
           pkill -f "python3 -m http.server" || true
-          echo "✅ 服务已停止"
 
       - name: 提交并推送转换结果
         run: |
