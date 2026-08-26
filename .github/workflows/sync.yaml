@@ -34,15 +34,22 @@ jobs:
         run: |
           python3 -m http.server 8080 --directory . &
           echo $! > http.pid
-          sleep 2  # 确保服务已启动
+          sleep 2  # 等待服务启动
 
-      - name: 单次转换（不启动 HTTP 服务）
+      - name: 生成配置文件并执行转换
         run: |
           cd subconverter
-          # 直接使用 -u 参数，URL 为本地 HTTP 服务器提供的节点文件，很短，无参数长度问题
-          ./subconverter -u "http://127.0.0.1:8080/nodes.txt" -t clash -o ../clash.yaml
+          cat > pref.ini <<'EOF'
+          [common]
+          api_mode=false
+          default_url="http://127.0.0.1:8080/nodes.txt"
+          target="clash"
+          EOF
+          # 执行单次转换，完成后退出（不会启动 HTTP 服务）
+          ./subconverter -f pref.ini -o ../clash.yaml
           cd ..
 
+          # 验证结果
           if [ ! -s clash.yaml ]; then
             echo "❌ 转换结果为空"
             exit 1
