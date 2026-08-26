@@ -30,30 +30,38 @@ jobs:
           fi
           echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
 
-      - name: 启动本地 HTTP 服务器
+      - name: 启动本地 HTTP 服务器和 subconverter 服务
         run: |
+          # 启动 HTTP 服务器（提供 nodes.txt）
           python3 -m http.server 8080 --directory . &
           echo $! > http.pid
-          sleep 2  # 等待服务启动
 
-      - name: 生成配置文件并执行转换
-        run: |
+          # 启动 subconverter 服务（默认监听 25500）
           cd subconverter
-          cat > pref.ini <<'EOF'
-          [common]
-          api_mode=false
-          default_url="http://127.0.0.1:8080/nodes.txt"
-          target="clash"
-          EOF
-          # 执行单次转换，完成后退出（不会启动 HTTP 服务）
-          ./subconverter -f pref.ini -o ../clash.yaml
+          ./subconverter &
+          echo $! > ../sc.pid
           cd ..
 
-          # 验证结果
+          # 等待服务就绪
+          sleep 3
+          echo "✅ 服务已启动"
+
+      - name: 调用 API 转换
+        run: |
+          # 使用 GET 请求，URL 很短，不会触发参数长度限制
+          curl -G -s \
+            --data-urlencode "url=http://127.0.0.1:8080/nodes.txt" \
+            --data "target=clash" \
+            --data "type=mixed" \
+            "http://127.0.0.1:25500/get" \
+            -o clash.yaml
+
+          # 检查结果
           if [ ! -s clash.yaml ]; then
-            echo "❌ 转换结果为空"
+            echo "❌ 转换结果为空，请检查 subconverter 日志"
             exit 1
           fi
+
           if grep -q "proxies:" clash.yaml; then
             echo "✅ 转换成功，文件大小: $(wc -c < clash.yaml) 字节"
           else
@@ -61,15 +69,18 @@ jobs:
             head -c 200 clash.yaml
           fi
 
-      - name: 停止 HTTP 服务器
+      - name: 停止服务（清理）
         run: |
+          kill $(cat sc.pid) 2>/dev/null || true
           kill $(cat http.pid) 2>/dev/null || true
+          pkill -f "subconverter" || true
           pkill -f "python3 -m http.server" || true
+          echo "✅ 服务已停止"
 
-      - name: 提交并推送
+      - name: 提交并推送转换结果
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add clash.yaml
-          git commit -m "自动同步转换 $(date +'%Y-%m-%d %H:%M')" || echo "无变化"
+          git commit -m "自动同步转换 $(date +'%Y-%m-%d %H:%M')" || echo "内容无变化，跳过提交"
           git push
