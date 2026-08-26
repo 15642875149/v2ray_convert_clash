@@ -25,15 +25,14 @@ jobs:
       - name: 执行格式转换（V2Ray → Clash）
         run: |
           cd subconverter
-          # 生成配置文件，值加上双引号
-          cat > pref.ini <<EOF
-          [common]
-          api_mode=false
-          default_url="${SOURCE_URL}"
-          target="clash"
-          EOF
-          # 单次转换，直接输出到仓库根目录的 clash.yaml，完成后退出
-          ./subconverter -f pref.ini -o ../clash.yaml
+          # 启动 subconverter 后台服务（默认监听 127.0.0.1:25500）
+          ./subconverter &
+          # 等待服务完全启动
+          sleep 3
+          # 通过 API 请求转换，结果保存到仓库根目录的 clash.yaml
+          curl -G -s --data-urlencode "url=${SOURCE_URL}" --data "target=clash" "http://127.0.0.1:25500/convert" -o ../clash.yaml
+          # 停止服务
+          pkill subconverter || true
           cd ..
 
       - name: 提交并推送转换结果
