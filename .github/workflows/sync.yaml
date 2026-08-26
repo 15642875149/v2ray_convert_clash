@@ -1,4 +1,4 @@
-name: 拉取并转换订阅 (纯解析 + 清洗控制字符)
+name: 拉取并转换订阅 (纯解析 + 增强校验)
 
 on:
   schedule:
@@ -27,7 +27,7 @@ jobs:
           fi
           echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
 
-      - name: 自定义解析并生成 Clash YAML（带清洗）
+      - name: 自定义解析并生成 Clash YAML（带校验）
         run: |
           python3 << 'EOF'
           import re
@@ -35,18 +35,19 @@ jobs:
           import base64
           import json
           import yaml
+          import sys
 
-          # ---------- 清洗控制字符 ----------
+          # ---------- 严格清洗控制字符 ----------
           def sanitize_string(s):
               if not isinstance(s, str):
                   return s
-              # 保留 \t (0x09), \n (0x0a), \r (0x0d)，移除其他控制字符 (0x00-0x08, 0x0b, 0x0c, 0x0e-0x1f)
-              cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', s)
-              # 可选：替换一些不可见的空白为空格
+              # 移除所有控制字符（0x00-0x1F, 0x7F-0x9F），保留 \t \n \r
+              cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', '', s)
+              # 移除一些特殊不可见 Unicode 控制字符
+              cleaned = re.sub(r'[\u200b-\u200f\u2028-\u202f\ufeff]', '', cleaned)
               return cleaned
 
           def clean_node(node):
-              # 清洗节点中所有字符串字段
               for key, value in node.items():
                   if isinstance(value, str):
                       node[key] = sanitize_string(value)
@@ -281,14 +282,13 @@ jobs:
                       print(f"⚠️ 未识别的协议: {line[:50]}...")
                       continue
                   if node:
-                      # 清洗所有字符串字段（额外保障）
                       node = clean_node(node)
                       proxies.append(node)
 
           print(f"✅ 解析到 {len(proxies)} 个节点")
           if not proxies:
               print("❌ 没有解析到任何节点")
-              exit(1)
+              sys.exit(1)
 
           # ---------- 构建 Clash 配置 ----------
           proxy_groups = [
@@ -336,10 +336,34 @@ jobs:
               'rules': rules
           }
 
+          # 写入 YAML
           with open('clash.yaml', 'w', encoding='utf-8') as f:
               yaml.dump(config, f, allow_unicode=True, sort_keys=False)
 
           print("✅ Clash YAML 生成成功")
+
+          # ---------- 立即校验 ----------
+          try:
+              with open('clash.yaml', 'r', encoding='utf-8') as f:
+                  yaml.safe_load(f)
+              print("✅ YAML 语法校验通过")
+          except yaml.YAMLError as e:
+              print("❌ YAML 语法错误：")
+              print(e)
+              # 打印出错位置附近的内容
+              with open('clash.yaml', 'r', encoding='utf-8') as f:
+                  lines = f.readlines()
+                  if hasattr(e, 'problem_mark'):
+                      mark = e.problem_mark
+                      line_no = mark.line + 1
+                      start = max(0, line_no - 3)
+                      end = min(len(lines), line_no + 3)
+                      print(f"--- 错误位置附近（第 {line_no} 行） ---")
+                      for i in range(start, end):
+                          prefix = ">>> " if i == line_no - 1 else "    "
+                          print(f"{prefix}{i+1}: {lines[i].rstrip()}")
+              sys.exit(1)
+
           EOF
 
       - name: 验证最终文件
