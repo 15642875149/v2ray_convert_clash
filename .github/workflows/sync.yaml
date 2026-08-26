@@ -1,9 +1,9 @@
-name: 拉取并转换订阅 (Python + 自动修正)
+name: 拉取并转换订阅 (第三方库 + 后处理补全)
 
 on:
   schedule:
-    - cron: '0 */2 * * *'   # 每2小时运行一次
-  workflow_dispatch:        # 支持手动触发
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
 
 env:
   SOURCE_URL: "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt"
@@ -16,8 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 安装 Python 依赖
-        run: |
-          pip install pyyaml requests
+        run: pip install pyyaml requests
 
       - name: 下载 Subscription-Converter 脚本
         run: |
@@ -32,7 +31,7 @@ jobs:
           fi
           echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
 
-      - name: 执行格式转换（Python）
+      - name: 执行格式转换（第三方库）
         run: |
           python3 subscription_converter.py nodes.txt --file -t advanced -o clash.yaml
           if [ ! -s clash.yaml ]; then
@@ -40,43 +39,84 @@ jobs:
             exit 1
           fi
 
-      - name: 后处理修正 REALITY 节点 TLS 字段
+      - name: 后处理补全缺失的 Reality 字段
         run: |
           python3 << 'EOF'
+          import re
+          import urllib.parse
           import yaml
+
+          # 读取 nodes.txt 构建映射表
+          reality_map = {}
+          with open('nodes.txt', 'r', encoding='utf-8') as f:
+              for line in f:
+                  line = line.strip()
+                  if not line.startswith('vless://'):
+                      continue
+                  try:
+                      # 提取 server 和参数
+                      raw = line[8:]
+                      parts = raw.split('?', 1)
+                      user_host = parts[0]
+                      host = user_host.split('@', 1)[1].split(':', 1)[0]
+                      params = {}
+                      if len(parts) > 1:
+                          params = dict(urllib.parse.parse_qsl(parts[1].split('#', 1)[0]))
+                      # 如果是 reality，记录
+                      if params.get('security') == 'reality':
+                          reality_map[host] = {
+                              'pbk': params.get('pbk', ''),
+                              'sid': params.get('sid', '')
+                          }
+                  except:
+                      continue
+
+          if not reality_map:
+              print("ℹ️ 未发现 Reality 节点需要补全")
+              exit(0)
 
           # 读取 clash.yaml
           with open('clash.yaml', 'r', encoding='utf-8') as f:
               config = yaml.safe_load(f)
 
-          # 修正所有 vless 节点中可能缺失 tls 和 security 的情况
           modified = False
           for proxy in config.get('proxies', []):
-              # 如果节点类型是 vless 且包含 reality-opts 字段
-              if proxy.get('type') == 'vless' and proxy.get('reality-opts'):
-                  # 确保 tls 为 true
-                  if proxy.get('tls') is not True:
-                      proxy['tls'] = True
-                      modified = True
-                  # 确保 security 为 reality
-                  if proxy.get('security') != 'reality':
-                      proxy['security'] = 'reality'
-                      modified = True
-              # 如果节点类型是 vless 且 server 包含 .sslip.io 等典型 reality 特征，也补全
-              elif proxy.get('type') == 'vless' and 'reality' in str(proxy.get('reality-opts', {})):
-                  if proxy.get('tls') is not True:
-                      proxy['tls'] = True
-                      modified = True
-                  if proxy.get('security') != 'reality':
-                      proxy['security'] = 'reality'
-                      modified = True
+              if proxy.get('type') != 'vless':
+                  continue
+              server = proxy.get('server', '')
+              # 如果当前节点有 reality-opts，但缺少 short-id 或 public-key
+              if 'reality-opts' in proxy:
+                  ro = proxy['reality-opts']
+                  # 如果服务器在映射表中，补全缺失的字段
+                  if server in reality_map:
+                      if not ro.get('public-key') and reality_map[server]['pbk']:
+                          ro['public-key'] = reality_map[server]['pbk']
+                          modified = True
+                      if not ro.get('short-id') and reality_map[server]['sid']:
+                          ro['short-id'] = reality_map[server]['sid']
+                          modified = True
+                  # 如果补全后仍然缺少关键字段，保留原样
+                  continue
+
+              # 如果完全没有 reality-opts，但服务器在映射表中
+              if server in reality_map and reality_map[server]['pbk']:
+                  proxy['reality-opts'] = {
+                      'public-key': reality_map[server]['pbk']
+                  }
+                  if reality_map[server]['sid']:
+                      proxy['reality-opts']['short-id'] = reality_map[server]['sid']
+                  # 强制设置 tls 和 security
+                  proxy['tls'] = True
+                  proxy['security'] = 'reality'
+                  modified = True
+                  print(f"✅ 补全节点: {proxy.get('name')} ({server})")
 
           if modified:
               with open('clash.yaml', 'w', encoding='utf-8') as f:
                   yaml.dump(config, f, allow_unicode=True, sort_keys=False)
-              print("✅ 已自动修正 REALITY 节点的 TLS 字段")
+              print("✅ 已补全缺失的 Reality 字段")
           else:
-              print("ℹ️ 未发现需要修正的节点")
+              print("ℹ️ 未发现需要补全的节点")
 
           EOF
 
