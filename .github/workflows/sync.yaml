@@ -1,4 +1,4 @@
-name: 拉取并转换订阅 (修复 vmess security)
+name: 拉取并转换订阅 (修复 hysteria2 obfs)
 
 on:
   schedule:
@@ -210,7 +210,6 @@ jobs:
                   decoded = base64.b64decode(raw).decode('utf-8')
                   data = json.loads(decoded)
 
-                  # 获取加密方式，如果为空则设置为 auto
                   cipher = data.get('scy', '') or data.get('security', '') or data.get('cipher', '')
                   if not cipher or cipher.strip() == '':
                       cipher = 'auto'
@@ -286,7 +285,7 @@ jobs:
               except:
                   return None
 
-          # ---------- 解析 hysteria2 ----------
+          # ---------- 修复后的 parse_hysteria2 ----------
           def parse_hysteria2(link):
               try:
                   if link.startswith('hy2://'):
@@ -310,22 +309,36 @@ jobs:
                       if len(query) > 1:
                           name = urllib.parse.unquote(query[1])
                       params = dict(urllib.parse.parse_qsl(query[0]))
+
+                  # 仅当 obfs 和 obfs-password 都存在且非空时才设置
+                  obfs = params.get('obfs', '')
+                  obfs_password = params.get('obfs-password', '')
+
                   node = {
                       'name': sanitize_string(name or f"Hysteria2-{server}"),
                       'type': 'hysteria2',
                       'server': sanitize_string(server),
                       'port': port,
                       'auth': sanitize_string(auth),
-                      'obfs': sanitize_string(params.get('obfs', '')),
-                      'obfs-password': sanitize_string(params.get('obfs-password', '')),
                       'sni': sanitize_string(params.get('sni', '')),
                       'skip-cert-verify': params.get('insecure', 'false').lower() == 'true',
                       'udp': True,
                       'tls': True,
                       'security': 'tls'
                   }
+
+                  if obfs and obfs_password:
+                      node['obfs'] = sanitize_string(obfs)
+                      node['obfs-password'] = sanitize_string(obfs_password)
+                  else:
+                      # 如果 obfs 存在但无密码，或者密码为空，则不添加 obfs 相关字段
+                      if obfs and not obfs_password:
+                          print(f"⚠️ Hysteria2 节点 {server} 的 obfs 缺少密码，忽略 obfs")
+                      # 如果 obfs 为空，则忽略
+
                   return node
-              except:
+              except Exception as e:
+                  print(f"⚠️ Hysteria2 解析失败: {link[:50]}... 错误: {e}")
                   return None
 
           # ---------- 读取 nodes.txt ----------
@@ -378,6 +391,17 @@ jobs:
                   print(f"ℹ️ 节点 {idx} ({proxy.get('name')}) 的 reality-opts 已清空，移除")
               if idx == 565:
                   print(f"🔴 第565个节点: {proxy.get('name')} - reality-opts: {proxy.get('reality-opts')}")
+
+          # ---------- 额外清理 hysteria2 缺失密码的情况（二次保障） ----------
+          print("\n🔍 二次检查 Hysteria2 节点的 obfs 密码...")
+          for idx, proxy in enumerate(proxies, start=1):
+              if proxy.get('type') != 'hysteria2':
+                  continue
+              if 'obfs' in proxy and not proxy.get('obfs-password'):
+                  print(f"ℹ️ 节点 {idx} ({proxy.get('name')}) 的 obfs 无密码，移除 obfs")
+                  del proxy['obfs']
+                  if 'obfs-password' in proxy:
+                      del proxy['obfs-password']
 
           print("✅ 清理完成")
 
