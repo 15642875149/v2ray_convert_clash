@@ -35,9 +35,10 @@ jobs:
         run: |
           python3 subscription_converter.py nodes.txt --file -t advanced -o clash.yaml
           if [ ! -s clash.yaml ]; then
-            echo "❌ 转换结果为空"
+            echo "❌ 转换结果为空，请检查 subscription_converter.py 是否支持您的协议"
             exit 1
           fi
+          echo "✅ 转换完成，clash.yaml 大小: $(wc -c < clash.yaml) 字节"
 
       - name: 后处理补全缺失的 Reality 字段
         run: |
@@ -45,6 +46,7 @@ jobs:
           import re
           import urllib.parse
           import yaml
+          import sys
 
           # 读取 nodes.txt 构建映射表
           reality_map = {}
@@ -54,7 +56,6 @@ jobs:
                   if not line.startswith('vless://'):
                       continue
                   try:
-                      # 提取 server 和参数
                       raw = line[8:]
                       parts = raw.split('?', 1)
                       user_host = parts[0]
@@ -62,54 +63,69 @@ jobs:
                       params = {}
                       if len(parts) > 1:
                           params = dict(urllib.parse.parse_qsl(parts[1].split('#', 1)[0]))
-                      # 如果是 reality，记录
                       if params.get('security') == 'reality':
                           reality_map[host] = {
                               'pbk': params.get('pbk', ''),
                               'sid': params.get('sid', '')
                           }
-                  except:
+                  except Exception as e:
+                      print(f"⚠️ 解析节点失败: {line[:50]}... 错误: {e}")
                       continue
 
           if not reality_map:
               print("ℹ️ 未发现 Reality 节点需要补全")
-              exit(0)
+              # 即使没有reality节点，也要确保文件有效，直接退出
+              sys.exit(0)
 
-          # 读取 clash.yaml
-          with open('clash.yaml', 'r', encoding='utf-8') as f:
-              config = yaml.safe_load(f)
+          # 读取 clash.yaml，检查是否有效
+          try:
+              with open('clash.yaml', 'r', encoding='utf-8') as f:
+                  content = f.read().strip()
+                  if not content:
+                      print("❌ clash.yaml 文件为空")
+                      sys.exit(1)
+                  # 重新定位文件指针，用 yaml 解析
+                  f.seek(0)
+                  config = yaml.safe_load(f)
+          except Exception as e:
+              print(f"❌ 读取 clash.yaml 失败: {e}")
+              sys.exit(1)
+
+          # 如果 config 为 None 或不是字典，则报错
+          if not isinstance(config, dict):
+              print(f"❌ clash.yaml 内容无效，无法解析: {content[:200]}")
+              sys.exit(1)
 
           modified = False
           for proxy in config.get('proxies', []):
               if proxy.get('type') != 'vless':
                   continue
               server = proxy.get('server', '')
-              # 如果当前节点有 reality-opts，但缺少 short-id 或 public-key
-              if 'reality-opts' in proxy:
-                  ro = proxy['reality-opts']
-                  # 如果服务器在映射表中，补全缺失的字段
-                  if server in reality_map:
-                      if not ro.get('public-key') and reality_map[server]['pbk']:
-                          ro['public-key'] = reality_map[server]['pbk']
-                          modified = True
-                      if not ro.get('short-id') and reality_map[server]['sid']:
-                          ro['short-id'] = reality_map[server]['sid']
-                          modified = True
-                  # 如果补全后仍然缺少关键字段，保留原样
+              if server not in reality_map:
                   continue
-
-              # 如果完全没有 reality-opts，但服务器在映射表中
-              if server in reality_map and reality_map[server]['pbk']:
+              # 检查节点是否有 reality-opts
+              if 'reality-opts' not in proxy:
+                  # 完全没有，创建并补全
                   proxy['reality-opts'] = {
                       'public-key': reality_map[server]['pbk']
                   }
                   if reality_map[server]['sid']:
                       proxy['reality-opts']['short-id'] = reality_map[server]['sid']
-                  # 强制设置 tls 和 security
                   proxy['tls'] = True
                   proxy['security'] = 'reality'
                   modified = True
-                  print(f"✅ 补全节点: {proxy.get('name')} ({server})")
+                  print(f"✅ 补全节点 (完全缺失): {proxy.get('name', '')} ({server})")
+              else:
+                  ro = proxy['reality-opts']
+                  # 补全缺失的字段
+                  if not ro.get('public-key') and reality_map[server]['pbk']:
+                      ro['public-key'] = reality_map[server]['pbk']
+                      modified = True
+                  if not ro.get('short-id') and reality_map[server]['sid']:
+                      ro['short-id'] = reality_map[server]['sid']
+                      modified = True
+                  if modified:
+                      print(f"✅ 补全节点 (部分缺失): {proxy.get('name', '')} ({server})")
 
           if modified:
               with open('clash.yaml', 'w', encoding='utf-8') as f:
@@ -125,7 +141,8 @@ jobs:
           if grep -q "proxies:" clash.yaml; then
             echo "✅ 转换成功，文件大小: $(wc -c < clash.yaml) 字节"
           else
-            echo "❌ 最终文件无效"
+            echo "❌ 最终文件无效，缺少 proxies:"
+            cat clash.yaml
             exit 1
           fi
 
