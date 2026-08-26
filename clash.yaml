@@ -14574,7 +14574,7 @@ proxies:
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
   obfs: ''
   obfs-password: ''
-  sni: "https://t.me/wangcai2ð\x9F\x87¨ð\x9F\x87³"
+  sni: https://t.me/wangcai2ð¨ð³
   skip-cert-verify: false
   udp: true
   tls: true
