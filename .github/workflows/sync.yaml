@@ -21,40 +21,53 @@ jobs:
           tar -xzf subconverter.tar.gz
           rm subconverter.tar.gz
 
-      - name: 下载源文件并检查
+      - name: 下载源 Base64 文件并读取内容
+        id: get_source
         run: |
-          curl -L -o source.txt "${SOURCE_URL}"
-          if [ ! -s source.txt ]; then
-            echo "❌ 源文件为空或下载失败"
+          # 下载并去除所有换行符（Base64 可能分多行）
+          BASE64=$(curl -sL "${SOURCE_URL}" | tr -d '\n\r')
+          if [ -z "$BASE64" ]; then
+            echo "❌ 源文件为空"
             exit 1
           fi
-          echo "✅ 源文件大小: $(wc -c < source.txt) 字节"
-          echo "--- 源文件前200字符 ---"
-          head -c 200 source.txt
-          echo -e "\n------------------------"
+          echo "base64_content=$BASE64" >> $GITHUB_ENV
+          echo "✅ 源文件大小: $(echo -n "$BASE64" | wc -c) 字符"
+          echo "--- 前40字符 ---"
+          echo "${BASE64:0:40}"
 
-      - name: 执行格式转换（V2Ray → Clash）
+      - name: 执行格式转换（Base64 → Clash YAML）
         run: |
           cd subconverter
           # 启动服务
           ./subconverter &
           sleep 3
 
-          # ✅ 修正 API 路径：/convert → /get
+          # 构建 data: URI
+          ENCODED_URL="data:text/plain;base64,${BASE64_CONTENT}"
+
+          # 调用 API，type=mixed 自动识别 Hysteria2/VLess 等
           curl -v -G \
-            --data-urlencode "url=${SOURCE_URL}" \
+            --data-urlencode "url=${ENCODED_URL}" \
             --data "target=clash" \
+            --data "type=mixed" \
             "http://127.0.0.1:25500/get" \
             -o ../clash.yaml 2>&1 | tee ../curl.log
 
-          # 检查文件是否为空
+          # 检查结果
           if [ ! -s ../clash.yaml ]; then
-            echo "❌ 转换结果为空，查看 curl 日志："
+            echo "❌ 转换结果为空"
             cat ../curl.log
             exit 1
           fi
 
-          # 停止服务
+          # 简单验证是否包含 proxies:
+          if ! grep -q "proxies:" ../clash.yaml; then
+            echo "⚠️ 可能转换失败，前200字符："
+            head -c 200 ../clash.yaml
+          else
+            echo "✅ 转换成功，文件大小: $(wc -c < ../clash.yaml) 字节"
+          fi
+
           pkill subconverter || true
           cd ..
 
