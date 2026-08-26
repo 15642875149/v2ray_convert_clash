@@ -21,55 +21,47 @@ jobs:
           tar -xzf subconverter.tar.gz
           rm subconverter.tar.gz
 
-      - name: 下载源 Base64 文件并读取内容
-        id: get_source
+      - name: 下载源 Base64 并生成配置文件
+        id: prepare
         run: |
-          # 下载并去除所有换行符（Base64 可能分多行）
+          # 下载并去掉换行符（防止 Base64 分段）
           BASE64=$(curl -sL "${SOURCE_URL}" | tr -d '\n\r')
           if [ -z "$BASE64" ]; then
             echo "❌ 源文件为空"
             exit 1
           fi
-          echo "base64_content=$BASE64" >> $GITHUB_ENV
-          echo "✅ 源文件大小: $(echo -n "$BASE64" | wc -c) 字符"
-          echo "--- 前40字符 ---"
-          echo "${BASE64:0:40}"
+          echo "✅ 源 Base64 长度: ${#BASE64} 字符"
 
-      - name: 执行格式转换（Base64 → Clash YAML）
+          cd subconverter
+          # 生成 pref.ini，使用 here-doc 写入，避免命令行参数过长
+          cat > pref.ini <<EOF
+          [common]
+          api_mode=false
+          default_url=data:text/plain;base64,${BASE64}
+          type=mixed
+          target=clash
+          EOF
+          cd ..
+
+      - name: 执行格式转换
         run: |
           cd subconverter
-          # 启动服务
-          ./subconverter &
-          sleep 3
+          ./subconverter -f pref.ini -o ../clash.yaml
+          cd ..
 
-          # 构建 data: URI
-          ENCODED_URL="data:text/plain;base64,${BASE64_CONTENT}"
-
-          # 调用 API，type=mixed 自动识别 Hysteria2/VLess 等
-          curl -v -G \
-            --data-urlencode "url=${ENCODED_URL}" \
-            --data "target=clash" \
-            --data "type=mixed" \
-            "http://127.0.0.1:25500/get" \
-            -o ../clash.yaml 2>&1 | tee ../curl.log
-
-          # 检查结果
-          if [ ! -s ../clash.yaml ]; then
+          # 检查生成的文件
+          if [ ! -s clash.yaml ]; then
             echo "❌ 转换结果为空"
-            cat ../curl.log
             exit 1
           fi
 
           # 简单验证是否包含 proxies:
-          if ! grep -q "proxies:" ../clash.yaml; then
-            echo "⚠️ 可能转换失败，前200字符："
-            head -c 200 ../clash.yaml
+          if ! grep -q "proxies:" clash.yaml; then
+            echo "⚠️ 警告：转换结果可能不是有效的 Clash YAML，前200字符如下："
+            head -c 200 clash.yaml
           else
-            echo "✅ 转换成功，文件大小: $(wc -c < ../clash.yaml) 字节"
+            echo "✅ 转换成功，文件大小: $(wc -c < clash.yaml) 字节"
           fi
-
-          pkill subconverter || true
-          cd ..
 
       - name: 提交并推送转换结果
         run: |
