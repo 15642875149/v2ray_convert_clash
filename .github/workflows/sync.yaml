@@ -1,4 +1,4 @@
-name: 拉取并转换订阅 (纯自定义解析 + 完整修复)
+name: 拉取并转换订阅 (最终稳定版)
 
 on:
   schedule:
@@ -27,7 +27,7 @@ jobs:
           fi
           echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
 
-      - name: 自定义解析并生成 Clash YAML
+      - name: 自定义解析并生成 Clash YAML（增强过滤）
         run: |
           python3 << 'EOF'
           import re
@@ -194,7 +194,6 @@ jobs:
                   if pbk:
                       ro['public-key'] = sanitize_string(pbk)
                   else:
-                      # 没有 pbk 则不加 reality-opts
                       print(f"⚠️ Reality 节点缺少 pbk: {server}")
                       return node
 
@@ -202,6 +201,9 @@ jobs:
                       cleaned_sid = sanitize_string(sid)
                       if cleaned_sid:
                           ro['short-id'] = cleaned_sid
+                      else:
+                          print(f"ℹ️ Reality 节点 sid 为空: {server}，不添加 short-id")
+                  # 如果 sid 不存在，不添加 short-id
 
                   if ro:
                       node['reality-opts'] = ro
@@ -361,6 +363,19 @@ jobs:
           if not proxies:
               print("❌ 没有解析到任何节点")
               sys.exit(1)
+
+          # ---------- 后处理：移除空或空白的 short-id ----------
+          for proxy in proxies:
+              if proxy.get('type') == 'vless' and 'reality-opts' in proxy:
+                  ro = proxy['reality-opts']
+                  if 'short-id' in ro:
+                      sid = ro['short-id']
+                      if not sid or not sid.strip():
+                          del ro['short-id']
+                          print(f"ℹ️ 移除了空 short-id 的节点: {proxy.get('name')}")
+                  # 如果 reality-opts 变空，移除它
+                  if not ro:
+                      del proxy['reality-opts']
 
           # ---------- 构建 Clash 配置 ----------
           proxy_groups = [
