@@ -1,4 +1,4 @@
-name: 拉取并转换订阅 (纯自定义解析 + 修复 Reality short-id)
+name: 拉取并转换订阅 (纯自定义解析 + 完整修复)
 
 on:
   schedule:
@@ -64,9 +64,7 @@ jobs:
                   return False
               try:
                   decoded = base64.b64decode(s).decode('utf-8')
-                  if ':' in decoded or '@' in decoded:
-                      return True
-                  return False
+                  return ':' in decoded or '@' in decoded
               except:
                   return False
 
@@ -76,7 +74,7 @@ jobs:
               except:
                   return s
 
-          # ---------- 修复后的 parse_ss ----------
+          # ---------- 解析 ss ----------
           def parse_ss(link):
               try:
                   raw = link[5:]
@@ -135,7 +133,7 @@ jobs:
                       server = host_port
                       port = 8388
 
-                  node = {
+                  return {
                       'name': name or f"SS-{server}",
                       'type': 'ss',
                       'server': sanitize_string(server),
@@ -144,12 +142,11 @@ jobs:
                       'password': sanitize_string(password),
                       'udp': True
                   }
-                  return node
               except Exception as e:
                   print(f"⚠️ SS 解析失败: {link[:50]}... 错误: {e}")
                   return None
 
-          # ---------- 修复后的 parse_vless（关键） ----------
+          # ---------- 解析 vless ----------
           def parse_vless(link):
               parts = link[8:].split('?', 1)
               userinfo = parts[0].split('@', 1)
@@ -187,7 +184,6 @@ jobs:
                   'udp': True
               }
 
-              # Reality 处理
               if params.get('security') == 'reality':
                   node['tls'] = True
                   node['security'] = 'reality'
@@ -195,24 +191,17 @@ jobs:
                   pbk = params.get('pbk', '')
                   sid = params.get('sid', '') or params.get('short-id', '')
 
-                  # 验证 pbk：必须存在且非空
                   if pbk:
                       ro['public-key'] = sanitize_string(pbk)
                   else:
-                      # 没有 pbk 的 Reality 节点无法工作，警告但继续（避免报错）
-                      print(f"⚠️ Reality 节点缺少 pbk: {server}，将跳过 reality-opts")
-                      # 仍然设置 tls/security，但不加 reality-opts
-                      node['tls'] = True
-                      node['security'] = 'reality'
+                      # 没有 pbk 则不加 reality-opts
+                      print(f"⚠️ Reality 节点缺少 pbk: {server}")
                       return node
 
-                  # 验证 sid：如果存在且非空，才添加 short-id
                   if sid:
-                      # 某些 sid 可能包含特殊字符，清洗后保留
                       cleaned_sid = sanitize_string(sid)
                       if cleaned_sid:
                           ro['short-id'] = cleaned_sid
-                  # 如果 sid 为空，不添加 short-id 字段（Clash 会使用默认值或忽略）
 
                   if ro:
                       node['reality-opts'] = ro
@@ -448,7 +437,7 @@ jobs:
       - name: 提交并推送转换结果
         run: |
           git config user.name "github-actions[bot]"
-          git config.user.email "github-actions[bot]@users.github.com"
+          git config user.email "github-actions[bot]@users.github.com"
           git add clash.yaml
           git commit -m "自动同步转换 $(date +'%Y-%m-%d %H:%M')" || echo "内容无变化，跳过提交"
           git push
