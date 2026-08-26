@@ -1,4 +1,4 @@
-name: 拉取并转换订阅 (纯自定义解析 + 后处理补全)
+name: 拉取并转换订阅 (纯自定义解析 + 修复 SS)
 
 on:
   schedule:
@@ -27,7 +27,7 @@ jobs:
           fi
           echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
 
-      - name: 自定义解析并生成 Clash YAML（含后处理补全）
+      - name: 自定义解析并生成 Clash YAML
         run: |
           python3 << 'EOF'
           import re
@@ -41,7 +41,6 @@ jobs:
           def sanitize_string(s):
               if not isinstance(s, str):
                   return s
-              # 移除控制字符 (0x00-0x1F 除 \t, \n, \r 外) 和 Unicode 不可见字符
               s = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]', '', s)
               s = re.sub(r'[\u200b-\u200f\u2028-\u202f\ufeff]', '', s)
               return s
@@ -60,7 +59,7 @@ jobs:
               match = re.search(r'(\d+)', host_port_str)
               return int(match.group(1)) if match else 443
 
-          # ---------- 解析各协议 ----------
+          # ---------- 解析 vless (不变) ----------
           def parse_vless(link):
               parts = link[8:].split('?', 1)
               userinfo = parts[0].split('@', 1)
@@ -96,7 +95,6 @@ jobs:
                   'skip-cert-verify': params.get('allowInsecure', 'false').lower() == 'true',
                   'udp': True
               }
-              # Reality 或 TLS
               if params.get('security') == 'reality':
                   node['tls'] = True
                   node['security'] = 'reality'
@@ -117,6 +115,7 @@ jobs:
                   node['security'] = 'none'
               return node
 
+          # ---------- 解析 vmess (不变) ----------
           def parse_vmess(link):
               try:
                   raw = link[8:]
@@ -146,30 +145,89 @@ jobs:
               except:
                   return None
 
+          # ---------- 修复后的 parse_ss ----------
           def parse_ss(link):
               try:
                   raw = link[5:]
+                  # 分离 name（# 后面的部分）
+                  name = ''
+                  if '#' in raw:
+                      raw, name = raw.split('#', 1)
+                      name = sanitize_string(urllib.parse.unquote(name))
+
+                  # 处理 @ 分隔的认证信息
                   if '@' in raw:
-                      auth_host = raw.split('@')
-                      method_pass = auth_host[0].split(':')
-                      method = method_pass[0]
-                      password = method_pass[1] if len(method_pass) > 1 else ''
-                      host_port = auth_host[1].split(':', 1)
-                      server = host_port[0]
-                      port = extract_port(host_port[1]) if len(host_port) > 1 else 8388
-                      name = raw.split('#', 1)[1] if '#' in raw else f"SS-{server}"
-                      return {
-                          'name': sanitize_string(urllib.parse.unquote(name)),
-                          'type': 'ss',
-                          'server': sanitize_string(server),
-                          'port': port,
-                          'cipher': sanitize_string(method),
-                          'password': sanitize_string(password),
-                          'udp': True
-                      }
-              except:
+                      auth_part, host_port = raw.split('@', 1)
+                  else:
+                      # 如果没有 @，可能是纯 base64 编码的完整 URL
+                      try:
+                          decoded = base64.b64decode(raw).decode('utf-8')
+                          if '@' in decoded:
+                              auth_part, host_port = decoded.split('@', 1)
+                          else:
+                              return None
+                      except:
+                          return None
+
+                  # 解析认证部分 (method:password)
+                  # 可能是 Base64 编码的 method:password
+                  method = ''
+                  password = ''
+                  if ':' in auth_part:
+                      # 尝试直接分割
+                      parts = auth_part.split(':', 1)
+                      # 如果 method 部分看起来像 Base64，尝试解码
+                      if len(parts) == 2 and re.match(r'^[A-Za-z0-9+/=]+$', parts[0]):
+                          try:
+                              decoded_method = base64.b64decode(parts[0]).decode('utf-8')
+                              if ':' in decoded_method:
+                                  # 如果解码后包含 :，说明整个 auth_part 是 base64
+                                  auth_decoded = base64.b64decode(auth_part).decode('utf-8')
+                                  method, password = auth_decoded.split(':', 1)
+                              else:
+                                  method = decoded_method
+                                  password = parts[1]
+                          except:
+                              method = parts[0]
+                              password = parts[1]
+                      else:
+                          # 可能是明文的 method:password
+                          method = parts[0]
+                          password = parts[1]
+                  else:
+                      # 整个 auth_part 可能是 base64 编码的 method:password
+                      try:
+                          auth_decoded = base64.b64decode(auth_part).decode('utf-8')
+                          if ':' in auth_decoded:
+                              method, password = auth_decoded.split(':', 1)
+                          else:
+                              return None
+                      except:
+                          return None
+
+                  # 解析 host:port
+                  if ':' in host_port:
+                      server, port_str = host_port.split(':', 1)
+                      port = extract_port(port_str)
+                  else:
+                      server = host_port
+                      port = 8388
+
+                  node = {
+                      'name': name or f"SS-{server}",
+                      'type': 'ss',
+                      'server': sanitize_string(server),
+                      'port': port,
+                      'cipher': sanitize_string(method),
+                      'password': sanitize_string(password),
+                      'udp': True
+                  }
+                  return node
+              except Exception as e:
+                  print(f"⚠️ SS 解析失败: {link[:50]}... 错误: {e}")
                   return None
 
+          # ---------- 解析 trojan (不变) ----------
           def parse_trojan(link):
               try:
                   raw = link[9:]
@@ -214,6 +272,7 @@ jobs:
               except:
                   return None
 
+          # ---------- 解析 hysteria2 (不变) ----------
           def parse_hysteria2(link):
               try:
                   if link.startswith('hy2://'):
@@ -331,7 +390,6 @@ jobs:
               'rules': rules
           }
 
-          # 写入文件
           with open('clash.yaml', 'w', encoding='utf-8') as f:
               yaml.dump(config, f, allow_unicode=True, sort_keys=False)
 
