@@ -39,8 +39,8 @@ proxies:
   type: ss
   server: 217.60.249.112
   port: 443
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTowZUM0WkJ2U3RPZ1FFelRwQ1lqV041
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: 0eC4ZBvStOgQEzTpCYjWN5
   udp: true
 - name: 🇦🇪 阿联酋 | vless | 05
   type: vless
@@ -956,8 +956,8 @@ proxies:
   type: ss
   server: 82.23.146.72
   port: 65443
-  cipher: YWVzLTI1Ni1jZmI6N2VhZGM2ZGJlMmFl
-  password: ''
+  cipher: aes-256-cfb
+  password: 7eadc6dbe2ae
   udp: true
 - name: 🇧🇪 比利时 | hy2 | 01
   type: hysteria2
@@ -975,8 +975,8 @@ proxies:
   type: ss
   server: 185.210.217.94
   port: 1080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: XF0klw7870vXn3uQIxe19Q
   udp: true
 - name: 🇧🇪 比利时 | vless | 03
   type: vless
@@ -1244,36 +1244,36 @@ proxies:
   type: ss
   server: 213.183.63.60
   port: 9028
-  cipher: YWVzLTI1Ni1jZmI6OWVlSjJmd25aQTVGeGd6OA==
-  password: ''
+  cipher: aes-256-cfb
+  password: 9eeJ2fwnZA5Fxgz8
   udp: true
 - name: 🇧🇬 保加利亚 | ss | 03
   type: ss
   server: 213.183.63.60
   port: 9054
-  cipher: YWVzLTI1Ni1jZmI6VmNGdXlYdk5EMnlRV1NGWQ==
-  password: ''
+  cipher: aes-256-cfb
+  password: VcFuyXvND2yQWSFY
   udp: true
 - name: 🇧🇬 保加利亚 | ss | 04
   type: ss
   server: 213.183.63.60
   port: 9049
-  cipher: YWVzLTI1Ni1jZmI6UFJCZjRCUzJIdkpxdFd4WQ==
-  password: ''
+  cipher: aes-256-cfb
+  password: PRBf4BS2HvJqtWxY
   udp: true
 - name: 🇧🇬 保加利亚 | ss | 05
   type: ss
   server: 213.183.63.60
   port: 9066
-  cipher: YWVzLTI1Ni1jZmI6MktVYUUyYThOV1R2dUNaMw==
-  password: ''
+  cipher: aes-256-cfb
+  password: 2KUaE2a8NWTvuCZ3
   udp: true
 - name: 🇧🇬 保加利亚 | ss | 06
   type: ss
   server: 213.183.63.60
   port: 9098
-  cipher: YWVzLTI1Ni1jZmI6YUxwUXRmRVplNDQ1UXlIaw==
-  password: ''
+  cipher: aes-256-cfb
+  password: aLpQtfEZe445QyHk
   udp: true
 - name: 🇧🇬 保加利亚 | vless | 07
   type: vless
@@ -1528,47 +1528,12 @@ proxies:
   udp: true
   tls: false
   security: none
-- name: 🇧🇷 巴西 | ss | 05
-  type: ss
-  server: 64.181.186.88
-  port: 59319
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6NE1oS0Y0UkY4QnhuV0hpTnYvTTN3SytIaW1uYTdsK0I4c3Y0d0d3akNnND0
-  password: ''
-  udp: true
-- name: 🇧🇷 巴西 | ss | 06
-  type: ss
-  server: 150.230.77.159
-  port: 59319
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6ZlFEM1I3MDZSNlhHVUNYaDVYd01EdjZJYnFRTytnNGlWWXg1T25UL0Nxcz0
-  password: ''
-  udp: true
 - name: 🇧🇷 巴西 | ss | 07
   type: ss
   server: 181.41.201.242
   port: 65443
-  cipher: YWVzLTI1Ni1jZmI6N2VhZGM2ZGJlMmFl
-  password: ''
-  udp: true
-- name: 🇧🇷 巴西 | ss | 08
-  type: ss
-  server: 159.112.176.198
-  port: 59319
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6WnhJUVN1aGk0OFBDNjQ1MmUxR0t1VEdkMit6Z1I3c281dWN5UytLdmVBYz0
-  password: ''
-  udp: true
-- name: 🇧🇷 巴西 | ss | 09
-  type: ss
-  server: 163.176.213.34
-  port: 59319
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6c0dkYmloT2IvcS9FYkFOVzI2T0RrWnZXK2JGeHRMNU9JU29oQTY0dkNxUT0
-  password: ''
-  udp: true
-- name: 🇧🇷 巴西 | ss | 10
-  type: ss
-  server: 163.176.45.90
-  port: 59319
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6ajlRNjFEcnZKZzlNSld3K3UzcmlRa2xBUFNrWUYydW9Ud0x1TDJ4YUJyQT0
-  password: ''
+  cipher: aes-256-cfb
+  password: 7eadc6dbe2ae
   udp: true
 - name: 🇧🇷 巴西 | vless | 11
   type: vless
@@ -1584,13 +1549,6 @@ proxies:
   udp: true
   tls: false
   security: none
-- name: 🇧🇷 巴西 | ss | 12
-  type: ss
-  server: 167.234.253.215
-  port: 59319
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6SkZuMEtOb2lnS0xiSHpFeFFUVjJkbHMxdVJmRHRYS3JZSWdVR0d5NmdDVT0
-  password: ''
-  udp: true
 - name: 🇧🇷 巴西 | vmess | 13
   type: vmess
   server: 172.233.19.143
@@ -1704,29 +1662,22 @@ proxies:
   type: ss
   server: 154.127.56.212
   port: 65443
-  cipher: YWVzLTI1Ni1jZmI6N2VhZGM2ZGJlMmFl
-  password: ''
+  cipher: aes-256-cfb
+  password: 7eadc6dbe2ae
   udp: true
 - name: 🇨🇦 加拿大 | ss | 06
   type: ss
   server: 51.222.155.32
   port: 5003
-  cipher: YWVzLTI1Ni1nY206ZzVNZUQ2RnQzQ1dsSklk
-  password: ''
+  cipher: aes-256-gcm
+  password: g5MeD6Ft3CWlJId
   udp: true
 - name: 🇨🇦 加拿大 | ss | 07
   type: ss
   server: 51.79.49.116
   port: 8882
-  cipher: YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0
-  password: ''
-  udp: true
-- name: 🇨🇦 加拿大 | ss | 08
-  type: ss
-  server: 51.222.155.113
-  port: 5601
-  cipher: YWVzLTI1Ni1nY206WTZSOXBBdHZ4eHptR0M
-  password: ''
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
   udp: true
 - name: 🇨🇦 加拿大 | vless | 09
   type: vless
@@ -1746,8 +1697,8 @@ proxies:
   type: ss
   server: 51.222.12.127
   port: 445
-  cipher: YWVzLTI1Ni1nY206ekROVmVkUkZQUWV4Rzl2
-  password: ''
+  cipher: aes-256-gcm
+  password: zDNVedRFPQexG9v
   udp: true
 - name: 🇨🇦 加拿大 | vmess | 11
   type: vmess
@@ -1853,8 +1804,8 @@ proxies:
   type: ss
   server: 38.180.211.126
   port: 443
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpLdWlxazJjUDBCTVdyZ21lOUlmRXZw
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: Kuiqk2cP0BMWrgme9IfEvp
   udp: true
 - name: 🇨🇦 加拿大 | vless | 19
   type: vless
@@ -2049,8 +2000,8 @@ proxies:
   type: ss
   server: 86.106.84.196
   port: 13263
-  cipher: YWVzLTEyOC1nY206bHZ4dWoxMXg4c2ZndDlndDZtamY=
-  password: ''
+  cipher: aes-128-gcm
+  password: lvxuj11x8sfgt9gt6mjf
   udp: true
 - name: 🇨🇭 瑞士 | vless | 06
   type: vless
@@ -3019,8 +2970,8 @@ proxies:
   type: ss
   server: 121.46.230.233
   port: 65443
-  cipher: YWVzLTI1Ni1jZmI6N2VhZGM2ZGJlMmFl
-  password: ''
+  cipher: aes-256-cfb
+  password: 7eadc6dbe2ae
   udp: true
 - name: 🇨🇴 哥伦比亚 | vless | 01
   type: vless
@@ -3308,8 +3259,8 @@ proxies:
   type: ss
   server: 143.244.58.102
   port: 443
-  cipher: YWVzLTI1Ni1jZmI6YXNkS2thc2tKS2Zuc2E=
-  password: ''
+  cipher: aes-256-cfb
+  password: asdKkaskJKfnsa
   udp: true
 - name: 🇨🇿 捷克 | vless | 05
   type: vless
@@ -3999,13 +3950,6 @@ proxies:
   udp: true
   tls: false
   security: none
-- name: 🇩🇪 德国 | ss | 41
-  type: ss
-  server: 94.156.114.171
-  port: 1080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUU3FpWFoxNnVQcVRDUmJrZ3BmYTdhTkg1THVCc1VVRQ
-  password: ''
-  udp: true
 - name: 🇩🇪 德国 | vmess | 42
   type: vmess
   server: 176.65.140.210
@@ -4034,13 +3978,6 @@ proxies:
   security: none
   path: /vmess
   host: cx.com
-- name: 🇩🇪 德国 | ss | 44
-  type: ss
-  server: 185.226.172.8
-  port: 8008
-  cipher: YWVzLTI1Ni1nY206WEtGS2wyclVMaklwNzQ
-  password: ''
-  udp: true
 - name: 🇩🇪 德国 | vless | 45
   type: vless
   server: 213.165.44.101
@@ -4076,8 +4013,8 @@ proxies:
   type: ss
   server: 89.168.121.246
   port: 59924
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6cFFTRS9KTkNiVFR3ZzlDQThtOXVBVzMwYXZrUzZJTFdQVXNYWkI4TDNDMD0=
-  password: ''
+  cipher: 2022-blake3-chacha20-poly1305
+  password: pQSE/JNCbTTwg9CA8m9uAW30avkS6ILWPUsXZB8L3C0=
   udp: true
 - name: 🇩🇪 德国 | vless | 48
   type: vless
@@ -4120,13 +4057,6 @@ proxies:
   udp: true
   tls: false
   security: none
-- name: 🇩🇪 德国 | ss | 51
-  type: ss
-  server: 130.61.236.143
-  port: 59924
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6QWwzZlJyQzVEVkVyRWRoUkVwb3V2NXh4eGtVKzV3Z1l0a0dSWWlFRGhRdz0
-  password: ''
-  udp: true
 - name: 🇩🇪 德国 | vmess | 52
   type: vmess
   server: 176.65.140.210
@@ -4172,15 +4102,8 @@ proxies:
   type: ss
   server: 8.209.74.72
   port: 20001
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpQV3BqUG8zdHFoUE40eVJa
-  password: ''
-  udp: true
-- name: 🇩🇪 德国 | ss | 56
-  type: ss
-  server: 144.24.190.37
-  port: 59924
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6SDc5bGZwQlZVR1BiYWtpZ01Gc3lUWlFlZzlWYUllam5DbkE1WWZJZlJCZz0
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: PWpjPo3tqhPN4yRZ
   udp: true
 - name: 🇩🇪 德国 | vmess | 57
   type: vmess
@@ -4212,8 +4135,8 @@ proxies:
   type: ss
   server: 91.107.243.39
   port: 1080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpZcExkWXRtS1VHaUxWWXV5STNQOWhB
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: YpLdYtmKUGiLVYuyI3P9hA
   udp: true
 - name: 🇩🇪 德国 | vmess | 60
   type: vmess
@@ -4247,8 +4170,8 @@ proxies:
   type: ss
   server: 2.58.81.221
   port: 80
-  cipher: YWVzLTI1Ni1nY206a0tFZDByQnJkNTZGdXJqeg==
-  password: ''
+  cipher: aes-256-gcm
+  password: kKEd0rBrd56Furjz
   udp: true
 - name: 🇩🇪 德国 | vless | 63
   type: vless
@@ -4511,8 +4434,8 @@ proxies:
   type: ss
   server: 213.202.208.199
   port: 7001
-  cipher: YWVzLTI1Ni1nY206UmV4bkJnVTdFVjVBRHhH
-  password: ''
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
   udp: true
 - name: 🇩🇪 德国 | vless | 82
   type: vless
@@ -6181,8 +6104,8 @@ proxies:
   type: ss
   server: 193.108.117.75
   port: 443
-  cipher: YWVzLTI1Ni1nY206cEtFVzhKUEJ5VFZUTHRN
-  password: ''
+  cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
   udp: true
 - name: 🇩🇪 德国 | vless | 192
   type: vless
@@ -10924,20 +10847,6 @@ proxies:
   udp: true
   tls: false
   security: none
-- name: 🇫🇮 芬兰 | ss | 17
-  type: ss
-  server: 65.109.211.136
-  port: 58008
-  cipher: MjAyMi1ibGFrZTMtYWVzLTI1Ni1nY206cUZQWlY0NEFremNyTWZVU3krbksvaHl6L1Zra05MMmVrc1BUc1hYdXowQT06SGdrR0ZyRlB1dm1haUU5MFZhKzJKd1VnaUdBcURFWjUxWW5rc090Q01BST0
-  password: ''
-  udp: true
-- name: 🇫🇮 芬兰 | ss | 18
-  type: ss
-  server: 31.76.30.79
-  port: 10808
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpUbVhTcGNSQmJodkhEZzY2Ym8ydzg5YlRveFFzYk1vYQ
-  password: ''
-  udp: true
 - name: 🇫🇮 芬兰 | vless | 19
   type: vless
   server: 65.109.215.19
@@ -11898,8 +11807,8 @@ proxies:
   type: ss
   server: 217.138.207.106
   port: 1080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpWcjA2clVfdjF2RlBZZVhxOXpic0FB
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: Vr06rU_v1vFPYeXq9zbsAA
   udp: true
 - name: 🇫🇷 法国 | vless | 15
   type: vless
@@ -11915,13 +11824,6 @@ proxies:
   udp: true
   tls: false
   security: none
-- name: 🇫🇷 法国 | ss | 16
-  type: ss
-  server: 83.171.225.55
-  port: 8388
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpNV00yTg
-  password: ''
-  udp: true
 - name: 🇫🇷 法国 | vless | 17
   type: vless
   server: 51.75.30.8
@@ -11940,8 +11842,8 @@ proxies:
   type: ss
   server: 104.105.202.31
   port: 1111
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpZOFRhS1FNbmNnaThubF9kTm5MalFSVUFtVDRoWmdhNw==
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: Y8TaKQMncgi8nl_dNnLjQRUAmT4hZga7
   udp: true
 - name: 🇫🇷 法国 | vless | 19
   type: vless
@@ -11988,8 +11890,8 @@ proxies:
   type: ss
   server: 104.105.202.31
   port: 1959
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpZOFRhS1FNbmNnaThubF9kTm5MalFSVUFtVDRoWmdhNw==
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: Y8TaKQMncgi8nl_dNnLjQRUAmT4hZga7
   udp: true
 - name: 🇫🇷 法国 | vless | 23
   type: vless
@@ -12182,8 +12084,8 @@ proxies:
   type: ss
   server: 162.19.59.161
   port: 443
-  cipher: YWVzLTI1Ni1jZmI6YXNkS2thc2tKS2Zuc2E=
-  password: ''
+  cipher: aes-256-cfb
+  password: asdKkaskJKfnsa
   udp: true
 - name: 🇫🇷 法国 | vless | 38
   type: vless
@@ -12769,8 +12671,8 @@ proxies:
   type: ss
   server: 149.202.82.172
   port: 3306
-  cipher: YWVzLTI1Ni1nY206WTZSOXBBdHZ4eHptR0M=
-  password: ''
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
   udp: true
 - name: 🇫🇷 法国 | vmess | 77
   type: vmess
@@ -12876,13 +12778,6 @@ proxies:
   udp: true
   tls: true
   security: tls
-- name: 🇫🇷 法国 | ss | 84
-  type: ss
-  server: 146.59.110.171
-  port: 443
-  cipher: YWVzLTI1Ni1jZmI6YXNkS2thc2tKS2Zuc2E
-  password: ''
-  udp: true
 - name: 🇫🇷 法国 | vless | 85
   type: vless
   server: 54.37.136.194
@@ -13080,15 +12975,15 @@ proxies:
   type: ss
   server: 140.238.64.207
   port: 42345
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTplOTM2MzcyYS1kOTc2LTRlMjUtOGIzYi0yOWMxYTU4NDFlMDY=
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: e936372a-d976-4e25-8b3b-29c1a5841e06
   udp: true
 - name: 🇬🇧 英国 | ss | 06
   type: ss
   server: 188.119.149.27
   port: 1080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpYRjBrbHc3ODcwdlhuM3VRSXhlMTlR
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: XF0klw7870vXn3uQIxe19Q
   udp: true
 - name: 🇬🇧 英国 | vless | 07
   type: vless
@@ -13162,8 +13057,8 @@ proxies:
   type: ss
   server: 149.102.132.180
   port: 80
-  cipher: YWVzLTI1Ni1nY206Q3pEV0lDdDFET2k4RjVqcQ==
-  password: ''
+  cipher: aes-256-gcm
+  password: CzDWICt1DOi8F5jq
   udp: true
 - name: 🇬🇧 英国 | vmess | 13
   type: vmess
@@ -13179,26 +13074,12 @@ proxies:
   security: none
   path: /vmess/
   host: google.com
-- name: 🇬🇧 英国 | ss | 14
-  type: ss
-  server: 134.65.60.104
-  port: 61312
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6aUszS2JSMC9pMkY5d2xPVEpaamdzSEdNVjZzWTFUMVoxRlcrazhPYlB2QT0
-  password: ''
-  udp: true
-- name: 🇬🇧 英国 | ss | 15
-  type: ss
-  server: 129.151.68.73
-  port: 61312
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6Nnlad3VVT21OZk5PbmtJWTVaemluN2JKc1plUnI0akRYV3BrWVZ0allBcz0
-  password: ''
-  udp: true
 - name: 🇬🇧 英国 | ss | 16
   type: ss
   server: 172.99.190.149
   port: 8080
-  cipher: YWVzLTI1Ni1nY206S2l4THZLendqZWtHMDBybQ==
-  password: ''
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
   udp: true
 - name: 🇬🇧 英国 | vless | 17
   type: vless
@@ -13214,145 +13095,124 @@ proxies:
   udp: true
   tls: false
   security: none
-- name: 🇬🇧 英国 | ss | 18
-  type: ss
-  server: 144.24.228.195
-  port: 61312
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6Y0drTFVvZkhrZ0dJYXRhUUt6WGUrNllzK2RJMkIzQnZUaWZocTd6ODd3bz0
-  password: ''
-  udp: true
-- name: 🇬🇧 英国 | ss | 19
-  type: ss
-  server: 129.151.72.48
-  port: 61312
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6YzZhQWduRHJ1L0xpNm5QMDZ0RkNTeUpyd0NoQnBLeTlaRW1QRCtXOGJtUT0
-  password: ''
-  udp: true
 - name: 🇬🇧 英国 | ss | 20
   type: ss
   server: 149.102.152.25
   port: 80
-  cipher: YWVzLTI1Ni1nY206WHJwQThoTmpRNjdPRGRhdQ==
-  password: ''
+  cipher: aes-256-gcm
+  password: XrpA8hNjQ67ODdau
   udp: true
 - name: 🇬🇧 英国 | ss | 21
   type: ss
   server: 82.38.31.13
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
 - name: 🇬🇧 英国 | ss | 22
   type: ss
   server: 82.38.31.175
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB
-  password: ''
-  udp: true
-- name: 🇬🇧 英国 | ss | 23
-  type: ss
-  server: 149.102.132.184
-  port: 80
-  cipher: YWVzLTI1Ni1nY206ZzVoNWpsZVRSU3lPM1JrNA
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
 - name: 🇬🇧 英国 | ss | 24
   type: ss
   server: 82.38.31.215
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
 - name: 🇬🇧 英国 | ss | 25
   type: ss
   server: 82.38.31.176
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
 - name: 🇬🇧 英国 | ss | 26
   type: ss
   server: 82.38.31.185
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
 - name: 🇬🇧 英国 | ss | 27
   type: ss
   server: 82.38.31.204
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
 - name: 🇬🇧 英国 | ss | 28
   type: ss
   server: 94.156.250.148
   port: 7001
-  cipher: YWVzLTI1Ni1nY206UmV4bkJnVTdFVjVBRHhH
-  password: ''
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
   udp: true
 - name: 🇬🇧 英国 | ss | 29
   type: ss
   server: 82.38.31.193
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
 - name: 🇬🇧 英国 | ss | 30
   type: ss
   server: 82.38.31.26
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
 - name: 🇬🇧 英国 | ss | 31
   type: ss
   server: 149.102.149.207
   port: 80
-  cipher: YWVzLTI1Ni1nY206TFhjaExzSXd0Q2VVQVVndQ==
-  password: ''
+  cipher: aes-256-gcm
+  password: LXchLsIwtCeUAUgu
   udp: true
 - name: 🇬🇧 英国 | ss | 32
   type: ss
   server: 31.57.35.41
   port: 65443
-  cipher: YWVzLTI1Ni1jZmI6N2VhZGM2ZGJlMmFl
-  password: ''
+  cipher: aes-256-cfb
+  password: 7eadc6dbe2ae
   udp: true
 - name: 🇬🇧 英国 | ss | 33
   type: ss
   server: 82.38.31.36
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
 - name: 🇬🇧 英国 | ss | 34
   type: ss
   server: 82.38.31.183
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
 - name: 🇬🇧 英国 | ss | 35
   type: ss
   server: 82.38.31.39
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
 - name: 🇬🇧 英国 | ss | 36
   type: ss
   server: 82.38.31.9
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
 - name: 🇬🇧 英国 | ss | 37
   type: ss
   server: 82.38.31.3
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
 - name: 🇬🇧 英国 | vless | 38
   type: vless
@@ -14644,8 +14504,8 @@ proxies:
   type: ss
   server: 8.210.172.202
   port: 80
-  cipher: YWVzLTEyOC1nY206YS13eW00b3ZZNFl3
-  password: ''
+  cipher: aes-128-gcm
+  password: a-wym4ovY4Yw
   udp: true
 - name: 🇭🇰 香港 | vmess | 12
   type: vmess
@@ -14664,8 +14524,8 @@ proxies:
   type: ss
   server: 103.149.182.79
   port: 8388
-  cipher: Y2hhY2hhMjAtaWV0Zjphc2QxMjM0NTY=
-  password: ''
+  cipher: chacha20-ietf
+  password: asd123456
   udp: true
 - name: 🇭🇰 香港 | vless | 14
   type: vless
@@ -14939,13 +14799,6 @@ proxies:
   udp: true
   tls: true
   security: tls
-- name: 🇮🇳 印度 | ss | 03
-  type: ss
-  server: 103.120.178.193
-  port: 31348
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpFQkRSbzlUSHg0Q3FpRlU3aDVnZm92NzZvTnd6WlVSQWgwWndiV2pCS2RkdFVodno
-  password: ''
-  udp: true
 - name: 🇮🇳 印度 | vmess | 05
   type: vmess
   server: 139.59.40.233
@@ -16050,36 +15903,29 @@ proxies:
   type: ss
   server: 91.201.65.122
   port: 9053
-  cipher: YWVzLTI1Ni1jZmI6U0JNN1I4ODNqQm1ucWU2Qw==
-  password: ''
-  udp: true
-- name: 🇮🇹 意大利 | ss | 03
-  type: ss
-  server: 62.76.234.92
-  port: 10901
-  cipher: YWVzLTI1Ni1nY206ZDFmYTJmNGI5OGEzOGJjOA
-  password: ''
+  cipher: aes-256-cfb
+  password: SBM7R883jBmnqe6C
   udp: true
 - name: 🇮🇹 意大利 | ss | 04
   type: ss
   server: 91.201.65.122
   port: 9059
-  cipher: YWVzLTI1Ni1jZmI6OVh3WXlac0s4U056UUR0WQ==
-  password: ''
+  cipher: aes-256-cfb
+  password: 9XwYyZsK8SNzQDtY
   udp: true
 - name: 🇮🇹 意大利 | ss | 05
   type: ss
   server: 91.201.65.122
   port: 9092
-  cipher: YWVzLTI1Ni1jZmI6VHlOa0dtcDloczZlR3BESw==
-  password: ''
+  cipher: aes-256-cfb
+  password: TyNkGmp9hs6eGpDK
   udp: true
 - name: 🇮🇹 意大利 | ss | 06
   type: ss
   server: 91.201.65.122
   port: 9039
-  cipher: YWVzLTI1Ni1jZmI6cVlFTjVIWDRKS2VWQ2RFQw==
-  password: ''
+  cipher: aes-256-cfb
+  password: qYEN5HX4JKeVCdEC
   udp: true
 - name: 🇮🇹 意大利 | vless | 07
   type: vless
@@ -16653,13 +16499,6 @@ proxies:
   path: /vmess/
   host: 172.111.146.64
   sni: 172.111.146.64
-- name: 🇯🇵 日本 | ss | 24
-  type: ss
-  server: 193.111.30.213
-  port: 20000
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo1Nzg2ODZmNS05ZmY5LTRmZjctOTM5NC01ZDUzMTMzYTI3OTI
-  password: ''
-  udp: true
 - name: 🇯🇵 日本 | vless | 25
   type: vless
   server: 14.137.244.44
@@ -17508,71 +17347,57 @@ proxies:
   type: ss
   server: 141.164.45.187
   port: 6679
-  cipher: YWVzLTI1Ni1nY206VEV6amZBWXEySWp0dW9T
-  password: ''
+  cipher: aes-256-gcm
+  password: TEzjfAYq2IjtuoS
   udp: true
 - name: 🇰🇷 韩国 | ss | 11
   type: ss
   server: 218.237.185.230
   port: 4652
-  cipher: YWVzLTI1Ni1jZmI6cXdlclJFV1FAQA==
-  password: ''
+  cipher: aes-256-cfb
+  password: qwerREWQ@@
   udp: true
 - name: 🇰🇷 韩国 | ss | 12
   type: ss
   server: 211.178.105.134
   port: 6123
-  cipher: YWVzLTI1Ni1jZmI6cXdlclJFV1FAQA==
-  password: ''
+  cipher: aes-256-cfb
+  password: qwerREWQ@@
   udp: true
 - name: 🇰🇷 韩国 | ss | 13
   type: ss
   server: 221.139.79.57
   port: 13979
-  cipher: YWVzLTI1Ni1jZmI6cXdlclJFV1FAQA==
-  password: ''
+  cipher: aes-256-cfb
+  password: qwerREWQ@@
   udp: true
 - name: 🇰🇷 韩国 | ss | 14
   type: ss
   server: 141.164.45.187
   port: 7001
-  cipher: YWVzLTI1Ni1nY206UmV4bkJnVTdFVjVBRHhH
-  password: ''
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
   udp: true
 - name: 🇰🇷 韩国 | ss | 15
   type: ss
   server: 27.255.82.134
   port: 2078
-  cipher: YWVzLTI1Ni1jZmI6cXdlclJFV1FAQA==
-  password: ''
+  cipher: aes-256-cfb
+  password: qwerREWQ@@
   udp: true
 - name: 🇰🇷 韩国 | ss | 16
   type: ss
   server: 141.164.45.187
   port: 8091
-  cipher: YWVzLTI1Ni1nY206UENubkg2U1FTbmZvUzI3
-  password: ''
-  udp: true
-- name: 🇰🇷 韩国 | ss | 17
-  type: ss
-  server: 141.164.45.187
-  port: 8000
-  cipher: YWVzLTI1Ni1nY206S2l4THZLendqZWtHMDBybQ
-  password: ''
-  udp: true
-- name: 🇰🇷 韩国 | ss | 18
-  type: ss
-  server: 141.164.45.187
-  port: 9101
-  cipher: YWVzLTI1Ni1nY206ZTRGQ1dyZ3BramkzUVk
-  password: ''
+  cipher: aes-256-gcm
+  password: PCnnH6SQSnfoS27
   udp: true
 - name: 🇰🇷 韩国 | ss | 19
   type: ss
   server: 141.164.45.187
   port: 5001
-  cipher: YWVzLTI1Ni1nY206WTZSOXBBdHZ4eHptR0M=
-  password: ''
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
   udp: true
 - name: 🇰🇷 韩国 | vmess | 20
   type: vmess
@@ -17590,22 +17415,22 @@ proxies:
   type: ss
   server: 141.164.45.187
   port: 8008
-  cipher: YWVzLTI1Ni1nY206WEtGS2wyclVMaklwNzQ=
-  password: ''
+  cipher: aes-256-gcm
+  password: XKFKl2rULjIp74
   udp: true
 - name: 🇰🇷 韩国 | ss | 22
   type: ss
   server: 141.164.45.187
   port: 6697
-  cipher: YWVzLTI1Ni1nY206VEV6amZBWXEySWp0dW9T
-  password: ''
+  cipher: aes-256-gcm
+  password: TEzjfAYq2IjtuoS
   udp: true
 - name: 🇰🇷 韩国 | ss | 23
   type: ss
   server: 141.164.45.187
   port: 7002
-  cipher: YWVzLTI1Ni1nY206UmV4bkJnVTdFVjVBRHhH
-  password: ''
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
   udp: true
 - name: 🇰🇷 韩国 | vless | 24
   type: vless
@@ -17904,36 +17729,36 @@ proxies:
   type: ss
   server: 195.238.126.20
   port: 9011
-  cipher: YWVzLTI1Ni1jZmI6TTN0MlpFUWNNR1JXQmpSYQ==
-  password: ''
+  cipher: aes-256-cfb
+  password: M3t2ZEQcMGRWBjRa
   udp: true
 - name: 🇱🇹 立陶宛 | ss | 02
   type: ss
   server: 195.238.126.20
   port: 9068
-  cipher: YWVzLTI1Ni1jZmI6bXdnUmc5aFJxM2I0UW53Yg==
-  password: ''
+  cipher: aes-256-cfb
+  password: mwgRg9hRq3b4Qnwb
   udp: true
 - name: 🇱🇹 立陶宛 | ss | 03
   type: ss
   server: 195.238.126.20
   port: 9078
-  cipher: YWVzLTI1Ni1jZmI6SkNKcGJSYlFaTnc5WEZaRw==
-  password: ''
+  cipher: aes-256-cfb
+  password: JCJpbRbQZNw9XFZG
   udp: true
 - name: 🇱🇹 立陶宛 | ss | 04
   type: ss
   server: 195.238.126.20
   port: 9012
-  cipher: YWVzLTI1Ni1jZmI6eGF1cE1VdmhwdHd4ZERVZw==
-  password: ''
+  cipher: aes-256-cfb
+  password: xaupMUvhptwxdDUg
   udp: true
 - name: 🇱🇹 立陶宛 | ss | 05
   type: ss
   server: 195.238.126.20
   port: 9086
-  cipher: YWVzLTI1Ni1jZmI6MzdaNFRGQ1loZnhjcGM5UQ==
-  password: ''
+  cipher: aes-256-cfb
+  password: 37Z4TFCYhfxcpc9Q
   udp: true
 - name: 🇱🇹 立陶宛 | vless | 06
   type: vless
@@ -18084,29 +17909,29 @@ proxies:
   type: ss
   server: 185.135.86.175
   port: 9068
-  cipher: YWVzLTI1Ni1jZmI6bXdnUmc5aFJxM2I0UW53Yg==
-  password: ''
+  cipher: aes-256-cfb
+  password: mwgRg9hRq3b4Qnwb
   udp: true
 - name: 🇱🇻 拉脱维亚 | ss | 02
   type: ss
   server: 185.135.86.175
   port: 9086
-  cipher: YWVzLTI1Ni1jZmI6MzdaNFRGQ1loZnhjcGM5UQ==
-  password: ''
+  cipher: aes-256-cfb
+  password: 37Z4TFCYhfxcpc9Q
   udp: true
 - name: 🇱🇻 拉脱维亚 | ss | 03
   type: ss
   server: 185.135.86.175
   port: 9094
-  cipher: YWVzLTI1Ni1jZmI6cnBnYk5uVTlyRERVNGFXWg==
-  password: ''
+  cipher: aes-256-cfb
+  password: rpgbNnU9rDDU4aWZ
   udp: true
 - name: 🇱🇻 拉脱维亚 | ss | 04
   type: ss
   server: 185.135.86.175
   port: 9082
-  cipher: YWVzLTI1Ni1jZmI6NDV4Z01nbTM4NnBqV2pUeA==
-  password: ''
+  cipher: aes-256-cfb
+  password: 45xgMgm386pjWjTx
   udp: true
 - name: 🇱🇻 拉脱维亚 | vless | 05
   type: vless
@@ -19095,13 +18920,6 @@ proxies:
   udp: true
   tls: false
   security: none
-- name: 🇳🇱 荷兰 | ss | 56
-  type: ss
-  server: 108.181.58.239
-  port: 8388
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpDSm1UQ0N4N0x0dWQ
-  password: ''
-  udp: true
 - name: 🇳🇱 荷兰 | vless | 57
   type: vless
   server: 51.15.56.211
@@ -19116,54 +18934,40 @@ proxies:
   udp: true
   tls: false
   security: none
-- name: 🇳🇱 荷兰 | ss | 58
-  type: ss
-  server: 89.125.33.16
-  port: 1234
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpaM2JZYVdmZ0ZvOEstLVI0WlROTFJ3QnZhSkxVeW9VZQ
-  password: ''
-  udp: true
-- name: 🇳🇱 荷兰 | ss | 59
-  type: ss
-  server: 108.181.126.122
-  port: 8388
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpDSm1UQ0N4N0x0dWQ
-  password: ''
-  udp: true
 - name: 🇳🇱 荷兰 | ss | 60
   type: ss
   server: 195.66.27.148
   port: 28709
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpoU2hwMUttME5jRlNtU2lnYzhvemt5
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: hShp1Km0NcFSmSigc8ozky
   udp: true
 - name: 🇳🇱 荷兰 | ss | 61
   type: ss
   server: 188.116.23.244
   port: 8388
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTplVkM2MzRRdlZrNWw=
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: eVC634QvVk5l
   udp: true
 - name: 🇳🇱 荷兰 | ss | 62
   type: ss
   server: 193.0.179.84
   port: 31348
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNToyMUR1Sk9FTXh5ZWZDVWxLM0Vlczh1ckZ6Y3BUdzNYakxXM0w5Tg==
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: 21DuJOEMxyefCUlK3Ees8urFzcpTw3XjLW3L9N
   udp: true
 - name: 🇳🇱 荷兰 | ss | 63
   type: ss
   server: 193.29.139.212
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpRQ1hEeHVEbFRUTUQ3anRnSFVqSW9q
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: QCXDxuDlTTMD7jtgHUjIoj
   udp: true
 - name: 🇳🇱 荷兰 | ss | 64
   type: ss
   server: 193.29.139.167
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
 - name: 🇳🇱 荷兰 | vmess | 65
   type: vmess
@@ -19182,15 +18986,15 @@ proxies:
   type: ss
   server: 193.29.139.132
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
 - name: 🇳🇱 荷兰 | ss | 67
   type: ss
   server: 193.29.139.165
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
 - name: 🇳🇱 荷兰 | vless | 68
   type: vless
@@ -19210,15 +19014,15 @@ proxies:
   type: ss
   server: 193.29.139.198
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTprMWRCT21PQjRvcWk3VW1wMzdhMWJR
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
 - name: 🇳🇱 荷兰 | ss | 70
   type: ss
   server: 193.29.139.144
   port: 8080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpvWklvQTY5UTh5aGNRVjhrYTNQYTNB
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
 - name: 🇳🇱 荷兰 | vless | 71
   type: vless
@@ -21681,8 +21485,8 @@ proxies:
   type: ss
   server: 185.213.23.63
   port: 990
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpBUmd2R1p5d0ErZ2FjZ0dWMjZCdm11MDUrd1ptUlcvaitBZFUrWjhCdDQ0PQ==
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
   udp: true
 - name: 🇳🇴 挪威 | vless | 02
   type: vless
@@ -21919,15 +21723,15 @@ proxies:
   type: ss
   server: 217.30.10.44
   port: 9062
-  cipher: YWVzLTI1Ni1jZmI6dGtoSFZ4eGZNMlFFckJXZQ==
-  password: ''
+  cipher: aes-256-cfb
+  password: tkhHVxxfM2QErBWe
   udp: true
 - name: 🇵🇱 波兰 | ss | 07
   type: ss
   server: 217.30.10.44
   port: 9063
-  cipher: YWVzLTI1Ni1jZmI6YVFxSmJ0d0ZHY0NDYWVMMw==
-  password: ''
+  cipher: aes-256-cfb
+  password: aQqJbtwFGcCCaeL3
   udp: true
 - name: 🇵🇱 波兰 | vless | 08
   type: vless
@@ -21947,36 +21751,36 @@ proxies:
   type: ss
   server: 217.30.10.44
   port: 9076
-  cipher: YWVzLTI1Ni1jZmI6UzJ6RHl5UGNtWk4yaDhFQw==
-  password: ''
+  cipher: aes-256-cfb
+  password: S2zDyyPcmZN2h8EC
   udp: true
 - name: 🇵🇱 波兰 | ss | 10
   type: ss
   server: 217.30.10.44
   port: 9071
-  cipher: YWVzLTI1Ni1jZmI6bUVOZnhURlFwUktLaDRBcw==
-  password: ''
+  cipher: aes-256-cfb
+  password: mENfxTFQpRKKh4As
   udp: true
 - name: 🇵🇱 波兰 | ss | 11
   type: ss
   server: 217.30.10.44
   port: 9041
-  cipher: YWVzLTI1Ni1jZmI6VTZxbllSaGZ5RG1uOHNnbg==
-  password: ''
+  cipher: aes-256-cfb
+  password: U6qnYRhfyDmn8sgn
   udp: true
 - name: 🇵🇱 波兰 | ss | 12
   type: ss
   server: 194.61.121.93
   port: 7538
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpVOVlBb3FCZ2c1VnlHQmM2dlF2MXNO
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: U9YAoqBgg5VyGBc6vQv1sN
   udp: true
 - name: 🇵🇱 波兰 | ss | 13
   type: ss
   server: 217.30.10.44
   port: 9095
-  cipher: YWVzLTI1Ni1jZmI6TjdqM3BkVFlrS21zeThDUg==
-  password: ''
+  cipher: aes-256-cfb
+  password: N7j3pdTYkKmsy8CR
   udp: true
 - name: 🇵🇱 波兰 | vless | 14
   type: vless
@@ -23748,13 +23552,6 @@ proxies:
   udp: true
   tls: true
   security: tls
-- name: 🇷🇺 俄罗斯 | ss | 25
-  type: ss
-  server: 138.124.68.88
-  port: 1443
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpPVGd4Wg
-  password: ''
-  udp: true
 - name: 🇷🇺 俄罗斯 | vless | 26
   type: vless
   server: 178.248.238.133
@@ -28812,8 +28609,8 @@ proxies:
   type: ss
   server: 193.188.21.165
   port: 8390
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpFeUd5MTFCTWZlUC02VUhqc2dhald3
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: EyGy11BMfeP-6UHjsgajWw
   udp: true
 - name: 🇸🇪 瑞典 | vless | 03
   type: vless
@@ -29850,13 +29647,6 @@ proxies:
   udp: true
   security: none
   path: /
-- name: 🇸🇬 新加坡 | ss | 53
-  type: ss
-  server: 146.235.22.59
-  port: 56927
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6TGFxc3ljK3dvMFZxbVBORHdGZW5wNVNBakZtZDlxendkYnRHblNEaDRxUT0
-  password: ''
-  udp: true
 - name: 🇸🇬 新加坡 | vless | 54
   type: vless
   server: 5.223.51.186
@@ -29884,13 +29674,6 @@ proxies:
   udp: true
   security: none
   path: /mehdi
-- name: 🇸🇬 新加坡 | ss | 56
-  type: ss
-  server: 206.189.40.108
-  port: 54898
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpCakVZM3Y1MlhxcVBGUEhFTXN5UEgvekcxQnA2TXl4dDZRNytOeXY5N3g0PQ
-  password: ''
-  udp: true
 - name: 🇸🇬 新加坡 | vmess | 57
   type: vmess
   server: 213.35.103.177
@@ -30010,19 +29793,12 @@ proxies:
   udp: true
   security: none
   path: /
-- name: 🇸🇬 新加坡 | ss | 66
-  type: ss
-  server: 161.118.203.141
-  port: 56927
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6RjJNMTJ6dHdTK3p4czJMVDUrVkRpSHQzRnVoYnV6Qk1ZUmlzd1FNOGI3ND0
-  password: ''
-  udp: true
 - name: 🇸🇬 新加坡 | ss | 67
   type: ss
   server: 139.180.133.90
   port: 80
-  cipher: YWVzLTI1Ni1nY206alNVN2JHS3VwUTk2WUZ2Zg==
-  password: ''
+  cipher: aes-256-gcm
+  password: jSU7bGKupQ96YFvf
   udp: true
 - name: 🇸🇬 新加坡 | vmess | 68
   type: vmess
@@ -30051,13 +29827,6 @@ proxies:
   udp: true
   tls: false
   security: none
-- name: 🇸🇬 新加坡 | ss | 70
-  type: ss
-  server: 167.150.100.115
-  port: 27755
-  cipher: MjAyMi1ibGFrZTMtYWVzLTI1Ni1nY206Zm52bzgycDl5NEFLeWtaWHlJRnRub2RGeTZmUW1XblZsSTJTdkdsZU9CMD0
-  password: ''
-  udp: true
 - name: 🇸🇬 新加坡 | vmess | 71
   type: vmess
   server: 43.228.126.187
@@ -30070,20 +29839,6 @@ proxies:
   skip-cert-verify: false
   udp: true
   security: none
-- name: 🇸🇬 新加坡 | ss | 72
-  type: ss
-  server: 103.36.91.32
-  port: 8388
-  cipher: Y2hhY2hhMjAtaWV0Zjphc2QxMjM0NTY
-  password: ''
-  udp: true
-- name: 🇸🇬 新加坡 | ss | 73
-  type: ss
-  server: 194.233.94.119
-  port: 80
-  cipher: YWVzLTI1Ni1nY206NVFDZUlLVVpVRXA0bVI5Wg
-  password: ''
-  udp: true
 - name: 🇸🇬 新加坡 | vless | 74
   type: vless
   server: 43.170.8.95
@@ -30169,13 +29924,6 @@ proxies:
   skip-cert-verify: false
   udp: true
   security: none
-- name: 🇹🇭 泰国 | ss | 02
-  type: ss
-  server: 102.129.229.85
-  port: 31700
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpkN3poMmxNclhOSDUrOCs4cEt6bHhpQ1U5Tk4wMjJpaCt1QXl4ajVkNHFvPQ
-  password: ''
-  udp: true
 - name: 🇹🇷 土耳其 | hy2 | 01
   type: hysteria2
   server: 194.135.34.130
@@ -30228,8 +29976,8 @@ proxies:
   type: ss
   server: 62.133.63.169
   port: 37096
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpZNUVKWm9qVk1FTnZrRFZGWWxpRXFF
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: Y5EJZojVMENvkDVFYliEqE
   udp: true
 - name: 🇹🇷 土耳其 | vless | 06
   type: vless
@@ -30263,8 +30011,8 @@ proxies:
   type: ss
   server: 188.41.249.20
   port: 1080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpyWWZpNGNRM3o3enRzN0JPNC1ZOV9B
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: rYfi4cQ3z7zts7BO4-Y9_A
   udp: true
 - name: 🇹🇷 土耳其 | vless | 09
   type: vless
@@ -30529,20 +30277,6 @@ proxies:
   udp: true
   tls: true
   security: tls
-- name: 🇹🇼 台湾 | ss | 08
-  type: ss
-  server: 118.163.198.43
-  port: 2377
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTp0MHNybWR4cm0zeHlqbnZxejlld2x4YjJteXE3cmp1dg
-  password: ''
-  udp: true
-- name: 🇹🇼 台湾 | ss | 09
-  type: ss
-  server: 210.61.187.236
-  port: 2377
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTp0MHNybWR4cm0zeHlqbnZxejlld2x4YjJteXE3cmp1dg
-  password: ''
-  udp: true
 - name: 🇹🇼 台湾 | vmess | 10
   type: vmess
   server: 165.154.195.38
@@ -31759,19 +31493,12 @@ proxies:
   udp: true
   tls: false
   security: none
-- name: 🇺🇸 美国 | ss | 91
-  type: ss
-  server: 23.150.248.20
-  port: 8388
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpxQjJDdjlWSWx1amo
-  password: ''
-  udp: true
 - name: 🇺🇸 美国 | ss | 92
   type: ss
   server: 167.88.62.62
   port: 8080
-  cipher: YWVzLTI1Ni1nY206S2l4THZLendqZWtHMDBybQ==
-  password: ''
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
   udp: true
 - name: 🇺🇸 美国 | vless | 93
   type: vless
@@ -32127,8 +31854,8 @@ proxies:
   type: ss
   server: 167.88.62.68
   port: 8080
-  cipher: YWVzLTI1Ni1nY206S2l4THZLendqZWtHMDBybQ==
-  password: ''
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
   udp: true
 - name: 🇺🇸 美国 | vless | 119
   type: vless
@@ -32468,13 +32195,6 @@ proxies:
   udp: true
   tls: true
   security: tls
-- name: 🇺🇸 美国 | ss | 143
-  type: ss
-  server: 15.204.246.111
-  port: 5498
-  cipher: YWVzLTI1Ni1nY206bEdxczk1UWtGSG8yTlY
-  password: ''
-  udp: true
 - name: 🇺🇸 美国 | vless | 144
   type: vless
   server: 208.103.161.110
@@ -33090,8 +32810,8 @@ proxies:
   type: ss
   server: 142.202.48.52
   port: 8080
-  cipher: YWVzLTI1Ni1nY206S2l4THZLendqZWtHMDBybQ==
-  password: ''
+  cipher: aes-256-gcm
+  password: KixLvKzwjekG00rm
   udp: true
 - name: 🇺🇸 美国 | vless | 189
   type: vless
@@ -33139,8 +32859,8 @@ proxies:
   type: ss
   server: 15.204.246.108
   port: 8881
-  cipher: YWVzLTI1Ni1nY206a0RXdlhZWm9UQmNHa0M0
-  password: ''
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
   udp: true
 - name: 🇺🇸 美国 | vless | 193
   type: vless
@@ -33292,20 +33012,6 @@ proxies:
   udp: true
   tls: false
   security: none
-- name: 🇺🇸 美国 | ss | 204
-  type: ss
-  server: 138.124.123.127
-  port: 1080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpLUzBTdmZvZmh1NXd4TzhlOHlJekV3bnZhdjBZNGdUTQ
-  password: ''
-  udp: true
-- name: 🇺🇸 美国 | ss | 205
-  type: ss
-  server: 108.181.57.93
-  port: 8388
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpSU281MlNieFc0MHI
-  password: ''
-  udp: true
 - name: 🇺🇸 美国 | vmess | 206
   type: vmess
   server: 107.173.27.219
@@ -33324,8 +33030,8 @@ proxies:
   type: ss
   server: 37.120.139.234
   port: 1080
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpWcjA2clVfdjF2RlBZZVhxOXpic0FB
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: Vr06rU_v1vFPYeXq9zbsAA
   udp: true
 - name: 🇺🇸 美国 | vless | 208
   type: vless
@@ -33540,19 +33246,12 @@ proxies:
   security: none
   path: /
   host: 45.77.167.137
-- name: 🇺🇸 美国 | ss | 224
-  type: ss
-  server: 154.12.242.150
-  port: 80
-  cipher: YWVzLTI1Ni1nY206SGk5d2sxNFZudHpHcTdrcQ
-  password: ''
-  udp: true
 - name: 🇺🇸 美国 | ss | 225
   type: ss
   server: 154.53.63.33
   port: 80
-  cipher: YWVzLTI1Ni1nY206c0ZTMzQxZWNlYUlpU20yZA==
-  password: ''
+  cipher: aes-256-gcm
+  password: sFS341eceaIiSm2d
   udp: true
 - name: 🇺🇸 美国 | vless | 226
   type: vless
@@ -33586,8 +33285,8 @@ proxies:
   type: ss
   server: 154.12.240.141
   port: 80
-  cipher: YWVzLTI1Ni1nY206MEExWE1xQ2htVVJ1UkNoZQ==
-  password: ''
+  cipher: aes-256-gcm
+  password: 0A1XMqChmURuRChe
   udp: true
 - name: 🇺🇸 美国 | vless | 229
   type: vless
@@ -33647,8 +33346,8 @@ proxies:
   type: ss
   server: 23.247.137.160
   port: 2377
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTp0MHNybWR4cm0zeHlqbnZxejlld2x4YjJteXE3cmp1dg==
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: t0srmdxrm3xyjnvqz9ewlxb2myq7rjuv
   udp: true
 - name: 🇺🇸 美国 | vless | 234
   type: vless
@@ -33790,13 +33489,6 @@ proxies:
   udp: true
   tls: true
   security: tls
-- name: 🇺🇸 美国 | ss | 244
-  type: ss
-  server: 129.153.74.252
-  port: 50356
-  cipher: MjAyMi1ibGFrZTMtY2hhY2hhMjAtcG9seTEzMDU6anBKeG8zR0JPMFo3a1FqeURMdDBIVGlQdUkrUjVTNlVReG5heGFISlVHZz0
-  password: ''
-  udp: true
 - name: 🇺🇸 美国 | vless | 245
   type: vless
   server: 69.46.46.76
@@ -34029,13 +33721,6 @@ proxies:
   reality-opts:
     public-key: q-3ozCtN4ylZ-ribiIrhIYzMieCnRUvGfS34d_eWmCs
     short-id: 063b573f23a2ee51
-- name: 🇺🇸 美国 | ss | 262
-  type: ss
-  server: 104.128.72.119
-  port: 80
-  cipher: MjAyMi1ibGFrZTMtYWVzLTEyOC1nY206WVRFMVpXVTRaVEV5WmpjM1ltRXpaQT09OlpHWXpPV0prTWpNdE1qazBZUzAwTmc9PQ
-  password: ''
-  udp: true
 - name: 🇺🇸 美国 | vless | 263
   type: vless
   server: 69.46.46.200
@@ -34166,8 +33851,8 @@ proxies:
   type: ss
   server: 167.88.61.50
   port: 3389
-  cipher: YWVzLTI1Ni1nY206WTZSOXBBdHZ4eHptR0M=
-  password: ''
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
   udp: true
 - name: 🇺🇸 美国 | vless | 273
   type: vless
@@ -34456,8 +34141,8 @@ proxies:
   type: ss
   server: 94.72.127.55
   port: 80
-  cipher: YWVzLTI1Ni1nY206a1JLWkUzWmhFQ3dhd3kxTg==
-  password: ''
+  cipher: aes-256-gcm
+  password: kRKZE3ZhECwawy1N
   udp: true
 - name: 🇺🇸 美国 | vless | 294
   type: vless
@@ -34923,8 +34608,8 @@ proxies:
   type: ss
   server: 62.146.171.57
   port: 80
-  cipher: YWVzLTI1Ni1nY206UFN3YXZUSFdEMG5rZmN5Vw==
-  password: ''
+  cipher: aes-256-gcm
+  password: PSwavTHWD0nkfcyW
   udp: true
 - name: 🇺🇸 美国 | vless | 327
   type: vless
@@ -35079,8 +34764,8 @@ proxies:
   type: ss
   server: 94.72.127.58
   port: 80
-  cipher: YWVzLTI1Ni1nY206Z29SejhDVEZFNnpQWlhJQQ==
-  password: ''
+  cipher: aes-256-gcm
+  password: goRz8CTFE6zPZXIA
   udp: true
 - name: 🇺🇸 美国 | vless | 338
   type: vless
@@ -35134,8 +34819,8 @@ proxies:
   type: ss
   server: 154.53.60.212
   port: 80
-  cipher: YWVzLTI1Ni1nY206Tnh2OHlwRXJSZkNTY3pENw==
-  password: ''
+  cipher: aes-256-gcm
+  password: Nxv8ypErRfCSczD7
   udp: true
 - name: 🇺🇸 美国 | vless | 342
   type: vless
@@ -35155,8 +34840,8 @@ proxies:
   type: ss
   server: 167.88.63.59
   port: 443
-  cipher: YWVzLTI1Ni1nY206cEtFVzhKUEJ5VFZUTHRN
-  password: ''
+  cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
   udp: true
 - name: 🇺🇸 美国 | vless | 344
   type: vless
@@ -35975,8 +35660,8 @@ proxies:
   type: ss
   server: 167.88.61.175
   port: 443
-  cipher: YWVzLTI1Ni1nY206cEtFVzhKUEJ5VFZUTHRN
-  password: ''
+  cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
   udp: true
 - name: 🇺🇸 美国 | vless | 400
   type: vless
@@ -36516,8 +36201,8 @@ proxies:
   type: ss
   server: 31.76.82.131
   port: 34260
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpjVEFPYndnNE9XV1hrWkpRczBaZGdD
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: cTAObwg4OWWXkZJQs0ZdgC
   udp: true
 - name: 🇺🇸 美国 | vless | 439
   type: vless
@@ -37483,13 +37168,6 @@ proxies:
   reality-opts:
     public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
     short-id: 48050fab
-- name: 🇺🇸 美国 | ss | 498
-  type: ss
-  server: 166.1.129.245
-  port: 42607
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpmMkZpdnppU29vV01EekU2cDJrQng3cmk3b3dkTFp5UG51UUxQZURoblk4cVhLbTZ6WjRNMzlwb3Y0dzdNZnhSTjVGaldxQzFjQ0E4Z0dvTHBaUVZvdVB0OWNDQTlpZE4
-  password: ''
-  udp: true
 - name: 🇺🇸 美国 | vless | 499
   type: vless
   server: 65.254.242.180
@@ -37542,8 +37220,8 @@ proxies:
   type: ss
   server: 144.31.243.2
   port: 16015
-  cipher: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpKMUludVU2UVJUNUpPaDFtUWZralUy
-  password: ''
+  cipher: chacha20-ietf-poly1305
+  password: J1InuU6QRT5JOh1mQfkjU2
   udp: true
 - name: 🇺🇸 美国 | vless | 503
   type: vless
@@ -41686,8 +41364,8 @@ proxies:
   type: ss
   server: 160.119.251.53
   port: 65443
-  cipher: YWVzLTI1Ni1jZmI6N2VhZGM2ZGJlMmFl
-  password: ''
+  cipher: aes-256-cfb
+  password: 7eadc6dbe2ae
   udp: true
 - name: 🏳️ 未知 | hy2 | 01
   type: hysteria2
@@ -41960,14 +41638,8 @@ proxy-groups:
   - 🇧🇷 巴西 | vmess | 02
   - 🇧🇷 巴西 | vless | 03
   - 🇧🇷 巴西 | vless | 04
-  - 🇧🇷 巴西 | ss | 05
-  - 🇧🇷 巴西 | ss | 06
   - 🇧🇷 巴西 | ss | 07
-  - 🇧🇷 巴西 | ss | 08
-  - 🇧🇷 巴西 | ss | 09
-  - 🇧🇷 巴西 | ss | 10
   - 🇧🇷 巴西 | vless | 11
-  - 🇧🇷 巴西 | ss | 12
   - 🇧🇷 巴西 | vmess | 13
   - 🇧🇷 巴西 | vless | 14
   - 🇧🇾 白俄罗斯 | vless | 01
@@ -41979,7 +41651,6 @@ proxy-groups:
   - 🇨🇦 加拿大 | ss | 05
   - 🇨🇦 加拿大 | ss | 06
   - 🇨🇦 加拿大 | ss | 07
-  - 🇨🇦 加拿大 | ss | 08
   - 🇨🇦 加拿大 | vless | 09
   - 🇨🇦 加拿大 | ss | 10
   - 🇨🇦 加拿大 | vmess | 11
@@ -42145,22 +41816,18 @@ proxy-groups:
   - 🇩🇪 德国 | vless | 38
   - 🇩🇪 德国 | vless | 39
   - 🇩🇪 德国 | vless | 40
-  - 🇩🇪 德国 | ss | 41
   - 🇩🇪 德国 | vmess | 42
   - 🇩🇪 德国 | vmess | 43
-  - 🇩🇪 德国 | ss | 44
   - 🇩🇪 德国 | vless | 45
   - 🇩🇪 德国 | vless | 46
   - 🇩🇪 德国 | ss | 47
   - 🇩🇪 德国 | vless | 48
   - 🇩🇪 德国 | vmess | 49
   - 🇩🇪 德国 | vless | 50
-  - 🇩🇪 德国 | ss | 51
   - 🇩🇪 德国 | vmess | 52
   - 🇩🇪 德国 | vmess | 53
   - 🇩🇪 德国 | vless | 54
   - 🇩🇪 德国 | ss | 55
-  - 🇩🇪 德国 | ss | 56
   - 🇩🇪 德国 | vmess | 57
   - 🇩🇪 德国 | vless | 58
   - 🇩🇪 德国 | ss | 59
@@ -42615,8 +42282,6 @@ proxy-groups:
   - 🇫🇮 芬兰 | hy2 | 14
   - 🇫🇮 芬兰 | vless | 15
   - 🇫🇮 芬兰 | vless | 16
-  - 🇫🇮 芬兰 | ss | 17
-  - 🇫🇮 芬兰 | ss | 18
   - 🇫🇮 芬兰 | vless | 19
   - 🇫🇮 芬兰 | vmess | 20
   - 🇫🇮 芬兰 | vmess | 21
@@ -42683,7 +42348,6 @@ proxy-groups:
   - 🇫🇷 法国 | vless | 13
   - 🇫🇷 法国 | ss | 14
   - 🇫🇷 法国 | vless | 15
-  - 🇫🇷 法国 | ss | 16
   - 🇫🇷 法国 | vless | 17
   - 🇫🇷 法国 | ss | 18
   - 🇫🇷 法国 | vless | 19
@@ -42750,7 +42414,6 @@ proxy-groups:
   - 🇫🇷 法国 | vless | 81
   - 🇫🇷 法国 | vmess | 82
   - 🇫🇷 法国 | vless | 83
-  - 🇫🇷 法国 | ss | 84
   - 🇫🇷 法国 | vless | 85
   - 🇫🇷 法国 | vless | 86
   - 🇫🇷 法国 | vless | 87
@@ -42773,16 +42436,11 @@ proxy-groups:
   - 🇬🇧 英国 | vmess | 11
   - 🇬🇧 英国 | ss | 12
   - 🇬🇧 英国 | vmess | 13
-  - 🇬🇧 英国 | ss | 14
-  - 🇬🇧 英国 | ss | 15
   - 🇬🇧 英国 | ss | 16
   - 🇬🇧 英国 | vless | 17
-  - 🇬🇧 英国 | ss | 18
-  - 🇬🇧 英国 | ss | 19
   - 🇬🇧 英国 | ss | 20
   - 🇬🇧 英国 | ss | 21
   - 🇬🇧 英国 | ss | 22
-  - 🇬🇧 英国 | ss | 23
   - 🇬🇧 英国 | ss | 24
   - 🇬🇧 英国 | ss | 25
   - 🇬🇧 英国 | ss | 26
@@ -42906,7 +42564,6 @@ proxy-groups:
   - 🇮🇱 以色列 | vless | 01
   - 🇮🇳 印度 | hy2 | 01
   - 🇮🇳 印度 | hy2 | 02
-  - 🇮🇳 印度 | ss | 03
   - 🇮🇳 印度 | vmess | 05
   - 🇮🇶 伊拉克 | vless | 01
   - 🇮🇷 伊朗 | vless | 01
@@ -42985,7 +42642,6 @@ proxy-groups:
   - 🇮🇷 伊朗 | vmess | 74
   - 🇮🇹 意大利 | vless | 01
   - 🇮🇹 意大利 | ss | 02
-  - 🇮🇹 意大利 | ss | 03
   - 🇮🇹 意大利 | ss | 04
   - 🇮🇹 意大利 | ss | 05
   - 🇮🇹 意大利 | ss | 06
@@ -43029,7 +42685,6 @@ proxy-groups:
   - 🇯🇵 日本 | vmess | 20
   - 🇯🇵 日本 | vless | 21
   - 🇯🇵 日本 | vmess | 22
-  - 🇯🇵 日本 | ss | 24
   - 🇯🇵 日本 | vless | 25
   - 🇯🇵 日本 | vless | 26
   - 🇯🇵 日本 | vless | 27
@@ -43097,8 +42752,6 @@ proxy-groups:
   - 🇰🇷 韩国 | ss | 14
   - 🇰🇷 韩国 | ss | 15
   - 🇰🇷 韩国 | ss | 16
-  - 🇰🇷 韩国 | ss | 17
-  - 🇰🇷 韩国 | ss | 18
   - 🇰🇷 韩国 | ss | 19
   - 🇰🇷 韩国 | vmess | 20
   - 🇰🇷 韩国 | ss | 21
@@ -43221,10 +42874,7 @@ proxy-groups:
   - 🇳🇱 荷兰 | vmess | 52
   - 🇳🇱 荷兰 | vless | 53
   - 🇳🇱 荷兰 | vless | 54
-  - 🇳🇱 荷兰 | ss | 56
   - 🇳🇱 荷兰 | vless | 57
-  - 🇳🇱 荷兰 | ss | 58
-  - 🇳🇱 荷兰 | ss | 59
   - 🇳🇱 荷兰 | ss | 60
   - 🇳🇱 荷兰 | ss | 61
   - 🇳🇱 荷兰 | ss | 62
@@ -43549,7 +43199,6 @@ proxy-groups:
   - 🇷🇺 俄罗斯 | hy2 | 22
   - 🇷🇺 俄罗斯 | vless | 23
   - 🇷🇺 俄罗斯 | vless | 24
-  - 🇷🇺 俄罗斯 | ss | 25
   - 🇷🇺 俄罗斯 | vless | 26
   - 🇷🇺 俄罗斯 | vless | 27
   - 🇷🇺 俄罗斯 | vless | 28
@@ -43947,10 +43596,8 @@ proxy-groups:
   - 🇸🇬 新加坡 | vmess | 50
   - 🇸🇬 新加坡 | vmess | 51
   - 🇸🇬 新加坡 | vmess | 52
-  - 🇸🇬 新加坡 | ss | 53
   - 🇸🇬 新加坡 | vless | 54
   - 🇸🇬 新加坡 | vmess | 55
-  - 🇸🇬 新加坡 | ss | 56
   - 🇸🇬 新加坡 | vmess | 57
   - 🇸🇬 新加坡 | vmess | 58
   - 🇸🇬 新加坡 | vmess | 59
@@ -43960,21 +43607,16 @@ proxy-groups:
   - 🇸🇬 新加坡 | vmess | 63
   - 🇸🇬 新加坡 | vmess | 64
   - 🇸🇬 新加坡 | vmess | 65
-  - 🇸🇬 新加坡 | ss | 66
   - 🇸🇬 新加坡 | ss | 67
   - 🇸🇬 新加坡 | vmess | 68
   - 🇸🇬 新加坡 | vless | 69
-  - 🇸🇬 新加坡 | ss | 70
   - 🇸🇬 新加坡 | vmess | 71
-  - 🇸🇬 新加坡 | ss | 72
-  - 🇸🇬 新加坡 | ss | 73
   - 🇸🇬 新加坡 | vless | 74
   - 🇸🇮 斯洛文尼亚 | vless | 01
   - 🇸🇰 斯洛伐克 | vless | 01
   - 🇸🇰 斯洛伐克 | vless | 02
   - 🇸🇰 斯洛伐克 | vless | 03
   - 🇹🇭 泰国 | vmess | 01
-  - 🇹🇭 泰国 | ss | 02
   - 🇹🇷 土耳其 | hy2 | 01
   - 🇹🇷 土耳其 | hy2 | 02
   - 🇹🇷 土耳其 | hy2 | 03
@@ -44002,8 +43644,6 @@ proxy-groups:
   - 🇹🇼 台湾 | hy2 | 05
   - 🇹🇼 台湾 | hy2 | 06
   - 🇹🇼 台湾 | hy2 | 07
-  - 🇹🇼 台湾 | ss | 08
-  - 🇹🇼 台湾 | ss | 09
   - 🇹🇼 台湾 | vmess | 10
   - 🇹🇼 台湾 | vless | 11
   - 🇺🇦 乌克兰 | hy2 | 01
@@ -44100,7 +43740,6 @@ proxy-groups:
   - 🇺🇸 美国 | vless | 88
   - 🇺🇸 美国 | vless | 89
   - 🇺🇸 美国 | vless | 90
-  - 🇺🇸 美国 | ss | 91
   - 🇺🇸 美国 | ss | 92
   - 🇺🇸 美国 | vless | 93
   - 🇺🇸 美国 | vless | 94
@@ -44152,7 +43791,6 @@ proxy-groups:
   - 🇺🇸 美国 | vless | 140
   - 🇺🇸 美国 | vless | 141
   - 🇺🇸 美国 | vless | 142
-  - 🇺🇸 美国 | ss | 143
   - 🇺🇸 美国 | vless | 144
   - 🇺🇸 美国 | vless | 145
   - 🇺🇸 美国 | vless | 146
@@ -44213,8 +43851,6 @@ proxy-groups:
   - 🇺🇸 美国 | vless | 201
   - 🇺🇸 美国 | vless | 202
   - 🇺🇸 美国 | vless | 203
-  - 🇺🇸 美国 | ss | 204
-  - 🇺🇸 美国 | ss | 205
   - 🇺🇸 美国 | vmess | 206
   - 🇺🇸 美国 | ss | 207
   - 🇺🇸 美国 | vless | 208
@@ -44233,7 +43869,6 @@ proxy-groups:
   - 🇺🇸 美国 | vless | 221
   - 🇺🇸 美国 | vless | 222
   - 🇺🇸 美国 | vmess | 223
-  - 🇺🇸 美国 | ss | 224
   - 🇺🇸 美国 | ss | 225
   - 🇺🇸 美国 | vless | 226
   - 🇺🇸 美国 | vless | 227
@@ -44253,7 +43888,6 @@ proxy-groups:
   - 🇺🇸 美国 | vless | 241
   - 🇺🇸 美国 | vless | 242
   - 🇺🇸 美国 | vless | 243
-  - 🇺🇸 美国 | ss | 244
   - 🇺🇸 美国 | vless | 245
   - 🇺🇸 美国 | vmess | 246
   - 🇺🇸 美国 | vless | 247
@@ -44271,7 +43905,6 @@ proxy-groups:
   - 🇺🇸 美国 | vless | 259
   - 🇺🇸 美国 | vless | 260
   - 🇺🇸 美国 | vless | 261
-  - 🇺🇸 美国 | ss | 262
   - 🇺🇸 美国 | vless | 263
   - 🇺🇸 美国 | vless | 264
   - 🇺🇸 美国 | vless | 265
@@ -44507,7 +44140,6 @@ proxy-groups:
   - 🇺🇸 美国 | vless | 495
   - 🇺🇸 美国 | vless | 496
   - 🇺🇸 美国 | vless | 497
-  - 🇺🇸 美国 | ss | 498
   - 🇺🇸 美国 | vless | 499
   - 🇺🇸 美国 | vless | 500
   - 🇺🇸 美国 | vless | 501
