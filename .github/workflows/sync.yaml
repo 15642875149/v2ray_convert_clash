@@ -2,8 +2,8 @@ name: 拉取并转换订阅
 
 on:
   schedule:
-    - cron: '0 */2 * * *'   # 每2小时一次
-  workflow_dispatch:        # 手动触发
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
 
 env:
   SOURCE_URL: "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt"
@@ -21,79 +21,64 @@ jobs:
           tar -xzf subconverter.tar.gz
           rm subconverter.tar.gz
 
-      - name: 下载源 Base64 并启动服务
+      - name: 下载并解码源 Base64
         run: |
-          # 1. 下载并去除换行（避免换行干扰）
-          curl -sL "${SOURCE_URL}" | tr -d '\n\r' > base64.txt
-          if [ ! -s base64.txt ]; then
-            echo "❌ 下载失败或为空"
+          # 下载并去除换行，解码为纯文本节点列表
+          curl -sL "${SOURCE_URL}" | tr -d '\n\r' | base64 -d > nodes.txt 2>/dev/null
+          if [ ! -s nodes.txt ]; then
+            echo "❌ 解码失败或文件为空"
             exit 1
           fi
-          echo "✅ Base64 长度: $(wc -c < base64.txt) 字符"
+          echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
+          echo "--- 前200字符 ---"
+          head -c 200 nodes.txt
+          echo ""
 
-          # 2. 启动 subconverter 服务（后台监听 127.0.0.1:25500）
+      - name: 启动本地 HTTP 服务器和 subconverter 服务
+        run: |
+          # 启动 Python 简易 HTTP 服务器（提供 nodes.txt）
+          cd "$(pwd)"
+          python3 -m http.server 8080 --directory . &
+          HTTP_PID=$!
+          echo "HTTP_PID=${HTTP_PID}" >> $GITHUB_ENV
+
+          # 启动 subconverter 服务（默认 25500 端口）
           cd subconverter
           ./subconverter &
+          SC_PID=$!
+          echo "SC_PID=${SC_PID}" >> $GITHUB_ENV
           cd ..
-          # 等待服务完全启动
+
+          # 等待服务完全就绪
           sleep 3
-          echo "✅ subconverter 服务已启动"
+          echo "✅ HTTP 服务器和 subconverter 已启动"
 
-      - name: 调用 API 转换（使用 Python POST 请求）
+      - name: 调用 API 转换
         run: |
-          # 使用 Python 发送 POST 请求，避免命令行长度限制
-          python3 - <<EOF
-          import requests
-          import sys
-          import time
+          # 通过本地 HTTP 服务器提供文件，避免 payload 过大和 file:// 不支持
+          curl -G -s \
+            --data-urlencode "url=http://127.0.0.1:8080/nodes.txt" \
+            --data "target=clash" \
+            --data "type=mixed" \
+            "http://127.0.0.1:25500/get" \
+            -o clash.yaml
 
-          # 读取 Base64 内容
-          with open('base64.txt', 'r') as f:
-              b64 = f.read().strip()
-
-          # 构造 data: URI
-          url_data = f"data:text/plain;base64,{b64}"
-
-          # 发送 POST 请求到 subconverter
-          try:
-              response = requests.post(
-                  'http://127.0.0.1:25500/get',
-                  data={
-                      'url': url_data,
-                      'target': 'clash',
-                      'type': 'mixed'
-                  },
-                  timeout=60
-              )
-          except Exception as e:
-              print(f"❌ 请求失败: {e}")
-              sys.exit(1)
-
-          # 保存响应内容
-          with open('clash.yaml', 'wb') as f:
-              f.write(response.content)
-
-          print(f"✅ 响应状态码: {response.status_code}")
-          print(f"✅ 响应大小: {len(response.content)} 字节")
-          if response.status_code != 200:
-              print(f"⚠️ 非 200 状态，请检查日志")
-              sys.exit(1)
-          EOF
-
-          # 检查生成的文件
+          # 检查是否成功
           if [ ! -s clash.yaml ]; then
-            echo "❌ 转换结果为空，请检查 subconverter 日志"
+            echo "❌ 转换结果为空"
             exit 1
           fi
           if grep -q "proxies:" clash.yaml; then
             echo "✅ 转换成功，文件大小: $(wc -c < clash.yaml) 字节"
           else
-            echo "⚠️ 警告：转换结果可能不是有效 Clash YAML，前200字符："
+            echo "⚠️ 警告：结果可能不是有效 Clash YAML，前200字符："
             head -c 200 clash.yaml
           fi
 
-      - name: 停止 subconverter 服务（清理）
+      - name: 停止服务（清理）
         run: |
+          pkill -P ${{ env.HTTP_PID }} || true
+          kill ${{ env.HTTP_PID }} || true
           pkill subconverter || true
           echo "✅ 服务已停止"
 
