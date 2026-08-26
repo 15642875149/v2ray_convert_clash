@@ -1,4 +1,4 @@
-name: 拉取并转换订阅 (纯解析)
+name: 拉取并转换订阅 (纯解析 + 清洗控制字符)
 
 on:
   schedule:
@@ -27,7 +27,7 @@ jobs:
           fi
           echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
 
-      - name: 自定义解析并生成 Clash YAML
+      - name: 自定义解析并生成 Clash YAML（带清洗）
         run: |
           python3 << 'EOF'
           import re
@@ -36,9 +36,28 @@ jobs:
           import json
           import yaml
 
+          # ---------- 清洗控制字符 ----------
+          def sanitize_string(s):
+              if not isinstance(s, str):
+                  return s
+              # 保留 \t (0x09), \n (0x0a), \r (0x0d)，移除其他控制字符 (0x00-0x08, 0x0b, 0x0c, 0x0e-0x1f)
+              cleaned = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', '', s)
+              # 可选：替换一些不可见的空白为空格
+              return cleaned
+
+          def clean_node(node):
+              # 清洗节点中所有字符串字段
+              for key, value in node.items():
+                  if isinstance(value, str):
+                      node[key] = sanitize_string(value)
+                  elif isinstance(value, dict):
+                      for k, v in value.items():
+                          if isinstance(v, str):
+                              value[k] = sanitize_string(v)
+              return node
+
           # ---------- 辅助：提取纯数字端口 ----------
           def extract_port(host_port_str):
-              # 提取端口号，忽略后面的非数字字符（如 /? 等）
               match = re.search(r'(\d+)', host_port_str)
               return int(match.group(1)) if match else 443
 
@@ -50,14 +69,11 @@ jobs:
                   return None
               uuid = userinfo[0]
               host_part = userinfo[1]
-              # 分离 host 和 port（port 后面可能有 / 或 ? 等）
-              # 用正则匹配 host:port 或 host:port/
               host_match = re.match(r'^([^:]+):([^/]+)(?:/|$)', host_part)
               if host_match:
                   server = host_match.group(1)
                   port = extract_port(host_match.group(2))
               else:
-                  # 可能没有端口，默认 443
                   server = host_part.split(':', 1)[0]
                   port = 443
               params = {}
@@ -68,30 +84,29 @@ jobs:
                       name = urllib.parse.unquote(query[1])
                   params = dict(urllib.parse.parse_qsl(query[0]))
               node = {
-                  'name': name or f"VLESS-{server}",
+                  'name': sanitize_string(name or f"VLESS-{server}"),
                   'type': 'vless',
-                  'server': server,
+                  'server': sanitize_string(server),
                   'port': port,
-                  'uuid': uuid,
+                  'uuid': sanitize_string(uuid),
                   'alterId': 0,
                   'cipher': 'auto',
-                  'network': params.get('type', 'tcp'),
-                  'flow': params.get('flow', ''),
-                  'sni': params.get('sni', ''),
+                  'network': sanitize_string(params.get('type', 'tcp')),
+                  'flow': sanitize_string(params.get('flow', '')),
+                  'sni': sanitize_string(params.get('sni', '')),
                   'skip-cert-verify': params.get('allowInsecure', 'false').lower() == 'true',
                   'udp': True
               }
-              # Reality 处理
               if params.get('security') == 'reality':
                   node['tls'] = True
                   node['security'] = 'reality'
                   ro = {}
                   if 'pbk' in params:
-                      ro['public-key'] = params['pbk']
+                      ro['public-key'] = sanitize_string(params['pbk'])
                   if 'sid' in params:
-                      ro['short-id'] = params['sid']
+                      ro['short-id'] = sanitize_string(params['sid'])
                   elif 'short-id' in params:
-                      ro['short-id'] = params['short-id']
+                      ro['short-id'] = sanitize_string(params['short-id'])
                   if ro:
                       node['reality-opts'] = ro
               elif params.get('security') == 'tls':
@@ -109,25 +124,25 @@ jobs:
                   decoded = base64.b64decode(raw).decode('utf-8')
                   data = json.loads(decoded)
                   node = {
-                      'name': data.get('ps', data.get('add', 'VMESS')),
+                      'name': sanitize_string(data.get('ps', data.get('add', 'VMESS'))),
                       'type': 'vmess',
-                      'server': data.get('add'),
+                      'server': sanitize_string(data.get('add')),
                       'port': int(data.get('port', 443)),
-                      'uuid': data.get('id'),
+                      'uuid': sanitize_string(data.get('id')),
                       'alterId': int(data.get('aid', 0)),
-                      'cipher': data.get('scy', 'auto'),
-                      'network': data.get('net', 'tcp'),
+                      'cipher': sanitize_string(data.get('scy', 'auto')),
+                      'network': sanitize_string(data.get('net', 'tcp')),
                       'tls': data.get('tls', '') in ['tls', 'true', '1'],
                       'skip-cert-verify': data.get('allowInsecure', False),
                       'udp': True
                   }
                   node['security'] = 'tls' if node['tls'] else 'none'
                   if data.get('path'):
-                      node['path'] = data['path']
+                      node['path'] = sanitize_string(data['path'])
                   if data.get('host'):
-                      node['host'] = data['host']
+                      node['host'] = sanitize_string(data['host'])
                   if data.get('sni'):
-                      node['sni'] = data['sni']
+                      node['sni'] = sanitize_string(data['sni'])
                   return node
               except:
                   return None
@@ -146,12 +161,12 @@ jobs:
                       port = extract_port(host_port[1]) if len(host_port) > 1 else 8388
                       name = raw.split('#', 1)[1] if '#' in raw else f"SS-{server}"
                       return {
-                          'name': urllib.parse.unquote(name),
+                          'name': sanitize_string(urllib.parse.unquote(name)),
                           'type': 'ss',
-                          'server': server,
+                          'server': sanitize_string(server),
                           'port': port,
-                          'cipher': method,
-                          'password': password,
+                          'cipher': sanitize_string(method),
+                          'password': sanitize_string(password),
                           'udp': True
                       }
               except:
@@ -167,7 +182,6 @@ jobs:
                       return None
                   password = user_host[0]
                   host_part = user_host[1]
-                  # 处理 host:port 可能带后缀
                   host_match = re.match(r'^([^:]+):([^/]+)(?:/|$)', host_part)
                   if host_match:
                       server = host_match.group(1)
@@ -183,13 +197,13 @@ jobs:
                           name = urllib.parse.unquote(query[1])
                       params = dict(urllib.parse.parse_qsl(query[0]))
                   node = {
-                      'name': name or f"Trojan-{server}",
+                      'name': sanitize_string(name or f"Trojan-{server}"),
                       'type': 'trojan',
-                      'server': server,
+                      'server': sanitize_string(server),
                       'port': port,
-                      'password': password,
-                      'network': params.get('type', 'tcp'),
-                      'sni': params.get('sni', ''),
+                      'password': sanitize_string(password),
+                      'network': sanitize_string(params.get('type', 'tcp')),
+                      'sni': sanitize_string(params.get('sni', '')),
                       'skip-cert-verify': params.get('allowInsecure', 'false').lower() == 'true',
                       'udp': True
                   }
@@ -228,14 +242,14 @@ jobs:
                           name = urllib.parse.unquote(query[1])
                       params = dict(urllib.parse.parse_qsl(query[0]))
                   node = {
-                      'name': name or f"Hysteria2-{server}",
+                      'name': sanitize_string(name or f"Hysteria2-{server}"),
                       'type': 'hysteria2',
-                      'server': server,
+                      'server': sanitize_string(server),
                       'port': port,
-                      'auth': auth,
-                      'obfs': params.get('obfs', ''),
-                      'obfs-password': params.get('obfs-password', ''),
-                      'sni': params.get('sni', ''),
+                      'auth': sanitize_string(auth),
+                      'obfs': sanitize_string(params.get('obfs', '')),
+                      'obfs-password': sanitize_string(params.get('obfs-password', '')),
+                      'sni': sanitize_string(params.get('sni', '')),
                       'skip-cert-verify': params.get('insecure', 'false').lower() == 'true',
                       'udp': True,
                       'tls': True,
@@ -267,6 +281,8 @@ jobs:
                       print(f"⚠️ 未识别的协议: {line[:50]}...")
                       continue
                   if node:
+                      # 清洗所有字符串字段（额外保障）
+                      node = clean_node(node)
                       proxies.append(node)
 
           print(f"✅ 解析到 {len(proxies)} 个节点")
