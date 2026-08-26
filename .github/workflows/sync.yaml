@@ -1,4 +1,4 @@
-name: 拉取并转换订阅 (纯自定义解析 + 修复 SS)
+name: 拉取并转换订阅 (纯自定义解析 + 修复 Reality short-id)
 
 on:
   schedule:
@@ -60,13 +60,10 @@ jobs:
               return int(match.group(1)) if match else 443
 
           def is_base64(s):
-              # 判断字符串是否为 Base64 编码
               if not s:
                   return False
-              # 尝试解码
               try:
                   decoded = base64.b64decode(s).decode('utf-8')
-                  # 如果解码后包含 : 或 @，说明是有效的认证字符串
                   if ':' in decoded or '@' in decoded:
                       return True
                   return False
@@ -75,8 +72,7 @@ jobs:
 
           def decode_base64_auth(s):
               try:
-                  decoded = base64.b64decode(s).decode('utf-8')
-                  return decoded
+                  return base64.b64decode(s).decode('utf-8')
               except:
                   return s
 
@@ -84,25 +80,19 @@ jobs:
           def parse_ss(link):
               try:
                   raw = link[5:]
-
-                  # 提取 name（# 后面的部分）
                   name = ''
                   if '#' in raw:
                       raw, name = raw.split('#', 1)
                       name = sanitize_string(urllib.parse.unquote(name))
 
-                  # 处理无 @ 的情况（整个 URL 是 Base64 编码）
                   if '@' not in raw:
                       try:
                           decoded = base64.b64decode(raw).decode('utf-8')
                           if '@' in decoded:
-                              # 重新构造 auth@host:port
                               raw = decoded
                           else:
-                              # 可能是 method:password:host:port 格式
                               parts = decoded.split(':')
                               if len(parts) >= 4:
-                                  # method:password:host:port
                                   method = parts[0]
                                   password = parts[1]
                                   server = parts[2]
@@ -120,29 +110,24 @@ jobs:
                       except:
                           return None
 
-                  # 按 @ 分割 auth 和 host:port
                   auth_part, host_port = raw.split('@', 1)
 
-                  # 如果 auth_part 是 Base64，解码
                   if is_base64(auth_part):
                       auth_decoded = decode_base64_auth(auth_part)
                       if ':' in auth_decoded:
                           method, password = auth_decoded.split(':', 1)
                       else:
-                          # 解码后可能包含 @，继续处理
                           if '@' in auth_decoded:
                               auth_part, host_port = auth_decoded.split('@', 1)
                               method, password = auth_part.split(':', 1)
                           else:
                               return None
                   else:
-                      # 明文的 method:password
                       if ':' in auth_part:
                           method, password = auth_part.split(':', 1)
                       else:
                           return None
 
-                  # 解析 host:port
                   if ':' in host_port:
                       server, port_str = host_port.split(':', 1)
                       port = extract_port(port_str)
@@ -164,7 +149,7 @@ jobs:
                   print(f"⚠️ SS 解析失败: {link[:50]}... 错误: {e}")
                   return None
 
-          # ---------- 解析 vless ----------
+          # ---------- 修复后的 parse_vless（关键） ----------
           def parse_vless(link):
               parts = link[8:].split('?', 1)
               userinfo = parts[0].split('@', 1)
@@ -186,6 +171,7 @@ jobs:
                   if len(query) > 1:
                       name = urllib.parse.unquote(query[1])
                   params = dict(urllib.parse.parse_qsl(query[0]))
+
               node = {
                   'name': sanitize_string(name or f"VLESS-{server}"),
                   'type': 'vless',
@@ -200,18 +186,38 @@ jobs:
                   'skip-cert-verify': params.get('allowInsecure', 'false').lower() == 'true',
                   'udp': True
               }
+
+              # Reality 处理
               if params.get('security') == 'reality':
                   node['tls'] = True
                   node['security'] = 'reality'
                   ro = {}
-                  if 'pbk' in params:
-                      ro['public-key'] = sanitize_string(params['pbk'])
-                  if 'sid' in params:
-                      ro['short-id'] = sanitize_string(params['sid'])
-                  elif 'short-id' in params:
-                      ro['short-id'] = sanitize_string(params['short-id'])
+                  pbk = params.get('pbk', '')
+                  sid = params.get('sid', '') or params.get('short-id', '')
+
+                  # 验证 pbk：必须存在且非空
+                  if pbk:
+                      ro['public-key'] = sanitize_string(pbk)
+                  else:
+                      # 没有 pbk 的 Reality 节点无法工作，警告但继续（避免报错）
+                      print(f"⚠️ Reality 节点缺少 pbk: {server}，将跳过 reality-opts")
+                      # 仍然设置 tls/security，但不加 reality-opts
+                      node['tls'] = True
+                      node['security'] = 'reality'
+                      return node
+
+                  # 验证 sid：如果存在且非空，才添加 short-id
+                  if sid:
+                      # 某些 sid 可能包含特殊字符，清洗后保留
+                      cleaned_sid = sanitize_string(sid)
+                      if cleaned_sid:
+                          ro['short-id'] = cleaned_sid
+                  # 如果 sid 为空，不添加 short-id 字段（Clash 会使用默认值或忽略）
+
                   if ro:
                       node['reality-opts'] = ro
+                  return node
+
               elif params.get('security') == 'tls':
                   node['tls'] = True
                   node['security'] = 'tls'
@@ -442,7 +448,7 @@ jobs:
       - name: 提交并推送转换结果
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.github.com"
+          git config.user.email "github-actions[bot]@users.github.com"
           git add clash.yaml
           git commit -m "自动同步转换 $(date +'%Y-%m-%d %H:%M')" || echo "内容无变化，跳过提交"
           git push
