@@ -2,35 +2,58 @@ name: 拉取并转换订阅
 
 on:
   schedule:
-    - cron: '0 */2 * * *'   # 每2小时一次
-  workflow_dispatch:        # 手动触发
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
 
 env:
-  # ⚠️ 替换成你的真实 Raw 源地址
   SOURCE_URL: "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt"
 
 jobs:
   convert:
     runs-on: ubuntu-latest
     steps:
-      - name: 检出你的仓库
+      - name: 检出仓库
         uses: actions/checkout@v4
 
-      - name: 下载 subconverter 转换工具
+      - name: 下载 subconverter 工具
         run: |
           wget -L -O subconverter.tar.gz https://github.com/MetaCubeX/subconverter/releases/latest/download/subconverter_linux64.tar.gz
           tar -xzf subconverter.tar.gz
           rm subconverter.tar.gz
 
+      - name: 下载源文件并检查
+        run: |
+          curl -L -o source.txt "${SOURCE_URL}"
+          if [ ! -s source.txt ]; then
+            echo "❌ 源文件为空或下载失败"
+            exit 1
+          fi
+          echo "✅ 源文件大小: $(wc -c < source.txt) 字节"
+          echo "--- 源文件前200字符 ---"
+          head -c 200 source.txt
+          echo -e "\n------------------------"
+
       - name: 执行格式转换（V2Ray → Clash）
         run: |
           cd subconverter
-          # 启动 subconverter 后台服务（默认监听 127.0.0.1:25500）
+          # 启动服务
           ./subconverter &
-          # 等待服务完全启动
           sleep 3
-          # 通过 API 请求转换，结果保存到仓库根目录的 clash.yaml
-          curl -G -s --data-urlencode "url=${SOURCE_URL}" --data "target=clash" "http://127.0.0.1:25500/convert" -o ../clash.yaml
+
+          # 调用 API，并保存详细日志
+          curl -v -G \
+            --data-urlencode "url=${SOURCE_URL}" \
+            --data "target=clash" \
+            "http://127.0.0.1:25500/convert" \
+            -o ../clash.yaml 2>&1 | tee ../curl.log
+
+          # 检查文件是否为空
+          if [ ! -s ../clash.yaml ]; then
+            echo "❌ 转换结果为空，查看 curl 日志："
+            cat ../curl.log
+            exit 1
+          fi
+
           # 停止服务
           pkill subconverter || true
           cd ..
