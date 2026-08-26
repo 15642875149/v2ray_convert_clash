@@ -1,4 +1,4 @@
-name: 拉取并转换订阅 (最终稳定版)
+name: 拉取并转换订阅 (强制清理 short-id)
 
 on:
   schedule:
@@ -189,19 +189,9 @@ jobs:
                   node['security'] = 'reality'
                   ro = {}
                   pbk = params.get('pbk', '')
-                  sid = params.get('sid', '') or params.get('short-id', '')
-
                   if pbk:
                       ro['public-key'] = sanitize_string(pbk)
-                  else:
-                      print(f"⚠️ Reality 节点缺少 pbk: {server}")
-                      return node
-
-                  if sid:
-                      cleaned_sid = sanitize_string(sid)
-                      if cleaned_sid:
-                          ro['short-id'] = cleaned_sid
-
+                  # 注意：这里不处理 sid，全部在后处理中统一清理
                   if ro:
                       node['reality-opts'] = ro
                   return node
@@ -361,8 +351,8 @@ jobs:
               print("❌ 没有解析到任何节点")
               sys.exit(1)
 
-          # ---------- 后处理：强制清理无效 short-id ----------
-          print("\n🔍 清理无效的 short-id...")
+          # ---------- 强制清理所有 short-id ----------
+          print("\n🔍 强制删除所有 VLESS Reality 节点的 short-id...")
           for idx, proxy in enumerate(proxies, start=1):
               if proxy.get('type') != 'vless':
                   continue
@@ -371,31 +361,22 @@ jobs:
                   continue
 
               # 检查 public-key
-              pk = ro.get('public-key')
-              if not pk or not pk.strip():
+              if not ro.get('public-key'):
                   print(f"❌ 节点 {idx} ({proxy.get('name')}) 缺少 public-key，移除 reality-opts")
                   del proxy['reality-opts']
                   continue
 
-              # 检查 short-id
+              # 直接删除 short-id（如果存在）
               if 'short-id' in ro:
-                  sid = ro['short-id']
-                  if isinstance(sid, str):
-                      sid_clean = sid.strip()
-                  else:
-                      sid_clean = str(sid).strip()
-                  if not sid_clean or sid_clean.lower() in ('null', 'none', '0', ''):
-                      del ro['short-id']
-                      print(f"ℹ️ 节点 {idx} ({proxy.get('name')}) 的 short-id 无效，已移除")
-                  else:
-                      ro['short-id'] = sid_clean
+                  del ro['short-id']
+                  print(f"ℹ️ 节点 {idx} ({proxy.get('name')}) 的 short-id 已强制删除")
 
               # 如果 reality-opts 变空，删除它
               if not ro:
                   del proxy['reality-opts']
                   print(f"ℹ️ 节点 {idx} ({proxy.get('name')}) 的 reality-opts 已清空，移除")
 
-              # 标记第 565 个节点
+              # 打印第 565 个节点信息
               if idx == 565:
                   print(f"🔴 第565个节点: {proxy.get('name')} - reality-opts: {proxy.get('reality-opts')}")
 
