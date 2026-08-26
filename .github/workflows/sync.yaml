@@ -23,47 +23,40 @@ jobs:
 
       - name: 下载并解码源 Base64
         run: |
-          # 下载并去除换行，解码为纯文本节点列表
           curl -sL "${SOURCE_URL}" | tr -d '\n\r' | base64 -d > nodes.txt 2>/dev/null
           if [ ! -s nodes.txt ]; then
             echo "❌ 解码失败或文件为空"
             exit 1
           fi
           echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
-          echo "--- 前200字符 ---"
-          head -c 200 nodes.txt
-          echo ""
 
-      - name: 启动本地 HTTP 服务器和 subconverter 服务
+      - name: 启动本地 HTTP 服务器
         run: |
-          # 启动 Python 简易 HTTP 服务器（提供 nodes.txt）
-          cd "$(pwd)"
           python3 -m http.server 8080 --directory . &
-          HTTP_PID=$!
-          echo "HTTP_PID=${HTTP_PID}" >> $GITHUB_ENV
+          echo $! > http.pid
+          sleep 2
 
-          # 启动 subconverter 服务（默认 25500 端口）
+      - name: 生成 pref.ini 并执行转换
+        run: |
           cd subconverter
-          ./subconverter &
-          SC_PID=$!
-          echo "SC_PID=${SC_PID}" >> $GITHUB_ENV
+
+          cat > pref.ini <<EOF
+          [common]
+          api_mode=false
+          default_url=http://127.0.0.1:8080/nodes.txt
+          target=clash
+          # 启用规则模板，确保生成完整 YAML
+          enable_rule_generator=true
+          overwrite_original_rules=true
+          # 分组和规则策略
+          clash_rule_base=https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online.ini
+          EOF
+
+          # 执行转换，输出到根目录
+          ./subconverter -f pref.ini -o ../clash.yaml
           cd ..
 
-          # 等待服务完全就绪
-          sleep 3
-          echo "✅ HTTP 服务器和 subconverter 已启动"
-
-      - name: 调用 API 转换
-        run: |
-          # 通过本地 HTTP 服务器提供文件，避免 payload 过大和 file:// 不支持
-          curl -G -s \
-            --data-urlencode "url=http://127.0.0.1:8080/nodes.txt" \
-            --data "target=clash" \
-            --data "type=mixed" \
-            "http://127.0.0.1:25500/get" \
-            -o clash.yaml
-
-          # 检查是否成功
+          # 验证结果
           if [ ! -s clash.yaml ]; then
             echo "❌ 转换结果为空"
             exit 1
@@ -71,21 +64,19 @@ jobs:
           if grep -q "proxies:" clash.yaml; then
             echo "✅ 转换成功，文件大小: $(wc -c < clash.yaml) 字节"
           else
-            echo "⚠️ 警告：结果可能不是有效 Clash YAML，前200字符："
+            echo "⚠️ 警告：结果可能不是完整 YAML，前200字符："
             head -c 200 clash.yaml
           fi
 
-      - name: 停止服务（清理）
+      - name: 停止 HTTP 服务
         run: |
-          pkill -P ${{ env.HTTP_PID }} || true
-          kill ${{ env.HTTP_PID }} || true
-          pkill subconverter || true
-          echo "✅ 服务已停止"
+          kill $(cat http.pid) 2>/dev/null || true
+          pkill -f "python3 -m http.server" || true
 
-      - name: 提交并推送转换结果
+      - name: 提交并推送
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add clash.yaml
-          git commit -m "自动同步转换 $(date +'%Y-%m-%d %H:%M')" || echo "内容无变化，跳过提交"
+          git commit -m "自动同步转换 $(date +'%Y-%m-%d %H:%M')" || echo "无变化"
           git push
