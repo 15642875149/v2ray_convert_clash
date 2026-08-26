@@ -15561,7 +15561,7 @@ proxies:
   port: 1070
   uuid: d650af9f-bcbf-4c29-bd2b-ea5be51f45d8
   alterId: 0
-  cipher: ''
+  cipher: auto
   network: tcp
   tls: false
   skip-cert-verify: false
@@ -36635,7 +36635,7 @@ proxies:
   port: 38005
   uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
   alterId: 64
-  cipher: ''
+  cipher: auto
   network: ws
   tls: true
   skip-cert-verify: false
