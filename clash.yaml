@@ -4,20 +4,18 @@ proxies:
   server: 130.49.161.70
   port: 443
   auth: /p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR
-  obfs: salamander
-  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
   sni: hy2.aspidnet.xyz
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
 - name: 🇦🇪 阿联酋 | hy2 | 02
   type: hysteria2
   server: 217.60.182.79
   port: 443
   auth: /sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX
-  obfs: ''
-  obfs-password: ''
   sni: cabinet.wwwinternetvideo.click
   skip-cert-verify: false
   udp: true
@@ -28,8 +26,6 @@ proxies:
   server: cabinet.wwwinternetvideo.click
   port: 443
   auth: /sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX
-  obfs: ''
-  obfs-password: ''
   sni: 127.0.0.1
   skip-cert-verify: false
   udp: true
@@ -892,20 +888,18 @@ proxies:
   server: 137.23.2.19
   port: 443
   auth: /b42d90fa667942aebc734d60
-  obfs: salamander
-  obfs-password: b42d90fa667942aebc734d60
   sni: rmgyvpn.rest
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: b42d90fa667942aebc734d60
 - name: 🇦🇺 澳大利亚 | hy2 | 02
   type: hysteria2
   server: vpn-au-002.fastervpn.world
   port: 443
   auth: /H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: vpn-au-002.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -916,8 +910,6 @@ proxies:
   server: vpn-au-001.fastervpn.world
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-au-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -935,8 +927,6 @@ proxies:
   server: 113.30.152.25
   port: 443
   auth: /belgium_hysteria2_fastlane_a118d9y0r
-  obfs: ''
-  obfs-password: ''
   sni: be1.h.fastlanehosting.ru
   skip-cert-verify: false
   udp: true
@@ -1198,8 +1188,6 @@ proxies:
   server: bg185.mechvpn.online
   port: 443
   auth: /53c76647-14d1-4df5-99cb-be99ad2e6bd9
-  obfs: ''
-  obfs-password: ''
   sni: bg185.mechvpn.online
   skip-cert-verify: false
   udp: true
@@ -1575,8 +1563,6 @@ proxies:
   server: vpn-ca-001.fastervpn.world
   port: 443
   auth: /H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: t.me
   skip-cert-verify: false
   udp: true
@@ -1587,20 +1573,18 @@ proxies:
   server: ptserv.accuratenetworkchecker.ir
   port: 36896
   auth: /StableInternet
-  obfs: salamander
-  obfs-password: hmvyfx1tpnz6pp3k
   sni: lms22.gelzaro.ir
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: hmvyfx1tpnz6pp3k
 - name: 🇨🇦 加拿大 | hy2 | 03
   type: hysteria2
   server: vpn-ca-002.fastervpn.world
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-ca-002.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -1907,8 +1891,6 @@ proxies:
   server: 185.191.238.202
   port: 443
   auth: /8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
-  obfs: ''
-  obfs-password: ''
   sni: che01plrhy01.tcp-reset-club.net
   skip-cert-verify: false
   udp: true
@@ -1919,8 +1901,6 @@ proxies:
   server: che01plrhy01.tcp-reset-club.net
   port: 443
   auth: //8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -1931,8 +1911,6 @@ proxies:
   server: 140.238.213.114
   port: 50160
   auth: //84a506ca5aca505696a454d828420b3f
-  obfs: ''
-  obfs-password: ''
   sni: www.bing.com
   skip-cert-verify: false
   udp: true
@@ -1943,8 +1921,6 @@ proxies:
   server: hy2-switzerlandgopota.unlimited-access.ru
   port: 443
   auth: //GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
-  obfs: ''
-  obfs-password: ''
   sni: hy2-switzerlandgopota.unlimited-access.ru
   skip-cert-verify: false
   udp: true
@@ -2250,13 +2226,13 @@ proxies:
   server: 1.1.1.1
   port: 37003
   auth: /TelegramVPNJey
-  obfs: salamander
-  obfs-password: 83v9muumcyikh5ch
   sni: de.jey.cc.cd
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: 83v9muumcyikh5ch
 - name: 🏳️ CF节点 | vmess | 02
   type: vmess
   server: 104.21.238.133
@@ -3020,8 +2996,6 @@ proxies:
   server: xjp1.mangshe.xyz
   port: 2056
   auth: /41f0d6d3-4a45-4635-8225-2abd2284189b
-  obfs: ''
-  obfs-password: ''
   sni: xjp1.mangshe.xyz
   skip-cert-verify: false
   udp: true
@@ -3162,8 +3136,6 @@ proxies:
   server: hys26.wba-pn.ru
   port: 443
   auth: //OD6gGbGU9a
-  obfs: ''
-  obfs-password: ''
   sni: hys26.wba-pn.ru
   skip-cert-verify: false
   udp: true
@@ -3405,8 +3377,6 @@ proxies:
   server: pixelcast.wwwinternetvideo.click
   port: 443
   auth: //2vwMMy8t5Sjl5lfK9dNF1OrU9d0K25V2RNWLbTKwJ6o
-  obfs: ''
-  obfs-password: ''
   sni: pixelcast.wwwinternetvideo.click
   skip-cert-verify: false
   udp: true
@@ -3417,8 +3387,6 @@ proxies:
   server: 144.31.148.87
   port: 443
   auth: /2691cbe7c20cced8b0aeb12c812d09077e5b3eec7669fb8f
-  obfs: ''
-  obfs-password: ''
   sni: replay.wwwinternetvideo.click
   skip-cert-verify: false
   udp: true
@@ -3429,8 +3397,6 @@ proxies:
   server: 89.125.156.80
   port: 443
   auth: /2vwMMy8t5Sjl5lfK9dNF1OrU9d0K25V2RNWLbTKwJ6o
-  obfs: ''
-  obfs-password: ''
   sni: pixelcast.wwwinternetvideo.click
   skip-cert-verify: false
   udp: true
@@ -3441,8 +3407,6 @@ proxies:
   server: fr194.mechvpn.online
   port: 443
   auth: /53c76647-14d1-4df5-99cb-be99ad2e6bd9
-  obfs: ''
-  obfs-password: ''
   sni: fr194.mechvpn.online
   skip-cert-verify: false
   udp: true
@@ -3453,8 +3417,6 @@ proxies:
   server: 37.46.199.229
   port: 443
   auth: /8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
-  obfs: ''
-  obfs-password: ''
   sni: deu0003ntrhy01.tcp-reset-club.net
   skip-cert-verify: false
   udp: true
@@ -3465,20 +3427,18 @@ proxies:
   server: gift-catalog.aroonia.ir
   port: 52000
   auth: /8z2e26xkqsa598s3
-  obfs: salamander
-  obfs-password: 6cmj1dymhm79hopl
   sni: gift-catalog.aroonia.ir
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: 6cmj1dymhm79hopl
 - name: 🇩🇪 德国 | hy2 | 07
   type: hysteria2
   server: ndge4.whit3.net
   port: 443
   auth: /a6cf4b28-ba72-4e8c-90f8-6a884107ab3c
-  obfs: ''
-  obfs-password: ''
   sni: ndge4.whit3.net
   skip-cert-verify: false
   udp: true
@@ -3489,44 +3449,42 @@ proxies:
   server: 181.214.99.162
   port: 35000
   auth: /b4bd0613-ff7c-4f2f-954d-185915e6ddad
-  obfs: salamander
-  obfs-password: '@JavidnamanIran-Javid-SHAH-KingRezaPahlavi'
   sni: api.kermanshahi.org
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: '@JavidnamanIran-Javid-SHAH-KingRezaPahlavi'
 - name: 🇩🇪 德国 | hy2 | 09
   type: hysteria2
   server: 5.175.249.174
   port: 35000
   auth: /b4bd0613-ff7c-4f2f-954d-185915e6ddad
-  obfs: salamander
-  obfs-password: '@JavidnamanIran-Javid-SHAH-KingRezaPahlavi'
   sni: api.kermanshahi.org
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: '@JavidnamanIran-Javid-SHAH-KingRezaPahlavi'
 - name: 🇩🇪 德国 | hy2 | 10
   type: hysteria2
   server: de1.sferavpn.pro
   port: 443
   auth: /cd74c0a406664a5bc0bac098220a2468
-  obfs: salamander
-  obfs-password: 44f1c1e2f8b99e792ceed574627a1eb0
   sni: de1.sferavpn.pro
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: 44f1c1e2f8b99e792ceed574627a1eb0
 - name: 🇩🇪 德国 | hy2 | 11
   type: hysteria2
   server: 194.180.188.104
   port: 8443
   auth: /dsfa_k0123WFzerrf_kZ3490VNb03J_m30_s
-  obfs: ''
-  obfs-password: ''
   sni: keyhop-offshore.roxa.org
   skip-cert-verify: false
   udp: true
@@ -3537,8 +3495,6 @@ proxies:
   server: 194.180.188.97
   port: 8443
   auth: /dsfa_k0123WFzerrf_kZ3490VNb03J_m30_s
-  obfs: ''
-  obfs-password: ''
   sni: keyhop-offshore.roxa.org
   skip-cert-verify: false
   udp: true
@@ -3549,56 +3505,54 @@ proxies:
   server: 45.128.99.14
   port: 8443
   auth: /Germany2026hy
-  obfs: salamander
-  obfs-password: SalamanderDE2026
   sni: de.nobelchat.ru
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: SalamanderDE2026
 - name: 🇩🇪 德国 | hy2 | 14
   type: hysteria2
   server: 179.61.132.96
   port: 8443
   auth: /KevinZakarian
-  obfs: salamander
-  obfs-password: KevinZakarian
   sni: 179.61.132.96
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: KevinZakarian
 - name: 🇩🇪 德国 | hy2 | 15
   type: hysteria2
   server: 31.76.27.23
   port: 37009
   auth: /Telegram%40vpnjey
-  obfs: salamander
-  obfs-password: Telegram@vpnjey
   sni: de.vpnjey.store
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: Telegram@vpnjey
 - name: 🇩🇪 德国 | hy2 | 16
   type: hysteria2
   server: 179.61.251.253
   port: 37003
   auth: /TelegramVPNjey
-  obfs: salamander
-  obfs-password: 83v9muumcyikh5ch
   sni: de.jey.cc.cd
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: 83v9muumcyikh5ch
 - name: 🇩🇪 德国 | hy2 | 17
   type: hysteria2
   server: 130.61.50.75
   port: 6443
   auth: //zhangyang
-  obfs: ''
-  obfs-password: ''
   sni: www.calmloud.com
   skip-cert-verify: false
   udp: true
@@ -3609,8 +3563,6 @@ proxies:
   server: 91.132.160.243
   port: 1935
   auth: //hysteria2_fastlane_fyo5j4e7k%3AAF4HTpKlMZdNBsrVhdwr4GCHNptUaVT0
-  obfs: ''
-  obfs-password: ''
   sni: de6.h.fastlanehosting.ru
   skip-cert-verify: false
   udp: true
@@ -3621,8 +3573,6 @@ proxies:
   server: 144.31.221.57
   port: 443
   auth: //V1UQuwa-4PRIDW2paxrPe58RcxXHPGyFIGS-5QojaM8
-  obfs: ''
-  obfs-password: ''
   sni: player.wwwinternetvideo.click
   skip-cert-verify: false
   udp: true
@@ -3633,8 +3583,6 @@ proxies:
   server: player.wwwinternetvideo.click
   port: 443
   auth: //V1UQuwa-4PRIDW2paxrPe58RcxXHPGyFIGS-5QojaM8
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -3645,8 +3593,6 @@ proxies:
   server: replay.wwwinternetvideo.click
   port: 443
   auth: //2691cbe7c20cced8b0aeb12c812d09077e5b3eec7669fb8f
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -3657,8 +3603,6 @@ proxies:
   server: de2.vpn.legendaah.xyz
   port: 36723
   auth: //Krab9Hyst2_Rk7pQ2xL
-  obfs: ''
-  obfs-password: ''
   sni: 127.0.0.1
   skip-cert-verify: false
   udp: true
@@ -3669,8 +3613,6 @@ proxies:
   server: 13.143.215.1
   port: 25443
   auth: //c0a137ca-08d2-4734-95ed-2131ea6b45d9
-  obfs: ''
-  obfs-password: ''
   sni: cloudrynth.com
   skip-cert-verify: false
   udp: true
@@ -3681,8 +3623,6 @@ proxies:
   server: de.1.22.washing.help
   port: 443
   auth: //umnDU7jgFYUjpVjVM2sW9HL0rRYLJNgzVwRu2HzWEhyZKkRx
-  obfs: ''
-  obfs-password: ''
   sni: germany1.h2corp.local
   skip-cert-verify: false
   udp: true
@@ -3693,8 +3633,6 @@ proxies:
   server: vpn-de-001.fastervpn.world
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-de-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -3705,8 +3643,6 @@ proxies:
   server: dereserv.just-cloud.org
   port: 443
   auth: /d9a3a0a2-3bbf-4c04-9ca6-95c7c8390ae7
-  obfs: ''
-  obfs-password: ''
   sni: 127.0.0.1
   skip-cert-verify: false
   udp: true
@@ -3717,8 +3653,6 @@ proxies:
   server: 95.164.123.231
   port: 36723
   auth: /Krab9Hyst2_Rk7pQ2xL
-  obfs: ''
-  obfs-password: ''
   sni: 95.164.123.231
   skip-cert-verify: false
   udp: true
@@ -3729,8 +3663,6 @@ proxies:
   server: 5.83.129.11
   port: 443
   auth: /umnDU7jgFYUjpVjVM2sW9HL0rRYLJNgzVwRu2HzWEhyZKkRx
-  obfs: ''
-  obfs-password: ''
   sni: germany1.h2corp.local
   skip-cert-verify: false
   udp: true
@@ -3741,56 +3673,54 @@ proxies:
   server: 88.99.86.235
   port: 443
   auth: //7008iSe44g5ddtr4a5621r32o
-  obfs: salamander
-  obfs-password: i35Se47g78ar98o
   sni: ''
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: i35Se47g78ar98o
 - name: 🇩🇪 德国 | hy2 | 31
   type: hysteria2
   server: '[2a01'
   port: 4
   auth: //7008iSe44g5ddtr4a5621r32o
-  obfs: salamander
-  obfs-password: i35Se47g78ar98o
   sni: ''
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: i35Se47g78ar98o
 - name: 🇩🇪 德国 | hy2 | 32
   type: hysteria2
   server: 18.193.90.31
   port: 443
   auth: //Masir_Sefid
-  obfs: salamander
-  obfs-password: Masir_Sefid
   sni: qs.masir-sefid.shop
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: Masir_Sefid
 - name: 🇩🇪 德国 | hy2 | 33
   type: hysteria2
   server: 5.39.252.182
   port: 3898
   auth: //c0a9dd45-fd5a-497b-9e3d-0e3017de6895
-  obfs: salamander
-  obfs-password: M2UyNTc5OWUwYjkyM2Q2OQ==
   sni: ''
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: M2UyNTc5OWUwYjkyM2Q2OQ==
 - name: 🇩🇪 德国 | hy2 | 34
   type: hysteria2
   server: dg2.mangshe.xyz
   port: 2056
   auth: /41f0d6d3-4a45-4635-8225-2abd2284189b
-  obfs: ''
-  obfs-password: ''
   sni: dg2.mangshe.xyz
   skip-cert-verify: false
   udp: true
@@ -9461,13 +9391,13 @@ proxies:
   server: ee1.sferavpn.pro
   port: 443
   auth: /cd74c0a406664a5bc0bac098220a2468
-  obfs: salamander
-  obfs-password: 44f1c1e2f8b99e792ceed574627a1eb0
   sni: ee1.sferavpn.pro
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: 44f1c1e2f8b99e792ceed574627a1eb0
 - name: 🇪🇪 爱沙尼亚 | vless | 02
   type: vless
   server: 95.85.249.1
@@ -10438,20 +10368,18 @@ proxies:
   server: 31.76.80.69
   port: 443
   auth: /6aab8efdf13945829ae3699c342be406
-  obfs: salamander
-  obfs-password: uw9b2qq5rx
   sni: fiproxy1.lockdwn.com
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: uw9b2qq5rx
 - name: 🇫🇮 芬兰 | hy2 | 02
   type: hysteria2
   server: 45.149.147.194
   port: 443
   auth: /becd3b04-62a8-4b74-be67-be746008b4c2
-  obfs: ''
-  obfs-password: ''
   sni: hys-mesh.spliceflowtech.com
   skip-cert-verify: false
   udp: true
@@ -10462,8 +10390,6 @@ proxies:
   server: 138.124.0.168
   port: 8080
   auth: /h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT
-  obfs: ''
-  obfs-password: ''
   sni: hopp-legend-se.roxa.org
   skip-cert-verify: false
   udp: true
@@ -10474,20 +10400,18 @@ proxies:
   server: giftcard.gateway-stream.com
   port: 52001
   auth: /ilkbtuxd94xofam1
-  obfs: salamander
-  obfs-password: fuw2k1ddrouwxr3u
   sni: giftcard.gateway-stream.com
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: fuw2k1ddrouwxr3u
 - name: 🇫🇮 芬兰 | hy2 | 05
   type: hysteria2
   server: giftcard.gateway-stream.com
   port: 52009
   auth: /ilkbtuxd94xofam1
-  obfs: ''
-  obfs-password: ''
   sni: giftcard.gateway-stream.com
   skip-cert-verify: false
   udp: true
@@ -10498,8 +10422,6 @@ proxies:
   server: giftcard.gateway-stream.com
   port: 52067
   auth: /ilkbtuxd94xofam1
-  obfs: ''
-  obfs-password: ''
   sni: giftcard.gateway-stream.com
   skip-cert-verify: false
   udp: true
@@ -10510,68 +10432,66 @@ proxies:
   server: assets.gateway-stream.com
   port: 52009
   auth: /m3bqxk03mg221yi2
-  obfs: salamander
-  obfs-password: kf1lypzqidy6pimt
   sni: assets.gateway-stream.com
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: kf1lypzqidy6pimt
 - name: 🇫🇮 芬兰 | hy2 | 08
   type: hysteria2
   server: assets.gateway-stream.com
   port: 52067
   auth: /m3bqxk03mg221yi2
-  obfs: salamander
-  obfs-password: txwr28j1lntoy0sj
   sni: assets.gateway-stream.com
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: txwr28j1lntoy0sj
 - name: 🇫🇮 芬兰 | hy2 | 09
   type: hysteria2
   server: assets.gateway-stream.com
   port: 52008
   auth: /t8t2qojzsykqazfu
-  obfs: salamander
-  obfs-password: 93lc6r07zfx4crct
   sni: assets.gateway-stream.com
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: 93lc6r07zfx4crct
 - name: 🇫🇮 芬兰 | hy2 | 10
   type: hysteria2
   server: assets.gateway-stream.com
   port: 52026
   auth: /t8t2qojzsykqazfu
-  obfs: salamander
-  obfs-password: d6pv15sghiq1onts
   sni: assets.gateway-stream.com
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: d6pv15sghiq1onts
 - name: 🇫🇮 芬兰 | hy2 | 11
   type: hysteria2
   server: giftcard.gateway-stream.com
   port: 52090
   auth: /xf2ak19a4uajprxg
-  obfs: salamander
-  obfs-password: fuw2k1ddrouwxr3u
   sni: giftcard.gateway-stream.com
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: fuw2k1ddrouwxr3u
 - name: 🇫🇮 芬兰 | hy2 | 12
   type: hysteria2
   server: fast.wwwinternetvideo.click
   port: 443
   auth: //C91FbOXGY9XRymrcEebtax9R1Nj62UizoT8S6kCb7xwey8IE
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -10582,25 +10502,25 @@ proxies:
   server: fiproxy1.lockdwn.com
   port: 443
   auth: /6aab8efdf13945829ae3699c342be406
-  obfs: salamander
-  obfs-password: uw9b2qq5rx
   sni: 127.0.0.1
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: uw9b2qq5rx
 - name: 🇫🇮 芬兰 | hy2 | 14
   type: hysteria2
   server: assets.gateway-stream.com
   port: 52079
   auth: /4z2oldt85p494bgb
-  obfs: salamander
-  obfs-password: gazf7r9a0d4hc5nz
   sni: assets.gateway-stream.com
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: gazf7r9a0d4hc5nz
 - name: 🇫🇮 芬兰 | vless | 15
   type: vless
   server: 5.181.21.9
@@ -11399,8 +11319,6 @@ proxies:
   server: 81.168.62.17
   port: 8443
   auth: //95e8532b-cc69-42d4-9553-e3c23292b15b
-  obfs: ''
-  obfs-password: ''
   sni: 81.168.62.17
   skip-cert-verify: false
   udp: true
@@ -11411,8 +11329,6 @@ proxies:
   server: vpn-fr-002.fastervpn.world
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: 127.0.0.1
   skip-cert-verify: false
   udp: true
@@ -11423,8 +11339,6 @@ proxies:
   server: 62.210.7.139
   port: 60111
   auth: //github.com%2FAlvin9999-newpac%2Ffanqiang
-  obfs: ''
-  obfs-password: ''
   sni: t.me
   skip-cert-verify: false
   udp: true
@@ -11435,8 +11349,6 @@ proxies:
   server: vpn-fr-001.fastervpn.world
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: vpn-fr-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -11447,8 +11359,6 @@ proxies:
   server: 173.212.201.85
   port: 443
   auth: /gf1%3Agfhysteria2024
-  obfs: ''
-  obfs-password: ''
   sni: www.docker.com
   skip-cert-verify: false
   udp: true
@@ -11459,8 +11369,6 @@ proxies:
   server: 62.210.124.146
   port: 22000
   auth: /dongtaiwang.com
-  obfs: ''
-  obfs-password: ''
   sni: www.microsoft.com
   skip-cert-verify: false
   udp: true
@@ -11471,8 +11379,6 @@ proxies:
   server: mg3.mangshe.xyz
   port: 2056
   auth: /41f0d6d3-4a45-4635-8225-2abd2284189b
-  obfs: ''
-  obfs-password: ''
   sni: mg3.mangshe.xyz
   skip-cert-verify: false
   udp: true
@@ -11483,8 +11389,6 @@ proxies:
   server: dora5.api3-max.ru
   port: 443
   auth: /ac7fb60f-0b7a-465d-a002-05160ec04ed6
-  obfs: ''
-  obfs-password: ''
   sni: dora5.api3-max.ru
   skip-cert-verify: false
   udp: true
@@ -11495,8 +11399,6 @@ proxies:
   server: 166.88.228.121
   port: 2052
   auth: //0e66bc71-0649-4fa4-9545-85877514b1ca
-  obfs: ''
-  obfs-password: ''
   sni: fr1.xiaoliyu.us
   skip-cert-verify: false
   udp: true
@@ -11507,8 +11409,6 @@ proxies:
   server: 51.158.54.46
   port: 44550
   auth: //dongtaiwang.com
-  obfs: ''
-  obfs-password: ''
   sni: vkvd127.mycdn.me
   skip-cert-verify: false
   udp: true
@@ -12653,8 +12553,6 @@ proxies:
   server: 94.156.250.67
   port: 55000
   auth: /0bacdaea-099b-462b-b625-d7d44c89aace
-  obfs: ''
-  obfs-password: ''
   sni: www.bing.com
   skip-cert-verify: false
   udp: true
@@ -12665,8 +12563,6 @@ proxies:
   server: uk196.mechvpn.online
   port: 443
   auth: /53c76647-14d1-4df5-99cb-be99ad2e6bd9
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -12677,8 +12573,6 @@ proxies:
   server: vpn-uk-002.fastervpn.world
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-uk-002.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -14013,8 +13907,6 @@ proxies:
   server: swe.frkn.org
   port: 8443
   auth: /3b8c82ed-fe66-472d-915e-034ccb57103f
-  obfs: ''
-  obfs-password: ''
   sni: swe.frkn.org
   skip-cert-verify: false
   udp: true
@@ -14087,8 +13979,6 @@ proxies:
   server: hk2.xiaoliyu.cyou
   port: 4433
   auth: /1427eb10-7529-4d38-a6a2-01b337868b37
-  obfs: ''
-  obfs-password: ''
   sni: hk2.xiaoliyu.cyou
   skip-cert-verify: false
   udp: true
@@ -14099,8 +13989,6 @@ proxies:
   server: 18.162.42.61
   port: 16001
   auth: /9q3Mb0IzSVbnwaqK
-  obfs: ''
-  obfs-password: ''
   sni: hk-ls-r-1.czzhkractqqakfzdmrgd.cc
   skip-cert-verify: false
   udp: true
@@ -14111,8 +13999,6 @@ proxies:
   server: h.zz2233.cyou
   port: 10444
   auth: /f4927789e58bcd24b6f6
-  obfs: ''
-  obfs-password: ''
   sni: h.zz2233.cyou
   skip-cert-verify: false
   udp: true
@@ -14123,8 +14009,6 @@ proxies:
   server: 202.146.222.174
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: https%3a%2f%2ft.me%2foneclickvpnkeys
   skip-cert-verify: false
   udp: true
@@ -14135,8 +14019,6 @@ proxies:
   server: 202.146.222.29
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: https://t.me/wangcai2ð¨ð³
   skip-cert-verify: false
   udp: true
@@ -14147,8 +14029,6 @@ proxies:
   server: 202.146.222.89
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: https%253a%252f%252ft.me%252fclashv8%25f0%259f%2587%25a8%25f0%259f%2587%25b3
   skip-cert-verify: false
   udp: true
@@ -14159,25 +14039,25 @@ proxies:
   server: nas.aizhzo.com
   port: 5010
   auth: /eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ
-  obfs: salamander
-  obfs-password: 7M4RXPFcQyQEGbkxBPfXo4bilMhCW2U9
   sni: 127.0.0.1
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: 7M4RXPFcQyQEGbkxBPfXo4bilMhCW2U9
 - name: 🇭🇰 香港 | hy2 | 08
   type: hysteria2
   server: 212.192.15.239
   port: 1327
   auth: //1c0771a9-126b-40e5-9bc2-653b81b65d03
-  obfs: salamander
-  obfs-password: Y2JhZTU3ZjE4ZTI0MzRmMQ==
   sni: ''
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: Y2JhZTU3ZjE4ZTI0MzRmMQ==
 - name: 🇭🇰 香港 | vmess | 09
   type: vmess
   server: 8.210.206.163
@@ -14418,8 +14298,6 @@ proxies:
   server: 141.11.89.172
   port: 60000
   auth: /87f055ba
-  obfs: ''
-  obfs-password: ''
   sni: www.bing.com
   skip-cert-verify: false
   udp: true
@@ -14475,8 +14353,6 @@ proxies:
   server: 144.24.109.215
   port: 51000
   auth: /91283e34-8674-4961-b202-c3491b72eeb9
-  obfs: ''
-  obfs-password: ''
   sni: cn.cremedelamer.com
   skip-cert-verify: false
   udp: true
@@ -14487,8 +14363,6 @@ proxies:
   server: vpn-in-001.fastervpn.world
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-in-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -15908,8 +15782,6 @@ proxies:
   server: jp.555199.xyz
   port: 20000
   auth: /af9e1b9f-3ee6-4184-a330-bb110419687a
-  obfs: ''
-  obfs-password: ''
   sni: sg.555199.xyz
   skip-cert-verify: false
   udp: true
@@ -15920,8 +15792,6 @@ proxies:
   server: jp.cryptoofarm.com
   port: 443
   auth: /ef18d810-719c-4bf1-83c6-615d01f217eb
-  obfs: ''
-  obfs-password: ''
   sni: jp.cryptoofarm.com
   skip-cert-verify: false
   udp: true
@@ -15932,8 +15802,6 @@ proxies:
   server: 185.39.31.117
   port: 8443
   auth: /Foc_Mcxi45rM9v3ve_N92fdrK_10_Ssc5
-  obfs: ''
-  obfs-password: ''
   sni: grape-beer.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -15944,8 +15812,6 @@ proxies:
   server: 210.231.184.93
   port: 4433
   auth: /sharecentrepro
-  obfs: none
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -15956,8 +15822,6 @@ proxies:
   server: 45.88.43.116
   port: 52454
   auth: //6c077487-06af-4fb1-9e46-d485d98f0a31
-  obfs: ''
-  obfs-password: ''
   sni: www.bing.com
   skip-cert-verify: false
   udp: true
@@ -15968,8 +15832,6 @@ proxies:
   server: freedom.chenlan.top
   port: 12765
   auth: //STYyftThFn
-  obfs: ''
-  obfs-password: ''
   sni: vk.com
   skip-cert-verify: false
   udp: true
@@ -15980,8 +15842,6 @@ proxies:
   server: 185.39.31.40
   port: 8443
   auth: //Foc_Mcxi45rM9v3ve_N92fdrK_10_Ssc5
-  obfs: ''
-  obfs-password: ''
   sni: grape-beer.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -15992,8 +15852,6 @@ proxies:
   server: 185.39.31.111
   port: 8443
   auth: //Foc_Mcxi45rM9v3ve_N92fdrK_10_Ssc5
-  obfs: ''
-  obfs-password: ''
   sni: grape-beer.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -16004,8 +15862,6 @@ proxies:
   server: 43.167.198.167
   port: 443
   auth: /fJT5wNXNkYDvYKKGWUc9f2vd0LvHKSwc
-  obfs: ''
-  obfs-password: ''
   sni: 43.167.198.167
   skip-cert-verify: false
   udp: true
@@ -16016,8 +15872,6 @@ proxies:
   server: 85.121.122.25
   port: 12765
   auth: /STYyftThFn
-  obfs: ''
-  obfs-password: ''
   sni: freedom.chenlan.top
   skip-cert-verify: false
   udp: true
@@ -16028,8 +15882,6 @@ proxies:
   server: 4.190.44.31
   port: 3488
   auth: /aa3c486e-6a1c-470e-b248-e6c55998206d
-  obfs: ''
-  obfs-password: ''
   sni: c1.bestai.beauty
   skip-cert-verify: false
   udp: true
@@ -16040,8 +15892,6 @@ proxies:
   server: dj1.mangshe.xyz
   port: 2052
   auth: //8d320b07-26fc-4a58-9ef8-e443fbd1f056
-  obfs: ''
-  obfs-password: ''
   sni: dj1.mangshe.xyz
   skip-cert-verify: false
   udp: true
@@ -16052,8 +15902,6 @@ proxies:
   server: 52.194.254.229
   port: 3074
   auth: //MTEwODI4OjgyOTE5OjhhNTM2MGIzYjMxMjI5ZDg%3DTG%F0%9F%87%A8%F0%9F%87%B3%20%40WangCai2
-  obfs: ''
-  obfs-password: ''
   sni: TG.@WangCai2
   skip-cert-verify: false
   udp: true
@@ -16064,8 +15912,6 @@ proxies:
   server: vpn-jp-018.fastervpn.world
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-jp-018.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -16076,8 +15922,6 @@ proxies:
   server: vpn-jp-002.fastervpn.world
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-jp-002.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -16088,8 +15932,6 @@ proxies:
   server: vpn-jp-001.fastervpn.world
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-jp-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -16921,8 +16763,6 @@ proxies:
   server: 3.36.96.245
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -16933,8 +16773,6 @@ proxies:
   server: 3.36.93.74
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -16945,8 +16783,6 @@ proxies:
   server: 152.67.200.82
   port: 50160
   auth: //3d7634af8cb2c6cb4bac1c0efad8b43d
-  obfs: ''
-  obfs-password: ''
   sni: 152.67.200.82
   skip-cert-verify: false
   udp: true
@@ -16957,8 +16793,6 @@ proxies:
   server: 152-69-231-175.liao.kdns.fr
   port: 50160
   auth: /1beb216e3f60aea9555dae60d219a5ca
-  obfs: ''
-  obfs-password: ''
   sni: 152-69-231-175.liao.kdns.fr
   skip-cert-verify: false
   udp: true
@@ -16969,8 +16803,6 @@ proxies:
   server: vpn-kr-003.fastervpn.world
   port: 443
   auth: /H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: 127.0.0.1
   skip-cert-verify: false
   udp: true
@@ -16981,8 +16813,6 @@ proxies:
   server: vpn-kr-002.fastervpn.world
   port: 443
   auth: /H7mP2xY9kJ4nQ9wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: vpn-kr-002.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -16993,8 +16823,6 @@ proxies:
   server: vpn-kr-001.fastervpn.world
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-kr-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -17209,8 +17037,6 @@ proxies:
   server: 5.180.27.210
   port: 8443
   auth: //owefv0_92Z540k2F_nx83245_J9130oS_tY
-  obfs: ''
-  obfs-password: ''
   sni: borat-hopp.bumbleshrimp.com
   skip-cert-verify: false
   udp: true
@@ -17221,8 +17047,6 @@ proxies:
   server: kaz0001hy01.packet-drop-society.net
   port: 443
   auth: /eb0e3aec-f67f-4fa2-8577-b0bff0484e77
-  obfs: ''
-  obfs-password: ''
   sni: 127.0.0.1
   skip-cert-verify: false
   udp: true
@@ -17233,8 +17057,6 @@ proxies:
   server: 5.180.27.221
   port: 8443
   auth: /owefv0_92Z540k2F_nx83245_J9130oS_tY
-  obfs: ''
-  obfs-password: ''
   sni: borat-hopp.bumbleshrimp.com
   skip-cert-verify: false
   udp: true
@@ -17245,8 +17067,6 @@ proxies:
   server: 5.180.27.221
   port: 8080
   auth: /owefv0_92Z540k2F_nx83245_J9130oS_tY
-  obfs: ''
-  obfs-password: ''
   sni: borat-hopp.bumbleshrimp.com
   skip-cert-verify: false
   udp: true
@@ -17890,8 +17710,6 @@ proxies:
   server: 103.68.108.25
   port: 443
   auth: //v2meowmeowmeow
-  obfs: ''
-  obfs-password: ''
   sni: google.com
   skip-cert-verify: false
   udp: true
@@ -17942,8 +17760,6 @@ proxies:
   server: olp.crsmaps.com
   port: 443
   auth: /16ab4d4a-fd81-4535-9b7b-346677226ce8
-  obfs: ''
-  obfs-password: ''
   sni: olp.crsmaps.com
   skip-cert-verify: false
   udp: true
@@ -17954,8 +17770,6 @@ proxies:
   server: 177.3.212.155
   port: 443
   auth: /16ab4d4a-fd81-4535-9b7b-346677226ce8
-  obfs: ''
-  obfs-password: ''
   sni: olp.crsmaps.com
   skip-cert-verify: false
   udp: true
@@ -17966,8 +17780,6 @@ proxies:
   server: 79.137.205.35
   port: 10808
   auth: /1f619326-cd93-4d6b-aebe-e0b5f8831d02
-  obfs: ''
-  obfs-password: ''
   sni: nl7.unlockvpn.online
   skip-cert-verify: false
   udp: true
@@ -17978,8 +17790,6 @@ proxies:
   server: nl7.unlockvpn.online
   port: 10808
   auth: /1f619326-cd93-4d6b-aebe-e0b5f8831d02
-  obfs: ''
-  obfs-password: ''
   sni: nl7.unlockvpn.online
   skip-cert-verify: false
   udp: true
@@ -17990,32 +17800,30 @@ proxies:
   server: hysteria.udpgw.com
   port: 8443
   auth: /HowdyHysteria2023w0W
-  obfs: salamander
-  obfs-password: HysteriaHowdy
   sni: sni-here.com
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: HysteriaHowdy
 - name: 🇳🇱 荷兰 | hy2 | 06
   type: hysteria2
   server: 147.45.149.88
   port: 8443
   auth: /NL2026hy
-  obfs: salamander
-  obfs-password: SalamanderNL2026
   sni: nl.nobelchat.ru
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: SalamanderNL2026
 - name: 🇳🇱 荷兰 | hy2 | 07
   type: hysteria2
   server: 201.51.24.4
   port: 443
   auth: /oCYFcbOo8s
-  obfs: ''
-  obfs-password: ''
   sni: hys22.wba-pn.ru
   skip-cert-verify: false
   udp: true
@@ -18026,8 +17834,6 @@ proxies:
   server: 86.107.178.75
   port: 8443
   auth: /Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s
-  obfs: ''
-  obfs-password: ''
   sni: grape-zet-turbo-nl.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -18038,8 +17844,6 @@ proxies:
   server: 86.107.178.78
   port: 8443
   auth: /Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s
-  obfs: ''
-  obfs-password: ''
   sni: hopp-netherland-new.dynuddns.net
   skip-cert-verify: false
   udp: true
@@ -18050,8 +17854,6 @@ proxies:
   server: 46.229.243.132
   port: 8443
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18062,8 +17864,6 @@ proxies:
   server: 46.229.243.139
   port: 8443
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18074,8 +17874,6 @@ proxies:
   server: 46.229.243.141
   port: 8080
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18086,8 +17884,6 @@ proxies:
   server: 46.229.243.142
   port: 8443
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18098,20 +17894,18 @@ proxies:
   server: 206.71.158.37
   port: 35000
   auth: /Yet-Another-Public-Config-1
-  obfs: salamander
-  obfs-password: Yet-Another-Public-Config-1
   sni: YAPC-1.afshin.ir
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: Yet-Another-Public-Config-1
 - name: 🇳🇱 荷兰 | hy2 | 15
   type: hysteria2
   server: 46.229.243.144
   port: 8443
   auth: //s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18122,8 +17916,6 @@ proxies:
   server: 46.229.243.131
   port: 8443
   auth: //s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18134,8 +17926,6 @@ proxies:
   server: 5.129.235.85
   port: 443
   auth: //gf1%3Agfhysteria2024
-  obfs: ''
-  obfs-password: ''
   sni: vk.com
   skip-cert-verify: false
   udp: true
@@ -18146,8 +17936,6 @@ proxies:
   server: srv-5e3ad1.21freedom.net
   port: 11592
   auth: //fe6262e0bf
-  obfs: ''
-  obfs-password: ''
   sni: srv-5e3ad1.21freedom.net
   skip-cert-verify: false
   udp: true
@@ -18158,8 +17946,6 @@ proxies:
   server: hys22.wba-pn.ru
   port: 443
   auth: //oCYFcbOo8s
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -18170,8 +17956,6 @@ proxies:
   server: srvhy1.ezcon24.online
   port: 443
   auth: //76186f1e-3062-4a2b-98c2-fab3c61a9511
-  obfs: ''
-  obfs-password: ''
   sni: srvhy1.ezcon24.online
   skip-cert-verify: false
   udp: true
@@ -18182,8 +17966,6 @@ proxies:
   server: 46.229.243.136
   port: 8080
   auth: //s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18194,8 +17976,6 @@ proxies:
   server: 46.229.243.137
   port: 8080
   auth: //s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18206,8 +17986,6 @@ proxies:
   server: hys13.wba-pn.ru
   port: 443
   auth: //CnVfXXvMzh
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -18218,8 +17996,6 @@ proxies:
   server: 46.229.243.142
   port: 8080
   auth: //s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18230,8 +18006,6 @@ proxies:
   server: 46.229.243.133
   port: 8443
   auth: //s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18242,8 +18016,6 @@ proxies:
   server: 46.229.243.137
   port: 8443
   auth: //s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18254,8 +18026,6 @@ proxies:
   server: 46.229.243.138
   port: 8080
   auth: //s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18266,8 +18036,6 @@ proxies:
   server: 46.229.243.133
   port: 8080
   auth: //s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18278,8 +18046,6 @@ proxies:
   server: hys9.wba-pn.ru
   port: 443
   auth: //wrSuBorIlf
-  obfs: ''
-  obfs-password: ''
   sni: hys9.wba-pn.ru
   skip-cert-verify: false
   udp: true
@@ -18290,8 +18056,6 @@ proxies:
   server: 13.143.217.1
   port: 25443
   auth: //c0a137ca-08d2-4734-95ed-2131ea6b45d9
-  obfs: ''
-  obfs-password: ''
   sni: cloudrynth.com
   skip-cert-verify: false
   udp: true
@@ -18302,8 +18066,6 @@ proxies:
   server: 46.229.243.144
   port: 8080
   auth: //s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18314,8 +18076,6 @@ proxies:
   server: nl01ntrhy01.tcp-reset-club.net
   port: 443
   auth: //8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
-  obfs: ''
-  obfs-password: ''
   sni: nl01ntrhy01.tcp-reset-club.net
   skip-cert-verify: false
   udp: true
@@ -18326,8 +18086,6 @@ proxies:
   server: nl.vpn.legendaah.xyz
   port: 36723
   auth: /Krab9Hyst2_Rk7pQ2xL
-  obfs: ''
-  obfs-password: ''
   sni: www.cloudflare.com
   skip-cert-verify: false
   udp: true
@@ -18338,8 +18096,6 @@ proxies:
   server: 46.229.243.138
   port: 8443
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18350,8 +18106,6 @@ proxies:
   server: 46.229.243.136
   port: 8443
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18362,8 +18116,6 @@ proxies:
   server: 46.229.243.143
   port: 8080
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18374,8 +18126,6 @@ proxies:
   server: hys28.wba-pn.ru
   port: 443
   auth: /BWAFlp8g53
-  obfs: ''
-  obfs-password: ''
   sni: hys28.wba-pn.ru
   skip-cert-verify: false
   udp: true
@@ -18386,8 +18136,6 @@ proxies:
   server: 46.229.243.141
   port: 8443
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18398,8 +18146,6 @@ proxies:
   server: 46.229.243.131
   port: 8080
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18410,8 +18156,6 @@ proxies:
   server: 46.229.243.139
   port: 8080
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18422,8 +18166,6 @@ proxies:
   server: 46.229.243.132
   port: 8080
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18434,8 +18176,6 @@ proxies:
   server: 46.229.243.143
   port: 8443
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18446,8 +18186,6 @@ proxies:
   server: 46.229.243.140
   port: 8443
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18458,8 +18196,6 @@ proxies:
   server: 46.229.243.140
   port: 8080
   auth: /s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z
-  obfs: ''
-  obfs-password: ''
   sni: grape-turbo-fr.roxa.org
   skip-cert-verify: false
   udp: true
@@ -18470,8 +18206,6 @@ proxies:
   server: 216.57.111.222
   port: 8443
   auth: /9dada88d-f8f8-459d-8a4f-4df2c973fe43
-  obfs: ''
-  obfs-password: ''
   sni: h2.ecliptic-it.ru
   skip-cert-verify: false
   udp: true
@@ -18482,8 +18216,6 @@ proxies:
   server: nl9.unlockvpn.online
   port: 10808
   auth: /1f619326-cd93-4d6b-aebe-e0b5f8831d02
-  obfs: ''
-  obfs-password: ''
   sni: nl9.unlockvpn.online
   skip-cert-verify: false
   udp: true
@@ -18494,8 +18226,6 @@ proxies:
   server: 185.92.220.240
   port: 30205
   auth: /8864aa9f-7517-4fd5-aef1-32050eb3095d
-  obfs: ''
-  obfs-password: ''
   sni: net2025.afsharidempire.uk
   skip-cert-verify: false
   udp: true
@@ -21258,8 +20988,6 @@ proxies:
   server: 217.60.33.215
   port: 443
   auth: /865e271f7c97b549b024255c9d02cebe9cc0c2c070a82b1e11bb11b9cd88dd01
-  obfs: ''
-  obfs-password: ''
   sni: streambox.wwwinternetvideo.click
   skip-cert-verify: false
   udp: true
@@ -21270,8 +20998,6 @@ proxies:
   server: streambox.wwwinternetvideo.click
   port: 443
   auth: /865e271f7c97b549b024255c9d02cebe9cc0c2c070a82b1e11bb11b9cd88dd01
-  obfs: ''
-  obfs-password: ''
   sni: streambox.wwwinternetvideo.click
   skip-cert-verify: false
   udp: true
@@ -21282,8 +21008,6 @@ proxies:
   server: 45.192.12.93
   port: 443
   auth: /YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
-  obfs: ''
-  obfs-password: ''
   sni: admin.wwwinternetvideo.click
   skip-cert-verify: false
   udp: true
@@ -21294,8 +21018,6 @@ proxies:
   server: admin.wwwinternetvideo.click
   port: 443
   auth: //YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -22263,8 +21985,6 @@ proxies:
   server: 162.249.124.105
   port: 8080
   auth: /9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: mercedes-grape.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -22275,8 +21995,6 @@ proxies:
   server: 162.249.124.114
   port: 8080
   auth: /9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: hopp-germany-new.ddnsguru.com
   skip-cert-verify: false
   udp: true
@@ -22287,8 +22005,6 @@ proxies:
   server: 85.204.107.169
   port: 8080
   auth: /Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
-  obfs: ''
-  obfs-password: ''
   sni: grape-zet-ro-turbo.bumbleshrimp.com
   skip-cert-verify: false
   udp: true
@@ -22299,8 +22015,6 @@ proxies:
   server: 85.204.107.174
   port: 8080
   auth: /Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
-  obfs: ''
-  obfs-password: ''
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: false
   udp: true
@@ -22311,8 +22025,6 @@ proxies:
   server: 205.237.109.162
   port: 8443
   auth: /Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s
-  obfs: ''
-  obfs-password: ''
   sni: hopp-netherland-new.dynuddns.net
   skip-cert-verify: false
   udp: true
@@ -22323,8 +22035,6 @@ proxies:
   server: 205.237.109.163
   port: 8443
   auth: //Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s
-  obfs: ''
-  obfs-password: ''
   sni: hopp-netherland-new.dynuddns.net
   skip-cert-verify: false
   udp: true
@@ -22335,8 +22045,6 @@ proxies:
   server: 162.249.124.114
   port: 8443
   auth: //9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: hopp-germany-new.ddnsguru.com
   skip-cert-verify: false
   udp: true
@@ -22347,8 +22055,6 @@ proxies:
   server: 205.237.109.164
   port: 8443
   auth: //Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s
-  obfs: ''
-  obfs-password: ''
   sni: hopp-netherland-new.dynuddns.net
   skip-cert-verify: false
   udp: true
@@ -22359,8 +22065,6 @@ proxies:
   server: 162.249.124.113
   port: 8443
   auth: //9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: hopp-germany-new.ddnsguru.com
   skip-cert-verify: false
   udp: true
@@ -22371,8 +22075,6 @@ proxies:
   server: 162.249.124.115
   port: 8443
   auth: //9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: hopp-germany-new.ddnsguru.com
   skip-cert-verify: false
   udp: true
@@ -22383,8 +22085,6 @@ proxies:
   server: 162.249.124.112
   port: 8443
   auth: //9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: hopp-germany-new.ddnsguru.com
   skip-cert-verify: false
   udp: true
@@ -22395,8 +22095,6 @@ proxies:
   server: 85.204.107.173
   port: 8443
   auth: //Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
-  obfs: ''
-  obfs-password: ''
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: false
   udp: true
@@ -22407,8 +22105,6 @@ proxies:
   server: 162.249.124.111
   port: 8443
   auth: //9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: hopp-germany-new.ddnsguru.com
   skip-cert-verify: false
   udp: true
@@ -22419,8 +22115,6 @@ proxies:
   server: 162.249.124.109
   port: 8443
   auth: //9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: hopp-germany-new.ddnsguru.com
   skip-cert-verify: false
   udp: true
@@ -22431,8 +22125,6 @@ proxies:
   server: 162.249.124.108
   port: 8443
   auth: //9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: hopp-germany-new.ddnsguru.com
   skip-cert-verify: false
   udp: true
@@ -22443,8 +22135,6 @@ proxies:
   server: 85.204.107.172
   port: 8443
   auth: //Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
-  obfs: ''
-  obfs-password: ''
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: false
   udp: true
@@ -22455,8 +22145,6 @@ proxies:
   server: 85.204.107.171
   port: 8443
   auth: //Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
-  obfs: ''
-  obfs-password: ''
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: false
   udp: true
@@ -22467,8 +22155,6 @@ proxies:
   server: 162.249.124.115
   port: 8080
   auth: //9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: hopp-germany-new.ddnsguru.com
   skip-cert-verify: false
   udp: true
@@ -22479,8 +22165,6 @@ proxies:
   server: 85.204.107.172
   port: 8080
   auth: //Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
-  obfs: ''
-  obfs-password: ''
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: false
   udp: true
@@ -22491,8 +22175,6 @@ proxies:
   server: 85.204.107.174
   port: 8443
   auth: //Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
-  obfs: ''
-  obfs-password: ''
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: false
   udp: true
@@ -22503,8 +22185,6 @@ proxies:
   server: 85.204.107.171
   port: 8080
   auth: //Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
-  obfs: ''
-  obfs-password: ''
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: false
   udp: true
@@ -22515,8 +22195,6 @@ proxies:
   server: 85.204.107.173
   port: 8080
   auth: //Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
-  obfs: ''
-  obfs-password: ''
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: false
   udp: true
@@ -22527,8 +22205,6 @@ proxies:
   server: 162.249.124.111
   port: 8080
   auth: //9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: hopp-germany-new.ddnsguru.com
   skip-cert-verify: false
   udp: true
@@ -22539,8 +22215,6 @@ proxies:
   server: 162.249.124.112
   port: 8080
   auth: //9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: hopp-germany-new.ddnsguru.com
   skip-cert-verify: false
   udp: true
@@ -22551,8 +22225,6 @@ proxies:
   server: 85.204.107.170
   port: 8443
   auth: /Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
-  obfs: ''
-  obfs-password: ''
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: false
   udp: true
@@ -22563,8 +22235,6 @@ proxies:
   server: rou0001ntrhy01.tcp-reset-club.net
   port: 443
   auth: /8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
-  obfs: ''
-  obfs-password: ''
   sni: rou0001ntrhy01.tcp-reset-club.net
   skip-cert-verify: false
   udp: true
@@ -22575,20 +22245,18 @@ proxies:
   server: hy2.aspidnet.xyz
   port: 443
   auth: /p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR
-  obfs: salamander
-  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
   sni: 127.0.0.1
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
 - name: 🇷🇴 罗马尼亚 | hy2 | 28
   type: hysteria2
   server: 162.249.124.113
   port: 8080
   auth: /9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: hopp-germany-new.ddnsguru.com
   skip-cert-verify: false
   udp: true
@@ -22599,8 +22267,6 @@ proxies:
   server: 185.156.44.99
   port: 443
   auth: /gf1%3Agfhysteria2024
-  obfs: ''
-  obfs-password: ''
   sni: whatsapp.com
   skip-cert-verify: false
   udp: true
@@ -22611,8 +22277,6 @@ proxies:
   server: 85.204.107.175
   port: 8443
   auth: /Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0
-  obfs: ''
-  obfs-password: ''
   sni: hopp-romania-new.roxa.org
   skip-cert-verify: false
   udp: true
@@ -22623,20 +22287,18 @@ proxies:
   server: hy2-new.aspidnet.xyz
   port: 443
   auth: /QCgqi_I4EkV8UR-OgQ_tG4EnVTEVvIyR2GgRBzrIn2s
-  obfs: salamander
-  obfs-password: c1b4086fea89914496c7e10967a419216566
   sni: hy2-new.aspidnet.xyz
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: c1b4086fea89914496c7e10967a419216566
 - name: 🇷🇴 罗马尼亚 | hy2 | 32
   type: hysteria2
   server: 85.120.228.208
   port: 47257
   auth: /35415e5e-3666-4454-8c45-903af0fcddf4
-  obfs: ''
-  obfs-password: ''
   sni: www.bing.com
   skip-cert-verify: false
   udp: true
@@ -22647,8 +22309,6 @@ proxies:
   server: 76.164.202.220
   port: 8443
   auth: //9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z
-  obfs: ''
-  obfs-password: ''
   sni: mercedes-grape.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -22819,8 +22479,6 @@ proxies:
   server: 31.177.111.213
   port: 443
   auth: /2b3e8750-b944-42fc-b36e-ec2c64b48a98
-  obfs: ''
-  obfs-password: ''
   sni: hy222.routeon.pro
   skip-cert-verify: false
   udp: true
@@ -22831,8 +22489,6 @@ proxies:
   server: ru.xiaoliyu.cyou
   port: 4433
   auth: /39b27e20-16f5-45a1-8139-7c9b7f51b6f8
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -22843,20 +22499,18 @@ proxies:
   server: giftcard.gisora.ir
   port: 52000
   auth: /617z9r1mbzbm1t5z
-  obfs: salamander
-  obfs-password: 09p333uviv2qal0y
   sni: giftcard.gisora.ir
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: 09p333uviv2qal0y
 - name: 🇷🇺 俄罗斯 | hy2 | 04
   type: hysteria2
   server: edge.nordcache.ru
   port: 9443
   auth: //1c8206c7-231c-41a8-b807-ad23a354cc69
-  obfs: ''
-  obfs-password: ''
   sni: edge.nordcache.ru
   skip-cert-verify: false
   udp: true
@@ -22867,8 +22521,6 @@ proxies:
   server: 139.28.168.56
   port: 8443
   auth: //0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
-  obfs: ''
-  obfs-password: ''
   sni: grape-honk.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -22879,8 +22531,6 @@ proxies:
   server: 91.196.32.163
   port: 443
   auth: /mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj
-  obfs: ''
-  obfs-password: ''
   sni: 91.196.32.163
   skip-cert-verify: false
   udp: true
@@ -22891,8 +22541,6 @@ proxies:
   server: start.wwwinternetvideo.click
   port: 443
   auth: /C91FbOXGY9XRymrcEebtax9R1Nj62UizoT8S6kCb7xwey8IE
-  obfs: ''
-  obfs-password: ''
   sni: fast.wwwinternetvideo.click
   skip-cert-verify: false
   udp: true
@@ -22903,8 +22551,6 @@ proxies:
   server: 139.28.168.58
   port: 8080
   auth: /0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
-  obfs: ''
-  obfs-password: ''
   sni: grape-honk.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -22915,8 +22561,6 @@ proxies:
   server: 139.28.168.57
   port: 9080
   auth: /0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
-  obfs: ''
-  obfs-password: ''
   sni: grape-honk.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -22927,8 +22571,6 @@ proxies:
   server: 139.28.168.54
   port: 8080
   auth: /0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
-  obfs: ''
-  obfs-password: ''
   sni: grape-honk.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -22939,8 +22581,6 @@ proxies:
   server: 139.28.168.55
   port: 9080
   auth: /0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
-  obfs: ''
-  obfs-password: ''
   sni: grape-honk.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -22951,8 +22591,6 @@ proxies:
   server: 139.28.168.54
   port: 9080
   auth: /0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8
-  obfs: ''
-  obfs-password: ''
   sni: grape-honk.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -22963,8 +22601,6 @@ proxies:
   server: srv-17e124.21freedom.net
   port: 11592
   auth: /41edb44c8e
-  obfs: ''
-  obfs-password: ''
   sni: 127.0.0.1
   skip-cert-verify: false
   udp: true
@@ -22975,8 +22611,6 @@ proxies:
   server: 78.159.240.215
   port: 443
   auth: /c2948c84-748f-47f6-bc7a-b949ef279f85
-  obfs: ''
-  obfs-password: ''
   sni: quic.tyr-agentstvo.tech
   skip-cert-verify: false
   udp: true
@@ -22987,68 +22621,66 @@ proxies:
   server: 176.32.33.124
   port: 2453
   auth: //1f3ac74c-0c5a-4fb3-a5c4-f024421c07c5
-  obfs: salamander
-  obfs-password: NWFiMGE5MDNlNmI5YWY1MA==
   sni: ''
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: NWFiMGE5MDNlNmI5YWY1MA==
 - name: 🇷🇺 俄罗斯 | hy2 | 16
   type: hysteria2
   server: 176.32.33.158
   port: 1200
   auth: //93bf0c2d-674b-44fa-bbac-9002a227a15b
-  obfs: salamander
-  obfs-password: NDhhNmY5YTY0MGYzOTgxYQ==
   sni: ''
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: NDhhNmY5YTY0MGYzOTgxYQ==
 - name: 🇷🇺 俄罗斯 | hy2 | 17
   type: hysteria2
   server: 46.29.161.15
   port: 2453
   auth: //b49a4240-f3a9-4785-8496-0d5637ba4d18
-  obfs: salamander
-  obfs-password: NWFiMGE5MDNlNmI5YWY1MA==
   sni: ''
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: NWFiMGE5MDNlNmI5YWY1MA==
 - name: 🇷🇺 俄罗斯 | hy2 | 18
   type: hysteria2
   server: 46.29.161.159
   port: 1200
   auth: //4c918b8f-9880-4937-a7ad-09364f70563d
-  obfs: salamander
-  obfs-password: NDhhNmY5YTY0MGYzOTgxYQ==
   sni: ''
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: NDhhNmY5YTY0MGYzOTgxYQ==
 - name: 🇷🇺 俄罗斯 | hy2 | 19
   type: hysteria2
   server: 46.29.161.224
   port: 1200
   auth: //2587fadf-62c1-4193-a26f-43044666ee71
-  obfs: salamander
-  obfs-password: NDhhNmY5YTY0MGYzOTgxYQ==
   sni: ''
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: NDhhNmY5YTY0MGYzOTgxYQ==
 - name: 🇷🇺 俄罗斯 | hy2 | 20
   type: hysteria2
   server: 46.17.41.217
   port: 30033
   auth: /dongtaiwang.com
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -23059,8 +22691,6 @@ proxies:
   server: 213.183.48.11
   port: 40443
   auth: //64009609-40ca-4955-82b7-45ff8daeeb2c
-  obfs: ''
-  obfs-password: ''
   sni: speedtest.realityforus.com
   skip-cert-verify: false
   udp: true
@@ -23071,13 +22701,13 @@ proxies:
   server: 194.87.68.196
   port: 13167
   auth: //756d4fb3-8fa0-454c-bd32-1982d956a477
-  obfs: salamander
-  obfs-password: MzliZDM5MDFhYmFlNTAyMA==
   sni: ''
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: MzliZDM5MDFhYmFlNTAyMA==
 - name: 🇷🇺 俄罗斯 | vless | 23
   type: vless
   server: 45.67.215.4
@@ -27964,13 +27594,13 @@ proxies:
   server: 77.110.96.201
   port: 36264
   auth: /Telegram%40vpnjey
-  obfs: salamander
-  obfs-password: Telegram@vpnjey
   sni: se.vpnjey2.dpdns.org
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: Telegram@vpnjey
 - name: 🇸🇪 瑞典 | ss | 02
   type: ss
   server: 193.188.21.165
@@ -28371,8 +28001,6 @@ proxies:
   server: sg.555199.xyz
   port: 5000
   auth: /af9e1b9f-3ee6-4184-a330-bb110419687a
-  obfs: ''
-  obfs-password: ''
   sni: sg.555199.xyz
   skip-cert-verify: false
   udp: true
@@ -28383,8 +28011,6 @@ proxies:
   server: 13.229.82.184
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28395,8 +28021,6 @@ proxies:
   server: 47.129.155.42
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28407,8 +28031,6 @@ proxies:
   server: 54.254.190.23
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28419,20 +28041,18 @@ proxies:
   server: 18.136.199.31
   port: 12451
   auth: /VL0N0IPJ5Tqj672H7FsxYw%3D%3D
-  obfs: salamander
-  obfs-password: MBd0Kzj3ZcY3
   sni: c.hbapp.xyz
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: MBd0Kzj3ZcY3
 - name: 🇸🇬 新加坡 | hy2 | 06
   type: hysteria2
   server: vip-sg-2.hkd4fwmg.vip
   port: 55793
   auth: /ZYTopBPE6fGijECIcT3KxqFEpjQJ44ND
-  obfs: ''
-  obfs-password: ''
   sni: vip-sg-2.hkd4fwmg.vip
   skip-cert-verify: false
   udp: true
@@ -28443,8 +28063,6 @@ proxies:
   server: 54.254.241.184
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: css.rbxcdn.com
   skip-cert-verify: false
   udp: true
@@ -28455,8 +28073,6 @@ proxies:
   server: 18.143.170.35
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: css.rbxcdn.com
   skip-cert-verify: false
   udp: true
@@ -28467,8 +28083,6 @@ proxies:
   server: 13.212.52.5
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vk.com
   skip-cert-verify: false
   udp: true
@@ -28479,8 +28093,6 @@ proxies:
   server: 18.141.233.65
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: google.com
   skip-cert-verify: false
   udp: true
@@ -28491,8 +28103,6 @@ proxies:
   server: 47.128.224.158
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: speedtest.tinkoff.ru
   skip-cert-verify: false
   udp: true
@@ -28503,8 +28113,6 @@ proxies:
   server: 13.212.191.206
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: speedtest.tinkoff.ru
   skip-cert-verify: false
   udp: true
@@ -28515,8 +28123,6 @@ proxies:
   server: 54.254.157.26
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: speedtest.tinkoff.ru
   skip-cert-verify: false
   udp: true
@@ -28527,8 +28133,6 @@ proxies:
   server: 52.221.227.91
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: css.rbxcdn.com
   skip-cert-verify: false
   udp: true
@@ -28539,8 +28143,6 @@ proxies:
   server: 13.228.168.117
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: t.me
   skip-cert-verify: false
   udp: true
@@ -28551,8 +28153,6 @@ proxies:
   server: 54.255.1.222
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: speedtest.tinkoff.ru
   skip-cert-verify: false
   udp: true
@@ -28563,8 +28163,6 @@ proxies:
   server: 13.250.120.9
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vk.com
   skip-cert-verify: false
   udp: true
@@ -28575,8 +28173,6 @@ proxies:
   server: 13.212.75.123
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28587,8 +28183,6 @@ proxies:
   server: 43.156.90.144
   port: 34567
   auth: //P6qkAwznuC076mbIR2cGPg%3D%3D
-  obfs: ''
-  obfs-password: ''
   sni: 43.156.90.144
   skip-cert-verify: false
   udp: true
@@ -28599,8 +28193,6 @@ proxies:
   server: 13.212.32.171
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28611,8 +28203,6 @@ proxies:
   server: 54.254.198.250
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vk.com
   skip-cert-verify: false
   udp: true
@@ -28623,8 +28213,6 @@ proxies:
   server: vpn-sg-002.fastervpn.world
   port: 443
   auth: //H7mP2xY9kJ4nQ9wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: google.com
   skip-cert-verify: false
   udp: true
@@ -28635,8 +28223,6 @@ proxies:
   server: 134.185.87.191
   port: 443
   auth: //b492c1192f7aa3433c9818baf5ebb4ff
-  obfs: ''
-  obfs-password: ''
   sni: sb.jmx666.eu.cc
   skip-cert-verify: false
   udp: true
@@ -28647,8 +28233,6 @@ proxies:
   server: 52.221.225.195
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28659,8 +28243,6 @@ proxies:
   server: 47.129.98.169
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28671,8 +28253,6 @@ proxies:
   server: 13.229.54.166
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28683,8 +28263,6 @@ proxies:
   server: sg1.xiaoliyu.cyou
   port: 1933
   auth: //39b27e20-16f5-45a1-8139-7c9b7f51b6f8
-  obfs: ''
-  obfs-password: ''
   sni: sg1.xiaoliyu.cyou
   skip-cert-verify: false
   udp: true
@@ -28695,8 +28273,6 @@ proxies:
   server: 18.143.149.2
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28707,8 +28283,6 @@ proxies:
   server: 13.212.83.43
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28719,8 +28293,6 @@ proxies:
   server: 52.76.37.112
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28731,8 +28303,6 @@ proxies:
   server: vpn-sg-001.fastervpn.world
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28743,8 +28313,6 @@ proxies:
   server: 47.129.241.226
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28755,8 +28323,6 @@ proxies:
   server: 54.151.142.26
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28767,8 +28333,6 @@ proxies:
   server: 47.129.185.226
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28779,8 +28343,6 @@ proxies:
   server: 52.221.248.75
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28791,8 +28353,6 @@ proxies:
   server: 18.143.134.50
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28803,8 +28363,6 @@ proxies:
   server: 13.212.76.106
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28815,8 +28373,6 @@ proxies:
   server: 13.212.193.153
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28827,8 +28383,6 @@ proxies:
   server: 13.212.10.50
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28839,8 +28393,6 @@ proxies:
   server: 13.212.74.81
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28851,8 +28403,6 @@ proxies:
   server: 47.129.189.148
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-sg-001.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -28863,8 +28413,6 @@ proxies:
   server: 3.1.217.51
   port: 5475
   auth: //84854B66-8478-4B87-8C0D-CD1699426C41
-  obfs: ''
-  obfs-password: ''
   sni: sg3.ddns-link-b5.uk
   skip-cert-verify: false
   udp: true
@@ -28875,8 +28423,6 @@ proxies:
   server: hkt05.769970.xyz
   port: 8080
   auth: //aecd8c25-fd16-42a3-aefb-89c89557828f
-  obfs: ''
-  obfs-password: ''
   sni: hkt05.769970.xyz
   skip-cert-verify: false
   udp: true
@@ -28887,8 +28433,6 @@ proxies:
   server: sg2.xiaoliyu.cyou
   port: 1935
   auth: //1427eb10-7529-4d38-a6a2-01b337868b37
-  obfs: ''
-  obfs-password: ''
   sni: sg2.xiaoliyu.cyou
   skip-cert-verify: false
   udp: true
@@ -29282,8 +28826,6 @@ proxies:
   server: 194.135.34.130
   port: 443
   auth: /1ba59989-225e-4f1c-ab62-9bd7366009cb
-  obfs: ''
-  obfs-password: ''
   sni: 194.135.34.130
   skip-cert-verify: false
   udp: true
@@ -29294,32 +28836,30 @@ proxies:
   server: 198.105.123.106
   port: 11504
   auth: /%40Tel%40Configvibes
-  obfs: salamander
-  obfs-password: Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------
   sni: archive.ubuntu.com
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------
 - name: 🇹🇷 土耳其 | hy2 | 03
   type: hysteria2
   server: 45.92.219.237
   port: 8486
   auth: /%40Telegram%40Configvibes
-  obfs: salamander
-  obfs-password: Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------
   sni: ftp.debian.org
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------Configvibes------
 - name: 🇹🇷 土耳其 | hy2 | 04
   type: hysteria2
   server: 194.135.34.207
   port: 443
   auth: /1ba59989-225e-4f1c-ab62-9bd7366009cb
-  obfs: ''
-  obfs-password: ''
   sni: 194.135.34.207
   skip-cert-verify: false
   udp: true
@@ -29547,8 +29087,6 @@ proxies:
   server: 103.115.109.49
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: https%3a%2f%2ft.me%2fwangcai2%f0%9f%87%a8%f0%9f%87%b3
   skip-cert-verify: false
   udp: true
@@ -29559,8 +29097,6 @@ proxies:
   server: 160.187.100.109
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -29571,8 +29107,6 @@ proxies:
   server: 85.237.207.49
   port: 50160
   auth: //a56619e2bed91121eabb97d20be207c3
-  obfs: ''
-  obfs-password: ''
   sni: 85-237-207-49.liao.kdns.fr
   skip-cert-verify: false
   udp: true
@@ -29583,8 +29117,6 @@ proxies:
   server: vpn-tw-002.fastervpn.world
   port: 443
   auth: /H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: 127.0.0.1
   skip-cert-verify: false
   udp: true
@@ -29595,8 +29127,6 @@ proxies:
   server: 60.249.3.228
   port: 3074
   auth: //MTEwODI4OjgyOTE5OjhhNTM2MGIzYjMxMjI5ZDg%3DTG%20%40WangCai2
-  obfs: ''
-  obfs-password: ''
   sni: TG.@WangCai2
   skip-cert-verify: false
   udp: true
@@ -29607,8 +29137,6 @@ proxies:
   server: 1.162.146.24
   port: 51057
   auth: //29ac9b7e-b5ef-42e6-8c11-00441d6af76f
-  obfs: ''
-  obfs-password: ''
   sni: tw.trojan.tel
   skip-cert-verify: false
   udp: true
@@ -29619,8 +29147,6 @@ proxies:
   server: tw5.459921.xyz
   port: 30001
   auth: /8d9ddfb4-7583-45b3-acf1-5343db385a38
-  obfs: ''
-  obfs-password: ''
   sni: localhost
   skip-cert-verify: false
   udp: true
@@ -29657,8 +29183,6 @@ proxies:
   server: hy2-germany.unlimited-access.ru
   port: 8443
   auth: /GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
-  obfs: ''
-  obfs-password: ''
   sni: hy2-germany.unlimited-access.ru
   skip-cert-verify: false
   udp: true
@@ -29669,8 +29193,6 @@ proxies:
   server: 193.41.5.243
   port: 8443
   auth: //GSPOBvG-ZwYcBFMr0ekFGO_Zga3wK6v_
-  obfs: ''
-  obfs-password: ''
   sni: hy2-germany.unlimited-access.ru
   skip-cert-verify: false
   udp: true
@@ -29711,8 +29233,6 @@ proxies:
   server: do.aigh.store
   port: 10929
   auth: /17aVvwmiSU
-  obfs: ''
-  obfs-password: ''
   sni: do.aigh.store
   skip-cert-verify: false
   udp: true
@@ -29723,8 +29243,6 @@ proxies:
   server: 31.76.70.109
   port: 8443
   auth: /83deb5ce-cd1c-41a6-8ec5-2ebc91f6f861
-  obfs: ''
-  obfs-password: ''
   sni: quic.tyr-agentstvo.tech
   skip-cert-verify: false
   udp: true
@@ -29735,8 +29253,6 @@ proxies:
   server: 31.76.22.210
   port: 443
   auth: /8674df07-56b3-43ea-b687-aef2b1a20137
-  obfs: ''
-  obfs-password: ''
   sni: crt.ultimagamest.com
   skip-cert-verify: false
   udp: true
@@ -29747,20 +29263,18 @@ proxies:
   server: nl1.sferavpn.pro
   port: 443
   auth: /cd74c0a406664a5bc0bac098220a2468
-  obfs: salamander
-  obfs-password: 44f1c1e2f8b99e792ceed574627a1eb0
   sni: nl1.sferavpn.pro
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: 44f1c1e2f8b99e792ceed574627a1eb0
 - name: 🇺🇸 美国 | hy2 | 05
   type: hysteria2
   server: uswx4.wxgqlfx.vip
   port: 11683
   auth: /fe475179-d8a8-420d-a4ac-3e415ed8dc72
-  obfs: ''
-  obfs-password: ''
   sni: 144.225.187.153
   skip-cert-verify: false
   udp: true
@@ -29771,8 +29285,6 @@ proxies:
   server: 222.167.212.81
   port: 8080
   auth: /h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT
-  obfs: ''
-  obfs-password: ''
   sni: hopp-legend-se.roxa.org
   skip-cert-verify: false
   udp: true
@@ -29783,8 +29295,6 @@ proxies:
   server: 222.167.212.82
   port: 8443
   auth: /h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT
-  obfs: ''
-  obfs-password: ''
   sni: hopp-legend-se.roxa.org
   skip-cert-verify: false
   udp: true
@@ -29795,8 +29305,6 @@ proxies:
   server: 54.213.89.22
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vk.com
   skip-cert-verify: false
   udp: true
@@ -29807,8 +29315,6 @@ proxies:
   server: twgcp.sharecentre.online
   port: 4433
   auth: /sharecentrepro
-  obfs: none
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -29819,8 +29325,6 @@ proxies:
   server: faq.wwwinternetvideo.click
   port: 443
   auth: /sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX
-  obfs: ''
-  obfs-password: ''
   sni: cabinet.wwwinternetvideo.click
   skip-cert-verify: false
   udp: true
@@ -29831,8 +29335,6 @@ proxies:
   server: 82.39.214.98
   port: 8080
   auth: /VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC
-  obfs: ''
-  obfs-password: ''
   sni: hopp-us.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -29843,8 +29345,6 @@ proxies:
   server: go.wwwinternetvideo.click
   port: 443
   auth: /YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc
-  obfs: ''
-  obfs-password: ''
   sni: admin.wwwinternetvideo.click
   skip-cert-verify: false
   udp: true
@@ -29855,8 +29355,6 @@ proxies:
   server: srv-12c1e0.21freedom.net
   port: 11592
   auth: //49f8bb8047
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -29867,8 +29365,6 @@ proxies:
   server: 154-49-127-140.liao.kdns.fr
   port: 50160
   auth: //2630a66444286f47ce591752f28adf5e
-  obfs: ''
-  obfs-password: ''
   sni: 154-49-127-140.liao.kdns.fr
   skip-cert-verify: false
   udp: true
@@ -29879,8 +29375,6 @@ proxies:
   server: 107-172-212-12.liao.kdns.fr
   port: 50160
   auth: //c85bd762dc136495ddc02b30b0b7c5c5
-  obfs: ''
-  obfs-password: ''
   sni: 107-172-212-12.liao.kdns.fr
   skip-cert-verify: false
   udp: true
@@ -29891,8 +29385,6 @@ proxies:
   server: 44.255.13.86
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: whatsapp.com
   skip-cert-verify: false
   udp: true
@@ -29903,8 +29395,6 @@ proxies:
   server: nl1.xiaoliyu.cyou
   port: 4433
   auth: //39b27e20-16f5-45a1-8139-7c9b7f51b6f8
-  obfs: ''
-  obfs-password: ''
   sni: nl1.xiaoliyu.cyou
   skip-cert-verify: false
   udp: true
@@ -29915,8 +29405,6 @@ proxies:
   server: hy2.123266.xyz
   port: 33333
   auth: //bce6c821-200d-421f-bf3d-7159e5246ea0
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -29927,8 +29415,6 @@ proxies:
   server: 18.118.193.169
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: vpn-us-003.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -29939,8 +29425,6 @@ proxies:
   server: 2.26.148.105
   port: 443
   auth: //ada1c740-76f3-4954-b44b-8332a08ae8e6
-  obfs: ''
-  obfs-password: ''
   sni: patriot.ultimagamest.com
   skip-cert-verify: false
   udp: true
@@ -29951,8 +29435,6 @@ proxies:
   server: 2.26.148.207
   port: 443
   auth: //146e49e3-c86d-4607-b5ac-acc1997f025e
-  obfs: ''
-  obfs-password: ''
   sni: yula.ultimagamest.com
   skip-cert-verify: false
   udp: true
@@ -29963,8 +29445,6 @@ proxies:
   server: usa0003rlbhy01.tcp-reset-club.net
   port: 443
   auth: //8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -29975,8 +29455,6 @@ proxies:
   server: 3.149.228.246
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: vpn-us-003.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -29987,8 +29465,6 @@ proxies:
   server: 3.148.164.219
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: vpn-us-003.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -29999,8 +29475,6 @@ proxies:
   server: 31.76.22.217
   port: 443
   auth: //146e49e3-c86d-4607-b5ac-acc1997f025e
-  obfs: ''
-  obfs-password: ''
   sni: yula.ultimagamest.com
   skip-cert-verify: false
   udp: true
@@ -30011,8 +29485,6 @@ proxies:
   server: 103.246.248.231
   port: 8443
   auth: //h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT
-  obfs: ''
-  obfs-password: ''
   sni: hopp-legend-se.roxa.org
   skip-cert-verify: false
   udp: true
@@ -30023,8 +29495,6 @@ proxies:
   server: 82.38.60.15
   port: 8080
   auth: //VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC
-  obfs: ''
-  obfs-password: ''
   sni: hopp-us.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -30035,8 +29505,6 @@ proxies:
   server: 16.148.5.63
   port: 443
   auth: //qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: t.me
   skip-cert-verify: false
   udp: true
@@ -30047,8 +29515,6 @@ proxies:
   server: 163.192.14.135
   port: 50160
   auth: //099830134df5ac3a04a4b21d39b8c395
-  obfs: ''
-  obfs-password: ''
   sni: css.rbxcdn.com
   skip-cert-verify: false
   udp: true
@@ -30059,8 +29525,6 @@ proxies:
   server: 2.26.148.104
   port: 443
   auth: //ada1c740-76f3-4954-b44b-8332a08ae8e6
-  obfs: ''
-  obfs-password: ''
   sni: patriot.ultimagamest.com
   skip-cert-verify: false
   udp: true
@@ -30071,8 +29535,6 @@ proxies:
   server: srv-a04472.21freedom.net
   port: 11592
   auth: //d4f8d5e26b
-  obfs: ''
-  obfs-password: ''
   sni: srv-a04472.21freedom.net
   skip-cert-verify: false
   udp: true
@@ -30083,8 +29545,6 @@ proxies:
   server: 103.246.248.229
   port: 8443
   auth: //h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT
-  obfs: ''
-  obfs-password: ''
   sni: hopp-legend-se.roxa.org
   skip-cert-verify: false
   udp: true
@@ -30095,8 +29555,6 @@ proxies:
   server: 103.246.248.227
   port: 8443
   auth: //h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT
-  obfs: ''
-  obfs-password: ''
   sni: hopp-legend-se.roxa.org
   skip-cert-verify: false
   udp: true
@@ -30107,8 +29565,6 @@ proxies:
   server: 31.76.70.107
   port: 8443
   auth: //523486c6-c0b5-4e5b-8896-4af2375b41cc
-  obfs: ''
-  obfs-password: ''
   sni: quic.tyr-agentstvo.tech
   skip-cert-verify: false
   udp: true
@@ -30119,8 +29575,6 @@ proxies:
   server: 13.143.242.1
   port: 25443
   auth: //c0a137ca-08d2-4734-95ed-2131ea6b45d9
-  obfs: ''
-  obfs-password: ''
   sni: cloudrynth.com
   skip-cert-verify: false
   udp: true
@@ -30131,8 +29585,6 @@ proxies:
   server: 103.246.248.230
   port: 8443
   auth: //h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT
-  obfs: ''
-  obfs-password: ''
   sni: hopp-legend-se.roxa.org
   skip-cert-verify: false
   udp: true
@@ -30143,8 +29595,6 @@ proxies:
   server: 103.246.248.226
   port: 8443
   auth: //h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT
-  obfs: ''
-  obfs-password: ''
   sni: hopp-legend-se.roxa.org
   skip-cert-verify: false
   udp: true
@@ -30155,8 +29605,6 @@ proxies:
   server: vpn-us-003.fastervpn.world
   port: 443
   auth: //H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: 127.0.0.1
   skip-cert-verify: false
   udp: true
@@ -30167,8 +29615,6 @@ proxies:
   server: 222.167.212.81
   port: 8443
   auth: //h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT
-  obfs: ''
-  obfs-password: ''
   sni: hopp-legend-se.roxa.org
   skip-cert-verify: false
   udp: true
@@ -30179,8 +29625,6 @@ proxies:
   server: 13.143.252.1
   port: 25443
   auth: //c0a137ca-08d2-4734-95ed-2131ea6b45d9
-  obfs: ''
-  obfs-password: ''
   sni: cloudrynth.com
   skip-cert-verify: false
   udp: true
@@ -30191,8 +29635,6 @@ proxies:
   server: 82.38.60.15
   port: 8443
   auth: //VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC
-  obfs: ''
-  obfs-password: ''
   sni: hopp-us.yyuyy.com
   skip-cert-verify: false
   udp: true
@@ -30203,8 +29645,6 @@ proxies:
   server: 155.248.209.237
   port: 33333
   auth: /bce6c821-200d-421f-bf3d-7159e5246ea0
-  obfs: ''
-  obfs-password: ''
   sni: hy2.123266.xyz
   skip-cert-verify: false
   udp: true
@@ -30215,8 +29655,6 @@ proxies:
   server: de.1.23.h2corp.org
   port: 443
   auth: /mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj
-  obfs: ''
-  obfs-password: ''
   sni: germany3.h2corp.local
   skip-cert-verify: false
   udp: true
@@ -30227,8 +29665,6 @@ proxies:
   server: vpn-us-002.fastervpn.world
   port: 443
   auth: /qQe1z5kU8kN6SlKnDt9Ru3Qp
-  obfs: ''
-  obfs-password: ''
   sni: vpn-us-002.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -30239,8 +29675,6 @@ proxies:
   server: 142.249.37.90
   port: 44356
   auth: /dongtaiwang.com
-  obfs: ''
-  obfs-password: ''
   sni: hy2.561891.xyz
   skip-cert-verify: false
   udp: true
@@ -30251,8 +29685,6 @@ proxies:
   server: hy2.561891.xyz
   port: 44356
   auth: /dongtaiwang.com
-  obfs: ''
-  obfs-password: ''
   sni: hy2.561891.xyz
   skip-cert-verify: false
   udp: true
@@ -30263,8 +29695,6 @@ proxies:
   server: starlink-ft.251313.xyz
   port: 443
   auth: /https%3A%2F%2Fxship.2fa.cat
-  obfs: ''
-  obfs-password: ''
   sni: www.cloudflare.com
   skip-cert-verify: false
   udp: true
@@ -30275,8 +29705,6 @@ proxies:
   server: 159.223.157.129
   port: 8443
   auth: /suAmQS9LlInNq4Wumh-FUF4GGlpgmG_g
-  obfs: ''
-  obfs-password: ''
   sni: 159.223.157.129
   skip-cert-verify: false
   udp: true
@@ -30287,8 +29715,6 @@ proxies:
   server: vpn-us-004.fastervpn.world
   port: 443
   auth: /H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: vpn-us-004.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -30299,8 +29725,6 @@ proxies:
   server: vpn-us-006.fastervpn.world
   port: 443
   auth: /H7mP2xY9kJ4nQ8wR5tF6vB3z
-  obfs: ''
-  obfs-password: ''
   sni: vpn-us-006.fastervpn.world
   skip-cert-verify: false
   udp: true
@@ -30311,8 +29735,6 @@ proxies:
   server: 64.188.98.171
   port: 443
   auth: /mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj
-  obfs: ''
-  obfs-password: ''
   sni: germany3.h2corp.local
   skip-cert-verify: false
   udp: true
@@ -30323,8 +29745,6 @@ proxies:
   server: 103.246.248.227
   port: 8080
   auth: /h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT
-  obfs: ''
-  obfs-password: ''
   sni: hopp-legend-se.roxa.org
   skip-cert-verify: false
   udp: true
@@ -30335,8 +29755,6 @@ proxies:
   server: 40t2.wxgqlfx.vip
   port: 35193
   auth: /57ec0f01-0c00-4a69-ad67-937b4735640b
-  obfs: ''
-  obfs-password: ''
   sni: 40t2.wxgqlfx.vip
   skip-cert-verify: false
   udp: true
@@ -30347,8 +29765,6 @@ proxies:
   server: us2.xiaoliyu.cyou
   port: 4433
   auth: /39b27e20-16f5-45a1-8139-7c9b7f51b6f8
-  obfs: ''
-  obfs-password: ''
   sni: us2.xiaoliyu.cyou
   skip-cert-verify: false
   udp: true
@@ -30359,8 +29775,6 @@ proxies:
   server: 74.48.174.109
   port: 52222
   auth: //sysadmin.sysadmin
-  obfs: ''
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -30371,8 +29785,6 @@ proxies:
   server: 140.82.16.240
   port: 8080
   auth: //c5110090-c3a2-429e-b9b8-072b6535be1b
-  obfs: ''
-  obfs-password: ''
   sni: jp4.trojanws.xyz
   skip-cert-verify: false
   udp: true
@@ -30383,20 +29795,18 @@ proxies:
   server: '[2606'
   port: 8
   auth: //KevinZakarian
-  obfs: salamander
-  obfs-password: KevinZakarian
   sni: ''
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: KevinZakarian
 - name: 🇺🇸 美国 | hy2 | 58
   type: hysteria2
   server: 23.132.228.217
   port: 45746
   auth: /942b9cb8-92fa-46ac-ae91-f69c8234434b
-  obfs: ''
-  obfs-password: ''
   sni: dxobg4azmk.gafnode.sbs
   skip-cert-verify: false
   udp: true
@@ -30407,32 +29817,30 @@ proxies:
   server: 66.135.28.59
   port: 443
   auth: /f6e4b19a3110d19d
-  obfs: salamander
-  obfs-password: 8c3ce17b
   sni: www.apple.com
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: 8c3ce17b
 - name: 🇺🇸 美国 | hy2 | 60
   type: hysteria2
   server: hys6.freelines.net
   port: 443
   auth: //cih$phu-rlMofru7i4r9
-  obfs: salamander
-  obfs-password: cih$phu-rlMofru7i4r9
   sni: google.com
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: cih$phu-rlMofru7i4r9
 - name: 🇺🇸 美国 | hy2 | 61
   type: hysteria2
   server: 64.181.236.144
   port: 443
   auth: //e169856c-7c19-4908-9bdf-448dc846163a
-  obfs: ''
-  obfs-password: ''
   sni: www.bing.com
   skip-cert-verify: false
   udp: true
@@ -30443,8 +29851,6 @@ proxies:
   server: cze-01.node.lumixnet.com
   port: 443
   auth: /56ae4ec4-6705-43d0-bf3a-bc36ab3b3545
-  obfs: ''
-  obfs-password: ''
   sni: cze-01.node.lumixnet.com
   skip-cert-verify: false
   udp: true
@@ -40442,8 +39848,6 @@ proxies:
   server: node.embrofree.org
   port: 443
   auth: /3703ccc0-ae74-49bd-b9d7-0897192bf8c4
-  obfs: ''
-  obfs-password: ''
   sni: node.embrofree.org
   skip-cert-verify: false
   udp: true
@@ -40454,8 +39858,6 @@ proxies:
   server: 167.179.34.13
   port: 55443
   auth: /6f7a8009ecf6a12e10d03f9d88493c89
-  obfs: ''
-  obfs-password: ''
   sni: gorbachev-th.kvnfreetest.uk
   skip-cert-verify: false
   udp: true
@@ -40466,8 +39868,6 @@ proxies:
   server: deu0003ntrhy01.tcp-reset-club.net
   port: 443
   auth: /8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
-  obfs: ''
-  obfs-password: ''
   sni: deu0003ntrhy01.tcp-reset-club.net
   skip-cert-verify: false
   udp: true
@@ -40478,8 +39878,6 @@ proxies:
   server: dora3.api3-max.ru
   port: 443
   auth: /ac7fb60f-0b7a-465d-a002-05160ec04ed6
-  obfs: ''
-  obfs-password: ''
   sni: dora3.api3-max.ru
   skip-cert-verify: false
   udp: true
@@ -40490,8 +39888,6 @@ proxies:
   server: dora4.api3-max.ru
   port: 443
   auth: /ac7fb60f-0b7a-465d-a002-05160ec04ed6
-  obfs: ''
-  obfs-password: ''
   sni: dora4.api3-max.ru
   skip-cert-verify: false
   udp: true
@@ -40502,8 +39898,6 @@ proxies:
   server: gora4.api3-max.ru
   port: 443
   auth: /ac7fb60f-0b7a-465d-a002-05160ec04ed6
-  obfs: ''
-  obfs-password: ''
   sni: gora4.api3-max.ru
   skip-cert-verify: false
   udp: true
@@ -40514,8 +39908,6 @@ proxies:
   server: us.555199.xyz
   port: 5000
   auth: /af9e1b9f-3ee6-4184-a330-bb110419687a
-  obfs: ''
-  obfs-password: ''
   sni: sg.555199.xyz
   skip-cert-verify: false
   udp: true
@@ -40526,20 +39918,18 @@ proxies:
   server: pro2.riziro.ir
   port: 44100
   auth: /rjj39jg8iphgd06h
-  obfs: salamander
-  obfs-password: 2gg0tx9d2etug8n9
   sni: pro2.riziro.ir
   skip-cert-verify: false
   udp: true
   tls: true
   security: tls
+  obfs: salamander
+  obfs-password: 2gg0tx9d2etug8n9
 - name: 🏳️ 未知 | hy2 | 09
   type: hysteria2
   server: us.scproxy.top
   port: 4433
   auth: /sharecentrepro
-  obfs: none
-  obfs-password: ''
   sni: ''
   skip-cert-verify: false
   udp: true
@@ -40550,8 +39940,6 @@ proxies:
   server: fair-prospero-nl.kvnfreetest.uk
   port: 55443
   auth: //17693874b529ef734885121d384a730b
-  obfs: ''
-  obfs-password: ''
   sni: fair-prospero-nl.kvnfreetest.uk
   skip-cert-verify: false
   udp: true
@@ -40562,8 +39950,6 @@ proxies:
   server: 167.179.34.31
   port: 55443
   auth: /083417772bc618cd61f0cca23dd91680
-  obfs: ''
-  obfs-password: ''
   sni: gorbachev-new-th.kvnfreetest.uk
   skip-cert-verify: false
   udp: true
