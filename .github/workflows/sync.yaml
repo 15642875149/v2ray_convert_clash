@@ -2,8 +2,8 @@ name: 拉取并转换订阅
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
-  workflow_dispatch:
+    - cron: '0 */2 * * *'   # 每2小时一次
+  workflow_dispatch:        # 手动触发
 
 env:
   SOURCE_URL: "https://raw.githubusercontent.com/ishalumi/proxy-node-collector/main/output/nodes_base64.txt"
@@ -21,46 +21,31 @@ jobs:
           tar -xzf subconverter.tar.gz
           rm subconverter.tar.gz
 
-      - name: 下载源 Base64 并生成配置文件
-        id: prepare
+      - name: 下载源 Base64 并执行转换
         run: |
-          # 下载并去掉换行符（防止 Base64 分段）
+          # 下载并去除换行
           BASE64=$(curl -sL "${SOURCE_URL}" | tr -d '\n\r')
           if [ -z "$BASE64" ]; then
             echo "❌ 源文件为空"
             exit 1
           fi
-          echo "✅ 源 Base64 长度: ${#BASE64} 字符"
+          echo "✅ Base64 长度: ${#BASE64} 字符"
 
           cd subconverter
-          # 生成 pref.ini，使用 here-doc 写入，避免命令行参数过长
-          cat > pref.ini <<EOF
-          [common]
-          api_mode=false
-          default_url=data:text/plain;base64,${BASE64}
-          type=mixed
-          target=clash
-          EOF
+          # 直接使用命令行参数，不会启动 HTTP 服务，转换后立即退出
+          ./subconverter -u "data:text/plain;base64,${BASE64}" -t clash -o ../clash.yaml
           cd ..
 
-      - name: 执行格式转换
-        run: |
-          cd subconverter
-          ./subconverter -f pref.ini -o ../clash.yaml
-          cd ..
-
-          # 检查生成的文件
+          # 检查结果
           if [ ! -s clash.yaml ]; then
             echo "❌ 转换结果为空"
             exit 1
           fi
-
-          # 简单验证是否包含 proxies:
-          if ! grep -q "proxies:" clash.yaml; then
-            echo "⚠️ 警告：转换结果可能不是有效的 Clash YAML，前200字符如下："
-            head -c 200 clash.yaml
-          else
+          if grep -q "proxies:" clash.yaml; then
             echo "✅ 转换成功，文件大小: $(wc -c < clash.yaml) 字节"
+          else
+            echo "⚠️ 警告：转换结果可能不是有效 Clash YAML，前200字符："
+            head -c 200 clash.yaml
           fi
 
       - name: 提交并推送转换结果
