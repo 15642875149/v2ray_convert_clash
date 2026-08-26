@@ -1,4 +1,4 @@
-name: 拉取并转换订阅 (第三方库 + 后处理补全)
+name: 拉取并转换订阅 (纯解析)
 
 on:
   schedule:
@@ -16,11 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 安装 Python 依赖
-        run: pip install pyyaml requests
-
-      - name: 下载 Subscription-Converter 脚本
-        run: |
-          wget -O subscription_converter.py https://raw.githubusercontent.com/l-ning/Subscription-Converter/main/subscription_converter.py
+        run: pip install pyyaml
 
       - name: 下载并解码源 Base64
         run: |
@@ -31,118 +27,287 @@ jobs:
           fi
           echo "✅ 节点文件大小: $(wc -c < nodes.txt) 字节"
 
-      - name: 执行格式转换（第三方库）
-        run: |
-          python3 subscription_converter.py nodes.txt --file -t advanced -o clash.yaml
-          if [ ! -s clash.yaml ]; then
-            echo "❌ 转换结果为空，请检查 subscription_converter.py 是否支持您的协议"
-            exit 1
-          fi
-          echo "✅ 转换完成，clash.yaml 大小: $(wc -c < clash.yaml) 字节"
-
-      - name: 后处理补全缺失的 Reality 字段
+      - name: 自定义解析并生成 Clash YAML
         run: |
           python3 << 'EOF'
           import re
           import urllib.parse
+          import base64
+          import json
           import yaml
-          import sys
 
-          # 读取 nodes.txt 构建映射表
-          reality_map = {}
+          # ---------- 解析 vless ----------
+          def parse_vless(link):
+              parts = link[8:].split('?', 1)
+              userinfo = parts[0].split('@', 1)
+              if len(userinfo) != 2:
+                  return None
+              uuid = userinfo[0]
+              host_port = userinfo[1].split(':', 1)
+              server = host_port[0]
+              port = int(host_port[1]) if len(host_port) > 1 else 443
+              params = {}
+              name = ''
+              if len(parts) > 1:
+                  query = parts[1].split('#', 1)
+                  if len(query) > 1:
+                      name = urllib.parse.unquote(query[1])
+                  params = dict(urllib.parse.parse_qsl(query[0]))
+              node = {
+                  'name': name or f"VLESS-{server}",
+                  'type': 'vless',
+                  'server': server,
+                  'port': port,
+                  'uuid': uuid,
+                  'alterId': 0,
+                  'cipher': 'auto',
+                  'network': params.get('type', 'tcp'),
+                  'flow': params.get('flow', ''),
+                  'sni': params.get('sni', ''),
+                  'skip-cert-verify': params.get('allowInsecure', 'false').lower() == 'true',
+                  'udp': True
+              }
+              # Reality 处理
+              if params.get('security') == 'reality':
+                  node['tls'] = True
+                  node['security'] = 'reality'
+                  ro = {}
+                  if 'pbk' in params:
+                      ro['public-key'] = params['pbk']
+                  if 'sid' in params:
+                      ro['short-id'] = params['sid']
+                  elif 'short-id' in params:
+                      ro['short-id'] = params['short-id']
+                  if ro:
+                      node['reality-opts'] = ro
+              elif params.get('security') == 'tls':
+                  node['tls'] = True
+                  node['security'] = 'tls'
+              else:
+                  node['tls'] = False
+                  node['security'] = 'none'
+              return node
+
+          # ---------- 解析 vmess ----------
+          def parse_vmess(link):
+              try:
+                  raw = link[8:]
+                  decoded = base64.b64decode(raw).decode('utf-8')
+                  data = json.loads(decoded)
+                  node = {
+                      'name': data.get('ps', data.get('add', 'VMESS')),
+                      'type': 'vmess',
+                      'server': data.get('add'),
+                      'port': int(data.get('port', 443)),
+                      'uuid': data.get('id'),
+                      'alterId': int(data.get('aid', 0)),
+                      'cipher': data.get('scy', 'auto'),
+                      'network': data.get('net', 'tcp'),
+                      'tls': data.get('tls', '') in ['tls', 'true', '1'],
+                      'skip-cert-verify': data.get('allowInsecure', False),
+                      'udp': True
+                  }
+                  node['security'] = 'tls' if node['tls'] else 'none'
+                  if data.get('path'):
+                      node['path'] = data['path']
+                  if data.get('host'):
+                      node['host'] = data['host']
+                  if data.get('sni'):
+                      node['sni'] = data['sni']
+                  return node
+              except:
+                  return None
+
+          # ---------- 解析 ss ----------
+          def parse_ss(link):
+              try:
+                  raw = link[5:]
+                  if '@' in raw:
+                      auth_host = raw.split('@')
+                      method_pass = auth_host[0].split(':')
+                      method = method_pass[0]
+                      password = method_pass[1] if len(method_pass) > 1 else ''
+                      host_port = auth_host[1].split(':', 1)
+                      server = host_port[0]
+                      port = int(host_port[1]) if len(host_port) > 1 else 8388
+                      name = raw.split('#', 1)[1] if '#' in raw else f"SS-{server}"
+                      return {
+                          'name': urllib.parse.unquote(name),
+                          'type': 'ss',
+                          'server': server,
+                          'port': port,
+                          'cipher': method,
+                          'password': password,
+                          'udp': True
+                      }
+              except:
+                  return None
+
+          # ---------- 解析 trojan ----------
+          def parse_trojan(link):
+              try:
+                  raw = link[9:]
+                  parts = raw.split('?', 1)
+                  user_host = parts[0].split('@', 1)
+                  password = user_host[0]
+                  host_port = user_host[1].split(':', 1)
+                  server = host_port[0]
+                  port = int(host_port[1]) if len(host_port) > 1 else 443
+                  params = {}
+                  name = ''
+                  if len(parts) > 1:
+                      query = parts[1].split('#', 1)
+                      if len(query) > 1:
+                          name = urllib.parse.unquote(query[1])
+                      params = dict(urllib.parse.parse_qsl(query[0]))
+                  node = {
+                      'name': name or f"Trojan-{server}",
+                      'type': 'trojan',
+                      'server': server,
+                      'port': port,
+                      'password': password,
+                      'network': params.get('type', 'tcp'),
+                      'sni': params.get('sni', ''),
+                      'skip-cert-verify': params.get('allowInsecure', 'false').lower() == 'true',
+                      'udp': True
+                  }
+                  if params.get('security', '') == 'tls' or params.get('tls', '') == '1':
+                      node['tls'] = True
+                      node['security'] = 'tls'
+                  else:
+                      node['tls'] = False
+                      node['security'] = 'none'
+                  return node
+              except:
+                  return None
+
+          # ---------- 解析 hysteria2 ----------
+          def parse_hysteria2(link):
+              try:
+                  if link.startswith('hy2://'):
+                      link = 'hysteria2://' + link[5:]
+                  raw = link[11:]
+                  parts = raw.split('?', 1)
+                  auth_host = parts[0].split('@', 1)
+                  auth = auth_host[0] if len(auth_host) > 1 else ''
+                  host_part = auth_host[1] if len(auth_host) > 1 else auth_host[0]
+                  host_port = host_part.split(':', 1)
+                  server = host_port[0]
+                  port = int(host_port[1]) if len(host_port) > 1 else 443
+                  params = {}
+                  name = ''
+                  if len(parts) > 1:
+                      query = parts[1].split('#', 1)
+                      if len(query) > 1:
+                          name = urllib.parse.unquote(query[1])
+                      params = dict(urllib.parse.parse_qsl(query[0]))
+                  node = {
+                      'name': name or f"Hysteria2-{server}",
+                      'type': 'hysteria2',
+                      'server': server,
+                      'port': port,
+                      'auth': auth,
+                      'obfs': params.get('obfs', ''),
+                      'obfs-password': params.get('obfs-password', ''),
+                      'sni': params.get('sni', ''),
+                      'skip-cert-verify': params.get('insecure', 'false').lower() == 'true',
+                      'udp': True,
+                      'tls': True,
+                      'security': 'tls'
+                  }
+                  return node
+              except Exception as e:
+                  return None
+
+          # ---------- 读取 nodes.txt ----------
+          proxies = []
           with open('nodes.txt', 'r', encoding='utf-8') as f:
               for line in f:
                   line = line.strip()
-                  if not line.startswith('vless://'):
+                  if not line:
                       continue
-                  try:
-                      raw = line[8:]
-                      parts = raw.split('?', 1)
-                      user_host = parts[0]
-                      host = user_host.split('@', 1)[1].split(':', 1)[0]
-                      params = {}
-                      if len(parts) > 1:
-                          params = dict(urllib.parse.parse_qsl(parts[1].split('#', 1)[0]))
-                      if params.get('security') == 'reality':
-                          reality_map[host] = {
-                              'pbk': params.get('pbk', ''),
-                              'sid': params.get('sid', '')
-                          }
-                  except Exception as e:
-                      print(f"⚠️ 解析节点失败: {line[:50]}... 错误: {e}")
+                  node = None
+                  if line.startswith('vless://'):
+                      node = parse_vless(line)
+                  elif line.startswith('vmess://'):
+                      node = parse_vmess(line)
+                  elif line.startswith('ss://'):
+                      node = parse_ss(line)
+                  elif line.startswith('trojan://'):
+                      node = parse_trojan(line)
+                  elif line.startswith('hysteria2://') or line.startswith('hy2://'):
+                      node = parse_hysteria2(line)
+                  else:
+                      print(f"⚠️ 未识别的协议: {line[:50]}...")
                       continue
+                  if node:
+                      proxies.append(node)
 
-          if not reality_map:
-              print("ℹ️ 未发现 Reality 节点需要补全")
-              # 即使没有reality节点，也要确保文件有效，直接退出
-              sys.exit(0)
+          print(f"✅ 解析到 {len(proxies)} 个节点")
+          if not proxies:
+              print("❌ 没有解析到任何节点")
+              exit(1)
 
-          # 读取 clash.yaml，检查是否有效
-          try:
-              with open('clash.yaml', 'r', encoding='utf-8') as f:
-                  content = f.read().strip()
-                  if not content:
-                      print("❌ clash.yaml 文件为空")
-                      sys.exit(1)
-                  # 重新定位文件指针，用 yaml 解析
-                  f.seek(0)
-                  config = yaml.safe_load(f)
-          except Exception as e:
-              print(f"❌ 读取 clash.yaml 失败: {e}")
-              sys.exit(1)
+          # ---------- 构建 Clash 配置 ----------
+          proxy_groups = [
+              {
+                  'name': '🚀 节点选择',
+                  'type': 'select',
+                  'proxies': [p['name'] for p in proxies] + ['DIRECT']
+              },
+              {
+                  'name': '🎯 全球直连',
+                  'type': 'select',
+                  'proxies': ['DIRECT', '🚀 节点选择']
+              },
+              {
+                  'name': '🛑 全球拦截',
+                  'type': 'select',
+                  'proxies': ['REJECT', 'DIRECT']
+              },
+              {
+                  'name': '🌍 国外媒体',
+                  'type': 'select',
+                  'proxies': ['🚀 节点选择', 'DIRECT']
+              },
+              {
+                  'name': '📲 电报信息',
+                  'type': 'select',
+                  'proxies': ['🚀 节点选择', 'DIRECT']
+              }
+          ]
 
-          # 如果 config 为 None 或不是字典，则报错
-          if not isinstance(config, dict):
-              print(f"❌ clash.yaml 内容无效，无法解析: {content[:200]}")
-              sys.exit(1)
+          rules = [
+              'DOMAIN-SUFFIX,telegram,📲 电报信息',
+              'DOMAIN-SUFFIX,google,🌍 国外媒体',
+              'DOMAIN-SUFFIX,youtube,🌍 国外媒体',
+              'DOMAIN-SUFFIX,netflix,🌍 国外媒体',
+              'DOMAIN-SUFFIX,spotify,🌍 国外媒体',
+              'DOMAIN-KEYWORD,telegram,📲 电报信息',
+              'GEOIP,CN,🎯 全球直连',
+              'MATCH,🚀 节点选择'
+          ]
 
-          modified = False
-          for proxy in config.get('proxies', []):
-              if proxy.get('type') != 'vless':
-                  continue
-              server = proxy.get('server', '')
-              if server not in reality_map:
-                  continue
-              # 检查节点是否有 reality-opts
-              if 'reality-opts' not in proxy:
-                  # 完全没有，创建并补全
-                  proxy['reality-opts'] = {
-                      'public-key': reality_map[server]['pbk']
-                  }
-                  if reality_map[server]['sid']:
-                      proxy['reality-opts']['short-id'] = reality_map[server]['sid']
-                  proxy['tls'] = True
-                  proxy['security'] = 'reality'
-                  modified = True
-                  print(f"✅ 补全节点 (完全缺失): {proxy.get('name', '')} ({server})")
-              else:
-                  ro = proxy['reality-opts']
-                  # 补全缺失的字段
-                  if not ro.get('public-key') and reality_map[server]['pbk']:
-                      ro['public-key'] = reality_map[server]['pbk']
-                      modified = True
-                  if not ro.get('short-id') and reality_map[server]['sid']:
-                      ro['short-id'] = reality_map[server]['sid']
-                      modified = True
-                  if modified:
-                      print(f"✅ 补全节点 (部分缺失): {proxy.get('name', '')} ({server})")
+          config = {
+              'proxies': proxies,
+              'proxy-groups': proxy_groups,
+              'rules': rules
+          }
 
-          if modified:
-              with open('clash.yaml', 'w', encoding='utf-8') as f:
-                  yaml.dump(config, f, allow_unicode=True, sort_keys=False)
-              print("✅ 已补全缺失的 Reality 字段")
-          else:
-              print("ℹ️ 未发现需要补全的节点")
+          with open('clash.yaml', 'w', encoding='utf-8') as f:
+              yaml.dump(config, f, allow_unicode=True, sort_keys=False)
 
+          print("✅ Clash YAML 生成成功")
           EOF
 
       - name: 验证最终文件
         run: |
           if grep -q "proxies:" clash.yaml; then
             echo "✅ 转换成功，文件大小: $(wc -c < clash.yaml) 字节"
+            echo "--- 前几行 ---"
+            head -n 10 clash.yaml
           else
-            echo "❌ 最终文件无效，缺少 proxies:"
-            cat clash.yaml
+            echo "❌ 生成的文件无效"
             exit 1
           fi
 
