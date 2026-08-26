@@ -20,7 +20,7 @@ proxies:
   type: vmess
   server: 130.49.161.70
   port: 443
-  uuid: b20d3ab2-11e1-433b-bc19-16166847bdef
+  uuid: 57d4522f-2185-4345-812d-e61dd6361529
   alterId: 0
   cipher: auto
   network: ws
@@ -34,7 +34,7 @@ proxies:
   type: vmess
   server: 217.60.182.79
   port: 443
-  uuid: 5566e114-b00c-45c4-9b4a-3ed00052594c
+  uuid: df0f46f4-947f-409b-a551-2caf666315e0
   alterId: 0
   cipher: auto
   network: ws
@@ -48,7 +48,7 @@ proxies:
   type: vmess
   server: cabinet.wwwinternetvideo.click
   port: 443
-  uuid: 067beb16-b34f-4f27-9ee0-425a94787252
+  uuid: 53f80981-853e-4757-ab1f-8a701b992696
   alterId: 0
   cipher: auto
   network: ws
@@ -581,7 +581,7 @@ proxies:
   type: vmess
   server: 137.23.2.19
   port: 443
-  uuid: 730fb2be-327b-45cf-b0f8-4b2ad45c7a39
+  uuid: 44fb6007-34ee-4cc3-84f5-015c7a96eac0
   alterId: 0
   cipher: auto
   network: ws
@@ -595,7 +595,7 @@ proxies:
   type: vmess
   server: vpn-au-002.fastervpn.world
   port: 443
-  uuid: 4ffdc08a-7bd7-4f69-b8c3-93354f996dfb
+  uuid: 607d498b-5b03-4cb0-9e10-c977d7aa9665
   alterId: 0
   cipher: auto
   network: ws
@@ -616,7 +616,7 @@ proxies:
   type: vmess
   server: 113.30.152.25
   port: 443
-  uuid: ea6f4023-d085-4c53-aa8b-6231dc695b7e
+  uuid: 446ed13c-71d5-4ce1-a2b9-1073005a755d
   alterId: 0
   cipher: auto
   network: ws
@@ -1119,7 +1119,7 @@ proxies:
   type: vmess
   server: vpn-ca-001.fastervpn.world
   port: 443
-  uuid: eec50995-64a1-47fa-aee2-ae4f6772c080
+  uuid: 8906f3ac-0b84-462b-a210-b75752aadc60
   alterId: 0
   cipher: auto
   network: ws
@@ -1133,7 +1133,7 @@ proxies:
   type: vmess
   server: ptserv.accuratenetworkchecker.ir
   port: 443
-  uuid: 7d8e2045-47c4-461c-a40b-7ca30b0f519a
+  uuid: 5f4a88e9-c144-4dee-a938-b253ab296e38
   alterId: 0
   cipher: auto
   network: ws
@@ -1147,7 +1147,7 @@ proxies:
   type: vmess
   server: vpn-ca-002.fastervpn.world
   port: 443
-  uuid: a2e15a9a-b954-4072-9964-bc102f7e93a4
+  uuid: f1962083-7f45-4a16-87cd-6087f8ea90cc
   alterId: 0
   cipher: auto
   network: ws
@@ -1587,7 +1587,7 @@ proxies:
   type: vmess
   server: 1.1.1.1
   port: 443
-  uuid: 8581cc0f-c54d-49e2-b25b-b245f427c253
+  uuid: 9e2f9f07-f673-46f0-a836-4536e1c556dc
   alterId: 0
   cipher: auto
   network: ws
@@ -2393,7 +2393,7 @@ proxies:
   type: vmess
   server: 144.31.148.87
   port: 443
-  uuid: b44d6a18-e5cc-4177-95ff-c7af28841052
+  uuid: 48b9a808-7c69-426c-b826-9df52c8c040a
   alterId: 0
   cipher: auto
   network: ws
@@ -2407,7 +2407,7 @@ proxies:
   type: vmess
   server: 89.125.156.80
   port: 443
-  uuid: 2bade4a5-7746-491a-bacc-920e30e47a9c
+  uuid: 762ced6d-6fb5-435c-a641-b0dcbcb6373b
   alterId: 0
   cipher: auto
   network: ws
@@ -2449,7 +2449,7 @@ proxies:
   type: vmess
   server: gift-catalog.aroonia.ir
   port: 443
-  uuid: 962b7688-7426-44a4-b9b2-809ca5fa7090
+  uuid: aa1f9475-80d6-4e6b-8bff-c0f4b25af8a9
   alterId: 0
   cipher: auto
   network: ws
@@ -2519,7 +2519,7 @@ proxies:
   type: vmess
   server: 194.180.188.104
   port: 443
-  uuid: c0710a64-17a3-4dea-bf4a-0e7b91655398
+  uuid: 592bd21d-1bd9-4193-b16e-8338bd4cbd19
   alterId: 0
   cipher: auto
   network: ws
@@ -2533,7 +2533,7 @@ proxies:
   type: vmess
   server: 194.180.188.97
   port: 443
-  uuid: 0ed6bf7a-793c-4d0b-8ae3-01de5f6ff571
+  uuid: dba16cf4-12bf-450d-8573-fb774ec2df1b
   alterId: 0
   cipher: auto
   network: ws
@@ -2547,7 +2547,7 @@ proxies:
   type: vmess
   server: 45.128.99.14
   port: 443
-  uuid: 12d18c2e-76ec-4af1-b7cb-d28beaac3d5d
+  uuid: 586a135c-1e90-4355-82ff-6b5f3d013b46
   alterId: 0
   cipher: auto
   network: ws
@@ -2561,7 +2561,7 @@ proxies:
   type: vmess
   server: 179.61.132.96
   port: 443
-  uuid: f031bacc-ecf7-47b1-ad79-d66b39691e98
+  uuid: a26c5829-a5ea-4b73-abac-6910cd3573ae
   alterId: 0
   cipher: auto
   network: ws
@@ -2575,7 +2575,7 @@ proxies:
   type: vmess
   server: 31.76.27.23
   port: 443
-  uuid: 1189adca-3b67-44d7-ba7c-07158548fc93
+  uuid: 3c33fa0b-d301-4c63-adb3-1fb8230fb4b8
   alterId: 0
   cipher: auto
   network: ws
@@ -2589,7 +2589,7 @@ proxies:
   type: vmess
   server: 179.61.251.253
   port: 443
-  uuid: d3c1f49b-ae76-4a97-bd16-58fd83367c24
+  uuid: 0e14ed59-af08-4c55-8010-05c50216141d
   alterId: 0
   cipher: auto
   network: ws
@@ -2603,7 +2603,7 @@ proxies:
   type: vmess
   server: vpn-de-001.fastervpn.world
   port: 443
-  uuid: 9cd1f8ec-de8e-48c2-b214-4ead1f20bbc0
+  uuid: ccba3dd9-9b6a-4067-858e-f4602da2d224
   alterId: 0
   cipher: auto
   network: ws
@@ -2631,7 +2631,7 @@ proxies:
   type: vmess
   server: 95.164.123.231
   port: 443
-  uuid: 1a3dc078-3772-46b9-98e9-dd02f531b208
+  uuid: 67a5af7a-b291-43de-ab92-bbeb17dea630
   alterId: 0
   cipher: auto
   network: ws
@@ -2645,7 +2645,7 @@ proxies:
   type: vmess
   server: 5.83.129.11
   port: 443
-  uuid: cea0d226-bede-42f9-897f-7d73a5fc8eb1
+  uuid: e1d5c5dc-27c0-4e5a-be2e-e8bf33bf5886
   alterId: 0
   cipher: auto
   network: ws
@@ -6768,7 +6768,7 @@ proxies:
   type: vmess
   server: 138.124.0.168
   port: 443
-  uuid: 3e1c2155-0009-4096-aea9-4ab9c5535db3
+  uuid: f043312f-9d6f-44a8-9466-228363749c7f
   alterId: 0
   cipher: auto
   network: ws
@@ -6782,7 +6782,7 @@ proxies:
   type: vmess
   server: giftcard.gateway-stream.com
   port: 443
-  uuid: 06d912ba-8906-4700-ac00-3b9af88e33be
+  uuid: 81faa356-2feb-43fb-8e1d-5e7dccc0f7b7
   alterId: 0
   cipher: auto
   network: ws
@@ -6796,7 +6796,7 @@ proxies:
   type: vmess
   server: giftcard.gateway-stream.com
   port: 443
-  uuid: a231d880-a387-494a-b15a-bc2a10b5fd68
+  uuid: 649afe7d-2ac6-454d-be42-eeedc0a9e5d0
   alterId: 0
   cipher: auto
   network: ws
@@ -6810,7 +6810,7 @@ proxies:
   type: vmess
   server: giftcard.gateway-stream.com
   port: 443
-  uuid: 7124e24e-e9e3-4eb2-b808-98a306d5d1ad
+  uuid: 1b79cc98-fe95-417a-bcf8-84a48e10c7d2
   alterId: 0
   cipher: auto
   network: ws
@@ -6824,7 +6824,7 @@ proxies:
   type: vmess
   server: assets.gateway-stream.com
   port: 443
-  uuid: 5096e957-d2e8-4b68-a8d7-5146992bc512
+  uuid: 98da2a78-e61c-466f-b51a-ab30cc7b33f3
   alterId: 0
   cipher: auto
   network: ws
@@ -6838,7 +6838,7 @@ proxies:
   type: vmess
   server: assets.gateway-stream.com
   port: 443
-  uuid: 2c9669fe-6dee-4d51-8c15-301a24ca8c6a
+  uuid: e533cba5-6b43-4d7b-884a-2f6dbc59520c
   alterId: 0
   cipher: auto
   network: ws
@@ -6852,7 +6852,7 @@ proxies:
   type: vmess
   server: assets.gateway-stream.com
   port: 443
-  uuid: f507d467-f91c-48b6-a253-678d4ec7ce50
+  uuid: b2dc5fc5-88de-458f-bc16-3b6b53888d72
   alterId: 0
   cipher: auto
   network: ws
@@ -6866,7 +6866,7 @@ proxies:
   type: vmess
   server: assets.gateway-stream.com
   port: 443
-  uuid: 050d5dea-548a-4760-b8a2-8de41cd83d2e
+  uuid: 74c397f6-3cda-496d-bab0-0e8beabfeca4
   alterId: 0
   cipher: auto
   network: ws
@@ -6880,7 +6880,7 @@ proxies:
   type: vmess
   server: giftcard.gateway-stream.com
   port: 443
-  uuid: 37fbf5c4-9fdb-4a6b-abfd-010959c65860
+  uuid: 882c0c1e-24b2-47f3-9c5a-aa81b50df091
   alterId: 0
   cipher: auto
   network: ws
@@ -6908,7 +6908,7 @@ proxies:
   type: vmess
   server: assets.gateway-stream.com
   port: 443
-  uuid: 9b5eaa78-8d30-4b4e-835a-677e6c7b844d
+  uuid: 1fbc5b0b-240d-49c3-b2f1-48326aca75b1
   alterId: 0
   cipher: auto
   network: ws
@@ -7470,7 +7470,7 @@ proxies:
   type: vmess
   server: 173.212.201.85
   port: 443
-  uuid: d94c0b4c-8dc1-406f-904f-072c610e3a2c
+  uuid: 6fc47a90-c5cb-408b-a349-ce97abea0762
   alterId: 0
   cipher: auto
   network: ws
@@ -7484,7 +7484,7 @@ proxies:
   type: vmess
   server: 62.210.124.146
   port: 443
-  uuid: 4445ceb1-465d-4567-9aed-f74290c28660
+  uuid: 62a19efb-3f79-4e93-aa26-ab2c4b046d65
   alterId: 0
   cipher: auto
   network: ws
@@ -8349,7 +8349,7 @@ proxies:
   type: vmess
   server: vpn-uk-002.fastervpn.world
   port: 443
-  uuid: ff38ad07-e47c-41c1-8a62-12e9705672a3
+  uuid: 90168a04-4639-4680-a659-de6857d930d5
   alterId: 0
   cipher: auto
   network: ws
@@ -9359,7 +9359,7 @@ proxies:
   type: vmess
   server: 18.162.42.61
   port: 443
-  uuid: 47d95d60-9bb5-42ed-8c7e-834026927cf6
+  uuid: 68bc2f0a-7686-49f1-9509-2031a2b6691f
   alterId: 0
   cipher: auto
   network: ws
@@ -9373,7 +9373,7 @@ proxies:
   type: vmess
   server: h.zz2233.cyou
   port: 443
-  uuid: 91b29961-3df2-4b28-934a-e4a07da8cd76
+  uuid: 09e3bb02-f910-4582-aa4f-06ac86948864
   alterId: 0
   cipher: auto
   network: ws
@@ -9387,7 +9387,7 @@ proxies:
   type: vmess
   server: nas.aizhzo.com
   port: 443
-  uuid: 16d8175b-1485-4566-8034-f739b448522d
+  uuid: d36f4e32-9d70-4e31-b65d-1257eae7dc9c
   alterId: 0
   cipher: auto
   network: ws
@@ -9547,7 +9547,7 @@ proxies:
   type: vmess
   server: 141.11.89.172
   port: 443
-  uuid: 86817608-aaf0-48ce-bd2c-4480d3bef0d0
+  uuid: c3468cd0-2491-4a92-ba5b-a078ea002cc6
   alterId: 0
   cipher: auto
   network: ws
@@ -10597,7 +10597,7 @@ proxies:
   type: vmess
   server: 185.39.31.117
   port: 443
-  uuid: c3ee3248-f10f-43ae-8fae-cd37bf64201c
+  uuid: abc7fd15-ecc2-417b-b69f-ba8d50464dcc
   alterId: 0
   cipher: auto
   network: ws
@@ -10611,7 +10611,7 @@ proxies:
   type: vmess
   server: 210.231.184.93
   port: 443
-  uuid: f4335acb-074f-42e8-b64b-9bef9915564e
+  uuid: d0920d9e-9264-4034-86ed-393256ae6c82
   alterId: 0
   cipher: auto
   network: ws
@@ -10625,7 +10625,7 @@ proxies:
   type: vmess
   server: 43.167.198.167
   port: 443
-  uuid: cbe635d6-40a4-4ff7-aa79-72d674c865ef
+  uuid: 910512df-ce88-486b-b86b-a471f1fc5868
   alterId: 0
   cipher: auto
   network: ws
@@ -10639,7 +10639,7 @@ proxies:
   type: vmess
   server: 85.121.122.25
   port: 443
-  uuid: f36efa7e-9d06-46b3-abd3-b22b5c36c927
+  uuid: 7a528110-45b1-4420-a7f4-bff5113060b9
   alterId: 0
   cipher: auto
   network: ws
@@ -10667,7 +10667,7 @@ proxies:
   type: vmess
   server: vpn-jp-002.fastervpn.world
   port: 443
-  uuid: d87436cd-b959-46f4-8c4d-896e5523e731
+  uuid: 9203f691-d48e-4db2-80a5-fc6db79dea8a
   alterId: 0
   cipher: auto
   network: ws
@@ -10681,7 +10681,7 @@ proxies:
   type: vmess
   server: vpn-jp-001.fastervpn.world
   port: 443
-  uuid: 61227d7c-dbdf-4599-b22a-d6cfb0a98a03
+  uuid: 03b9ebfc-1423-42e0-90f4-94b91402b5ca
   alterId: 0
   cipher: auto
   network: ws
@@ -11180,7 +11180,7 @@ proxies:
   type: vmess
   server: vpn-kr-003.fastervpn.world
   port: 443
-  uuid: 57565156-fbaa-4d46-8ee6-ab227376f6d3
+  uuid: 41cc2f2d-c219-4f49-9c41-b01340f6c421
   alterId: 0
   cipher: auto
   network: ws
@@ -11194,7 +11194,7 @@ proxies:
   type: vmess
   server: vpn-kr-002.fastervpn.world
   port: 443
-  uuid: 54fe38d6-e90c-4c2b-a766-57e73470e657
+  uuid: 27c07d11-7de4-4c80-8410-85ebc71997a7
   alterId: 0
   cipher: auto
   network: ws
@@ -11394,7 +11394,7 @@ proxies:
   type: vmess
   server: 5.180.27.221
   port: 443
-  uuid: d190ceaa-25b2-45be-a600-2ab81d05e6f1
+  uuid: 79bd89c0-9c37-4aa7-85b9-396b57440d86
   alterId: 0
   cipher: auto
   network: ws
@@ -11408,7 +11408,7 @@ proxies:
   type: vmess
   server: 5.180.27.221
   port: 443
-  uuid: 3faa90ec-2a25-4aea-a095-91605d1b8676
+  uuid: bd8468c5-5660-4c26-8d06-3e0b408589a8
   alterId: 0
   cipher: auto
   network: ws
@@ -11904,7 +11904,7 @@ proxies:
   type: vmess
   server: hysteria.udpgw.com
   port: 443
-  uuid: b12b19e0-3d7f-4d31-8a13-3432d0e370d2
+  uuid: 575fca6a-edba-4309-a1b8-d9576ecaf872
   alterId: 0
   cipher: auto
   network: ws
@@ -11918,7 +11918,7 @@ proxies:
   type: vmess
   server: 147.45.149.88
   port: 443
-  uuid: d39c06b0-8184-4f08-97ef-1c0d2a5da21e
+  uuid: 4614717c-dd67-4ee4-834b-faa2f14f92e7
   alterId: 0
   cipher: auto
   network: ws
@@ -11932,7 +11932,7 @@ proxies:
   type: vmess
   server: 201.51.24.4
   port: 443
-  uuid: 141b4a50-98e8-4cea-bb14-42329bc1fd64
+  uuid: f782c5da-4a9d-42b6-8bed-bd3bbd6d2b19
   alterId: 0
   cipher: auto
   network: ws
@@ -11946,7 +11946,7 @@ proxies:
   type: vmess
   server: 86.107.178.75
   port: 443
-  uuid: 5703db0e-0d90-4d94-9756-0f69a42855a0
+  uuid: fea270f1-8d88-4c80-852e-16f88445c8b0
   alterId: 0
   cipher: auto
   network: ws
@@ -11960,7 +11960,7 @@ proxies:
   type: vmess
   server: 86.107.178.78
   port: 443
-  uuid: 66d147e8-7c4d-4eb4-a896-8788a3d9b237
+  uuid: 945d763d-f678-4f07-8817-c6695b12797c
   alterId: 0
   cipher: auto
   network: ws
@@ -11974,7 +11974,7 @@ proxies:
   type: vmess
   server: 46.229.243.132
   port: 443
-  uuid: 80517b6b-dca0-48ca-a57b-e69f7ba06647
+  uuid: 90635403-6b2f-4773-9cdc-5117e4125945
   alterId: 0
   cipher: auto
   network: ws
@@ -11988,7 +11988,7 @@ proxies:
   type: vmess
   server: 46.229.243.139
   port: 443
-  uuid: 6bebcead-fa2c-46f1-adca-a4b3e5bbb260
+  uuid: 374783c9-5bc1-4c34-b54b-591cc9946146
   alterId: 0
   cipher: auto
   network: ws
@@ -12002,7 +12002,7 @@ proxies:
   type: vmess
   server: 46.229.243.141
   port: 443
-  uuid: 7784cec6-e50f-4fba-9038-d14e6bbdd7cd
+  uuid: bba6715b-e036-43d7-8aff-981358a4d675
   alterId: 0
   cipher: auto
   network: ws
@@ -12016,7 +12016,7 @@ proxies:
   type: vmess
   server: 46.229.243.142
   port: 443
-  uuid: de9cabb9-ca81-40f6-b3d6-e52c0defb095
+  uuid: d613ce7c-1243-4f97-aeed-1376da35d368
   alterId: 0
   cipher: auto
   network: ws
@@ -12030,7 +12030,7 @@ proxies:
   type: vmess
   server: 206.71.158.37
   port: 443
-  uuid: 2bfdad25-cce8-44a3-b334-ab679f990fcd
+  uuid: 3fa4fdc0-ec36-4001-98e0-1bcf00d357e0
   alterId: 0
   cipher: auto
   network: ws
@@ -12044,7 +12044,7 @@ proxies:
   type: vmess
   server: nl.vpn.legendaah.xyz
   port: 443
-  uuid: d052b5f0-99e0-40c6-ad49-604137ded9cb
+  uuid: 93fcbff3-c8ba-41b6-b3c0-e26f985fdad7
   alterId: 0
   cipher: auto
   network: ws
@@ -12058,7 +12058,7 @@ proxies:
   type: vmess
   server: 46.229.243.138
   port: 443
-  uuid: be430242-b8f3-41c6-8515-d16034532453
+  uuid: 0640850f-57cc-458d-8b96-0cf13dbf2251
   alterId: 0
   cipher: auto
   network: ws
@@ -12072,7 +12072,7 @@ proxies:
   type: vmess
   server: 46.229.243.136
   port: 443
-  uuid: 1b9b3754-f195-416b-8a9c-3f0fa4522cec
+  uuid: 3ee493a1-57d6-49f7-9e35-10ed417dd85e
   alterId: 0
   cipher: auto
   network: ws
@@ -12086,7 +12086,7 @@ proxies:
   type: vmess
   server: 46.229.243.143
   port: 443
-  uuid: 414f99af-ad48-4800-884c-538fdfe4c331
+  uuid: 8af6ace1-2b53-46e1-823b-a4aa6b9fc701
   alterId: 0
   cipher: auto
   network: ws
@@ -12100,7 +12100,7 @@ proxies:
   type: vmess
   server: hys28.wba-pn.ru
   port: 443
-  uuid: f49fd81c-400e-4144-866d-b07e4a1346bf
+  uuid: b57f57b8-b8b1-4ae4-8f22-54e98b1a4f26
   alterId: 0
   cipher: auto
   network: ws
@@ -12114,7 +12114,7 @@ proxies:
   type: vmess
   server: 46.229.243.141
   port: 443
-  uuid: 8db132ed-b378-45eb-b2f3-7aa0c59bc97d
+  uuid: 46b5f3e4-7312-46a7-919c-668110b3073c
   alterId: 0
   cipher: auto
   network: ws
@@ -12128,7 +12128,7 @@ proxies:
   type: vmess
   server: 46.229.243.131
   port: 443
-  uuid: 78cb1337-186e-4ce5-86bd-5c95a3b1854c
+  uuid: 8409bd23-106c-4d6e-8456-dd59ba938e8f
   alterId: 0
   cipher: auto
   network: ws
@@ -12142,7 +12142,7 @@ proxies:
   type: vmess
   server: 46.229.243.139
   port: 443
-  uuid: dbe6c666-87bd-46b4-903e-adaa8c995a43
+  uuid: 14e99544-68cb-4e19-afb6-d87fd92090d4
   alterId: 0
   cipher: auto
   network: ws
@@ -12156,7 +12156,7 @@ proxies:
   type: vmess
   server: 46.229.243.132
   port: 443
-  uuid: db4d2d0b-2dac-43b9-9bf1-cac2530df531
+  uuid: 2d80af54-d023-4c40-a8d2-6b23475a329e
   alterId: 0
   cipher: auto
   network: ws
@@ -12170,7 +12170,7 @@ proxies:
   type: vmess
   server: 46.229.243.143
   port: 443
-  uuid: 81d70dae-02b9-4244-ac80-384c8fb0b27a
+  uuid: bba116d5-9a71-4c00-8f25-56a12b086d37
   alterId: 0
   cipher: auto
   network: ws
@@ -12184,7 +12184,7 @@ proxies:
   type: vmess
   server: 46.229.243.140
   port: 443
-  uuid: abf633ad-8c52-450e-85e0-f43cc90708f9
+  uuid: 260a9cba-85eb-460f-a77f-77873c6505cb
   alterId: 0
   cipher: auto
   network: ws
@@ -12198,7 +12198,7 @@ proxies:
   type: vmess
   server: 46.229.243.140
   port: 443
-  uuid: e8a1736e-a11e-4da0-aa34-6511b1cf39e8
+  uuid: 84d2936e-6bbd-4404-8ca6-5e07eeb45d99
   alterId: 0
   cipher: auto
   network: ws
@@ -14042,7 +14042,7 @@ proxies:
   type: vmess
   server: 217.60.33.215
   port: 443
-  uuid: 0fc845ba-5654-4c1d-b550-3f7f1c4237cf
+  uuid: 6df9bc10-4231-43c5-a5b6-f96600489585
   alterId: 0
   cipher: auto
   network: ws
@@ -14056,7 +14056,7 @@ proxies:
   type: vmess
   server: streambox.wwwinternetvideo.click
   port: 443
-  uuid: 83d022ef-0838-4505-85be-e265656ba085
+  uuid: 1f838590-3cbf-4637-92ab-480687728c65
   alterId: 0
   cipher: auto
   network: ws
@@ -14070,7 +14070,7 @@ proxies:
   type: vmess
   server: 45.192.12.93
   port: 443
-  uuid: 023ad733-1ac9-48d8-bf4e-848550fa872d
+  uuid: f33e0e60-b6aa-48d1-a29c-8848e8be81c7
   alterId: 0
   cipher: auto
   network: ws
@@ -14719,7 +14719,7 @@ proxies:
   type: vmess
   server: 162.249.124.105
   port: 443
-  uuid: 5fa5ce62-364d-4b96-87ee-27426b6d2f2a
+  uuid: 76499d39-8ebd-4d56-a783-dd0a1f92a20d
   alterId: 0
   cipher: auto
   network: ws
@@ -14733,7 +14733,7 @@ proxies:
   type: vmess
   server: 162.249.124.114
   port: 443
-  uuid: a823eeba-ef5c-4d43-86a6-47802e3c60c6
+  uuid: 6d79b28c-ad3b-4bb5-a5fd-13f7a02d4370
   alterId: 0
   cipher: auto
   network: ws
@@ -14747,7 +14747,7 @@ proxies:
   type: vmess
   server: 85.204.107.169
   port: 443
-  uuid: 907f0b03-7519-4913-811f-b2917fca0a02
+  uuid: 73d097bd-134d-4c1b-8a4e-a0f68d794be4
   alterId: 0
   cipher: auto
   network: ws
@@ -14761,7 +14761,7 @@ proxies:
   type: vmess
   server: 85.204.107.174
   port: 443
-  uuid: 704692cb-2777-470d-8ebf-5122b6543735
+  uuid: fdccbb84-28e9-4cb8-bcdb-2bfed88b8560
   alterId: 0
   cipher: auto
   network: ws
@@ -14775,7 +14775,7 @@ proxies:
   type: vmess
   server: 205.237.109.162
   port: 443
-  uuid: 0c89ed39-1676-4ac8-9245-11be99c95883
+  uuid: fb56caa4-9180-430d-b067-2263b6332ab6
   alterId: 0
   cipher: auto
   network: ws
@@ -14789,7 +14789,7 @@ proxies:
   type: vmess
   server: 85.204.107.170
   port: 443
-  uuid: 49dae71a-f210-40a0-a81a-1d0333e6be17
+  uuid: 1da5a0e1-e488-417c-838e-d2b95ef62842
   alterId: 0
   cipher: auto
   network: ws
@@ -14817,7 +14817,7 @@ proxies:
   type: vmess
   server: hy2.aspidnet.xyz
   port: 443
-  uuid: 593239e3-f957-444a-ba57-aba6a2d65a8b
+  uuid: e74e03f5-bf4f-47cf-8547-c2eb3220e7b0
   alterId: 0
   cipher: auto
   network: ws
@@ -14831,7 +14831,7 @@ proxies:
   type: vmess
   server: 162.249.124.113
   port: 443
-  uuid: 8825f206-1d5e-45af-b12e-84e46e4dfe3f
+  uuid: b972af67-80e6-42ed-beae-772405f116d2
   alterId: 0
   cipher: auto
   network: ws
@@ -14845,7 +14845,7 @@ proxies:
   type: vmess
   server: 185.156.44.99
   port: 443
-  uuid: c73bc7d5-50b6-440e-8bc1-862008e6e98e
+  uuid: 01e8caca-adac-41a7-8dc7-0ff5a781cc97
   alterId: 0
   cipher: auto
   network: ws
@@ -14859,7 +14859,7 @@ proxies:
   type: vmess
   server: 85.204.107.175
   port: 443
-  uuid: 40648962-3c1d-4269-bd21-46162c175159
+  uuid: a1388e9b-0cdb-4f2e-9680-d37a426d9bb2
   alterId: 0
   cipher: auto
   network: ws
@@ -14873,7 +14873,7 @@ proxies:
   type: vmess
   server: hy2-new.aspidnet.xyz
   port: 443
-  uuid: b7227113-8792-45c0-8da1-e2990eca20ac
+  uuid: 0034db29-a58d-4780-9498-71737fce8616
   alterId: 0
   cipher: auto
   network: ws
@@ -15025,7 +15025,7 @@ proxies:
   type: vmess
   server: giftcard.gisora.ir
   port: 443
-  uuid: 923cafa7-2ece-45d0-adbc-1d022237dbd6
+  uuid: dcdf4014-5404-486a-ad8f-72e4ddefc212
   alterId: 0
   cipher: auto
   network: ws
@@ -15039,7 +15039,7 @@ proxies:
   type: vmess
   server: 91.196.32.163
   port: 443
-  uuid: 2b4b45ea-59ff-4921-9b85-fc493e2ad0fb
+  uuid: 5e8a5d0d-7159-47b0-b63a-e9c7447b9192
   alterId: 0
   cipher: auto
   network: ws
@@ -15053,7 +15053,7 @@ proxies:
   type: vmess
   server: start.wwwinternetvideo.click
   port: 443
-  uuid: 5500af83-6687-431b-a94c-e6dc68349d32
+  uuid: a2928d7b-5aeb-4bc4-badc-bda7020fe1cd
   alterId: 0
   cipher: auto
   network: ws
@@ -15067,7 +15067,7 @@ proxies:
   type: vmess
   server: 139.28.168.58
   port: 443
-  uuid: 9bdc588d-0467-4c39-b0c6-a94b889dd7d4
+  uuid: e2b73bd4-0b26-49ea-ac57-7d6b1e4fc8d3
   alterId: 0
   cipher: auto
   network: ws
@@ -15081,7 +15081,7 @@ proxies:
   type: vmess
   server: 139.28.168.57
   port: 443
-  uuid: d40861fc-1720-49be-9f65-97b4044b3a60
+  uuid: c9dfda56-b1db-4a2b-9170-846d84eb1a37
   alterId: 0
   cipher: auto
   network: ws
@@ -15095,7 +15095,7 @@ proxies:
   type: vmess
   server: 139.28.168.54
   port: 443
-  uuid: 3a9b8fb9-69e2-47f5-be73-bd3559890ba8
+  uuid: e5d9b926-c931-496e-b957-9e7b9736b06b
   alterId: 0
   cipher: auto
   network: ws
@@ -15109,7 +15109,7 @@ proxies:
   type: vmess
   server: 139.28.168.55
   port: 443
-  uuid: 2e796203-51b0-4254-b7d4-69135be4e6e7
+  uuid: a5eb75d7-d499-45ce-acc4-b1fbcb0374e2
   alterId: 0
   cipher: auto
   network: ws
@@ -15123,7 +15123,7 @@ proxies:
   type: vmess
   server: 139.28.168.54
   port: 443
-  uuid: 6289bd15-a58e-496f-93dc-4218147307f4
+  uuid: c11cb0ec-4267-4446-81ed-fce47669592c
   alterId: 0
   cipher: auto
   network: ws
@@ -15137,7 +15137,7 @@ proxies:
   type: vmess
   server: srv-17e124.21freedom.net
   port: 443
-  uuid: 871391bb-3108-4156-b6d0-51a571ecfc7f
+  uuid: 25adb1ed-24bf-43ad-8aa6-a297c3b385a6
   alterId: 0
   cipher: auto
   network: ws
@@ -15165,7 +15165,7 @@ proxies:
   type: vmess
   server: 46.17.41.217
   port: 443
-  uuid: efb3417c-b635-448c-b53c-2c838e23ed94
+  uuid: 6b0dffe7-5838-4d7b-9fae-67aaf98cb3bb
   alterId: 0
   cipher: auto
   network: ws
@@ -18159,7 +18159,7 @@ proxies:
   type: vmess
   server: 77.110.96.201
   port: 443
-  uuid: 66da70ea-53e7-46f1-b368-11e4bddf8201
+  uuid: 61311424-4d75-41f2-a4f5-b482d7dbd612
   alterId: 0
   cipher: auto
   network: ws
@@ -18445,7 +18445,7 @@ proxies:
   type: vmess
   server: 13.229.82.184
   port: 443
-  uuid: de16ea79-6b4a-4bad-99d9-18042c8df14e
+  uuid: 2caf8264-a15b-426c-a5c3-f12d5b6aeff6
   alterId: 0
   cipher: auto
   network: ws
@@ -18459,7 +18459,7 @@ proxies:
   type: vmess
   server: 47.129.155.42
   port: 443
-  uuid: 47053d4c-0fcb-4f5a-940b-b7b1ae973499
+  uuid: eeae82b7-6d60-4b2c-8367-bb4fabd53e35
   alterId: 0
   cipher: auto
   network: ws
@@ -18473,7 +18473,7 @@ proxies:
   type: vmess
   server: 54.254.190.23
   port: 443
-  uuid: 14838020-9976-4150-bc21-572060d9eb1b
+  uuid: 71949bf5-c72d-486a-a6c9-5f5337d35b94
   alterId: 0
   cipher: auto
   network: ws
@@ -18487,7 +18487,7 @@ proxies:
   type: vmess
   server: 18.136.199.31
   port: 443
-  uuid: 586756e8-3fdb-4232-861f-03c77cdf7245
+  uuid: 6646a13a-26bd-4ec3-9d97-8416275e5f13
   alterId: 0
   cipher: auto
   network: ws
@@ -18501,7 +18501,7 @@ proxies:
   type: vmess
   server: vip-sg-2.hkd4fwmg.vip
   port: 443
-  uuid: 3c43f893-85fb-45ee-9514-490ff035b6df
+  uuid: 1193c390-658f-4c44-b058-76d5c9be671e
   alterId: 0
   cipher: auto
   network: ws
@@ -18515,7 +18515,7 @@ proxies:
   type: vmess
   server: 52.76.37.112
   port: 443
-  uuid: e3b4094e-04bf-4942-87fb-38f44b031f74
+  uuid: b8b005db-b0c4-40e8-a131-aa8a58e6ee70
   alterId: 0
   cipher: auto
   network: ws
@@ -18529,7 +18529,7 @@ proxies:
   type: vmess
   server: vpn-sg-001.fastervpn.world
   port: 443
-  uuid: 6ef240a8-8da1-4af9-a698-3b52f5d5f3ee
+  uuid: bb205a94-e650-498e-a9a9-9f1117bac9f3
   alterId: 0
   cipher: auto
   network: ws
@@ -18543,7 +18543,7 @@ proxies:
   type: vmess
   server: 47.129.241.226
   port: 443
-  uuid: 98324c4a-43e0-427a-8d55-c094b656d3f2
+  uuid: 38684c9d-5dc2-4362-b8b4-632a4b677772
   alterId: 0
   cipher: auto
   network: ws
@@ -18557,7 +18557,7 @@ proxies:
   type: vmess
   server: 54.151.142.26
   port: 443
-  uuid: c64ef28b-9f67-4359-b054-5db4ec7c7607
+  uuid: 91f16e24-5924-4027-994d-c2f371de2c6d
   alterId: 0
   cipher: auto
   network: ws
@@ -18571,7 +18571,7 @@ proxies:
   type: vmess
   server: 47.129.185.226
   port: 443
-  uuid: 5af92e2d-b1ea-46d7-9024-c111ff1c6a99
+  uuid: cf873f74-4675-4641-be99-9ac91c7f10e4
   alterId: 0
   cipher: auto
   network: ws
@@ -18585,7 +18585,7 @@ proxies:
   type: vmess
   server: 52.221.248.75
   port: 443
-  uuid: a17657bb-560a-423f-b42b-9adb952bdc5b
+  uuid: 83bb14d1-c320-49cf-9e0a-f1918b4d48d9
   alterId: 0
   cipher: auto
   network: ws
@@ -18599,7 +18599,7 @@ proxies:
   type: vmess
   server: 18.143.134.50
   port: 443
-  uuid: e91381d4-358a-4428-87e8-4e1533a73714
+  uuid: b1257590-44b9-4b4e-b602-3603f0da880a
   alterId: 0
   cipher: auto
   network: ws
@@ -18613,7 +18613,7 @@ proxies:
   type: vmess
   server: 13.212.76.106
   port: 443
-  uuid: 68c388d9-6535-47b9-8cc3-0193c0244f29
+  uuid: 96df30b4-6db9-4374-928d-90ff5a449d3f
   alterId: 0
   cipher: auto
   network: ws
@@ -18627,7 +18627,7 @@ proxies:
   type: vmess
   server: 13.212.193.153
   port: 443
-  uuid: 15b9ee52-af0c-44ff-aeb3-9f213d2f1395
+  uuid: de09f0e4-09fc-49d4-8236-ae5dc600123d
   alterId: 0
   cipher: auto
   network: ws
@@ -18641,7 +18641,7 @@ proxies:
   type: vmess
   server: 13.212.10.50
   port: 443
-  uuid: 8694521b-27d3-41b8-83ab-6450ba31bd38
+  uuid: cd6e5b5d-c2d2-4db7-821d-67ab8065c789
   alterId: 0
   cipher: auto
   network: ws
@@ -18655,7 +18655,7 @@ proxies:
   type: vmess
   server: 13.212.74.81
   port: 443
-  uuid: 78b61060-165d-4191-85f4-f89430b500e7
+  uuid: 6f99774e-c630-4861-ba97-249ebffcde63
   alterId: 0
   cipher: auto
   network: ws
@@ -18669,7 +18669,7 @@ proxies:
   type: vmess
   server: 47.129.189.148
   port: 443
-  uuid: 1f073255-6109-4c98-b88c-470c977a7772
+  uuid: 0de7c174-c2a1-4b13-894d-a6cbe8876be9
   alterId: 0
   cipher: auto
   network: ws
@@ -19058,7 +19058,7 @@ proxies:
   type: vmess
   server: 198.105.123.106
   port: 443
-  uuid: c234f95b-b5d2-4bf0-9c51-e5cefc890456
+  uuid: 39d40e3e-66e4-471c-a967-e7fddd6d92b3
   alterId: 0
   cipher: auto
   network: ws
@@ -19072,7 +19072,7 @@ proxies:
   type: vmess
   server: 45.92.219.237
   port: 443
-  uuid: 8b78a6b2-c0e7-4adf-9bac-491934a66635
+  uuid: 5262a71b-4bd2-425e-9e48-0b84eea5d888
   alterId: 0
   cipher: auto
   network: ws
@@ -19252,7 +19252,7 @@ proxies:
   type: vmess
   server: vpn-tw-002.fastervpn.world
   port: 443
-  uuid: 0d226a9a-b390-421d-b0ef-bcb6e8f0dc7b
+  uuid: 403adcad-2ee7-4768-890e-85b5515d8a61
   alterId: 0
   cipher: auto
   network: ws
@@ -19313,7 +19313,7 @@ proxies:
   type: vmess
   server: hy2-germany.unlimited-access.ru
   port: 443
-  uuid: b3dedd32-d07a-477b-8f94-4137cb43f125
+  uuid: f0e35b82-bbee-4143-81ca-a62391ce5832
   alterId: 0
   cipher: auto
   network: ws
@@ -19347,7 +19347,7 @@ proxies:
   type: vmess
   server: do.aigh.store
   port: 443
-  uuid: 962aeb9e-0610-4547-8dfa-e94005277f08
+  uuid: 96b2b0db-3529-4417-b7e2-e764c58f0cbe
   alterId: 0
   cipher: auto
   network: ws
@@ -19417,7 +19417,7 @@ proxies:
   type: vmess
   server: 222.167.212.81
   port: 443
-  uuid: 4844396f-ff37-4fe9-8b3e-23d0d94cdbdf
+  uuid: 96787ef3-c918-4997-9454-66f758d40bf8
   alterId: 0
   cipher: auto
   network: ws
@@ -19431,7 +19431,7 @@ proxies:
   type: vmess
   server: 222.167.212.82
   port: 443
-  uuid: d9b5df93-295f-4864-83b9-5521a289600c
+  uuid: bc10241a-4cb3-414f-a207-8bd427357ac9
   alterId: 0
   cipher: auto
   network: ws
@@ -19445,7 +19445,7 @@ proxies:
   type: vmess
   server: 54.213.89.22
   port: 443
-  uuid: 3e6e49aa-5792-4d78-ae45-ee0cfa7959b9
+  uuid: 972aae2a-3e57-4b56-8e94-59d2f797088c
   alterId: 0
   cipher: auto
   network: ws
@@ -19459,7 +19459,7 @@ proxies:
   type: vmess
   server: twgcp.sharecentre.online
   port: 443
-  uuid: 9d2cfd91-1236-48a3-b2c7-14048a8db0c2
+  uuid: a5d7cd30-47dc-4c97-825b-85b7bf039952
   alterId: 0
   cipher: auto
   network: ws
@@ -19473,7 +19473,7 @@ proxies:
   type: vmess
   server: faq.wwwinternetvideo.click
   port: 443
-  uuid: a50ec705-64d2-4e77-b0b1-2aac50796bd4
+  uuid: 486dc8b8-483c-4071-92cd-688327594f49
   alterId: 0
   cipher: auto
   network: ws
@@ -19487,7 +19487,7 @@ proxies:
   type: vmess
   server: 82.39.214.98
   port: 443
-  uuid: add047fe-e619-4ec0-b983-07af5fdaba5b
+  uuid: 8e77eb07-0ea6-438a-bdf2-d7f447d7afde
   alterId: 0
   cipher: auto
   network: ws
@@ -19501,7 +19501,7 @@ proxies:
   type: vmess
   server: go.wwwinternetvideo.click
   port: 443
-  uuid: a3eef7b3-3a63-409b-8800-57709de2845a
+  uuid: bca3b415-be79-4c3e-90bf-cae912d7788b
   alterId: 0
   cipher: auto
   network: ws
@@ -19529,7 +19529,7 @@ proxies:
   type: vmess
   server: de.1.23.h2corp.org
   port: 443
-  uuid: 99b35801-a108-494e-89db-a5f26fa31941
+  uuid: d045b02d-b217-42e0-92fe-0fc6e51b3e4f
   alterId: 0
   cipher: auto
   network: ws
@@ -19543,7 +19543,7 @@ proxies:
   type: vmess
   server: vpn-us-002.fastervpn.world
   port: 443
-  uuid: efc59e5c-64e4-41d4-beb7-04185599c641
+  uuid: 3347e53c-61fb-4ea7-bd2c-0472b390cda3
   alterId: 0
   cipher: auto
   network: ws
@@ -19557,7 +19557,7 @@ proxies:
   type: vmess
   server: 142.249.37.90
   port: 443
-  uuid: 025321e9-a94d-4a18-af98-959feb8824fb
+  uuid: ce5ed8ff-7315-4101-8889-ab3fbd6f085a
   alterId: 0
   cipher: auto
   network: ws
@@ -19571,7 +19571,7 @@ proxies:
   type: vmess
   server: hy2.561891.xyz
   port: 443
-  uuid: acd5b6d2-ebd5-40db-9c8b-42fb37f999c3
+  uuid: 20ebef64-8026-47a3-a315-856c7f73db60
   alterId: 0
   cipher: auto
   network: ws
@@ -19585,7 +19585,7 @@ proxies:
   type: vmess
   server: starlink-ft.251313.xyz
   port: 443
-  uuid: 5fe7b673-ade2-4a79-b291-59ecef2708ce
+  uuid: 6b4b7828-f505-456c-881b-c16c043dad7b
   alterId: 0
   cipher: auto
   network: ws
@@ -19599,7 +19599,7 @@ proxies:
   type: vmess
   server: 159.223.157.129
   port: 443
-  uuid: a7fb5db6-22b1-4304-8bd2-60e955f4db71
+  uuid: dd68e443-31c1-48be-a02d-38a11178a8cd
   alterId: 0
   cipher: auto
   network: ws
@@ -19613,7 +19613,7 @@ proxies:
   type: vmess
   server: vpn-us-004.fastervpn.world
   port: 443
-  uuid: 4037623a-221c-441e-a8e3-0fefac0cf070
+  uuid: bb8f9b8c-ca5d-40da-932e-451665ea04db
   alterId: 0
   cipher: auto
   network: ws
@@ -19627,7 +19627,7 @@ proxies:
   type: vmess
   server: vpn-us-006.fastervpn.world
   port: 443
-  uuid: 9afdeedf-4d22-46c5-a290-1e9282670959
+  uuid: 7f40b4a3-a53e-44e7-b308-17a6ecf2a626
   alterId: 0
   cipher: auto
   network: ws
@@ -19641,7 +19641,7 @@ proxies:
   type: vmess
   server: 64.188.98.171
   port: 443
-  uuid: 455ecb04-a028-4797-9cd7-42c5f9c12a8e
+  uuid: 6f906238-f06f-4add-a4bb-bf4ac8b9124b
   alterId: 0
   cipher: auto
   network: ws
@@ -19655,7 +19655,7 @@ proxies:
   type: vmess
   server: 103.246.248.227
   port: 443
-  uuid: 33f1dda0-54fd-43ff-a0bf-02edbfe562ab
+  uuid: 8a70a308-fdbd-4477-b392-1cf23d8bf74c
   alterId: 0
   cipher: auto
   network: ws
@@ -19711,7 +19711,7 @@ proxies:
   type: vmess
   server: 66.135.28.59
   port: 443
-  uuid: 5af28c00-9b07-4f80-92fd-e74b63c9962c
+  uuid: a4e42b56-ce4a-45a0-86c8-e69690958910
   alterId: 0
   cipher: auto
   network: ws
@@ -26558,7 +26558,7 @@ proxies:
   type: vmess
   server: pro2.riziro.ir
   port: 443
-  uuid: 2a0d5e95-bdb4-44a9-9c22-79b1494a6319
+  uuid: 56b061fe-3e31-41e4-9cd0-718baa52486c
   alterId: 0
   cipher: auto
   network: ws
@@ -26572,7 +26572,7 @@ proxies:
   type: vmess
   server: us.scproxy.top
   port: 443
-  uuid: e227a7b4-68ab-48a3-b7c9-61704053e77e
+  uuid: f2f12db1-9625-4a64-9383-fc13db764065
   alterId: 0
   cipher: auto
   network: ws
